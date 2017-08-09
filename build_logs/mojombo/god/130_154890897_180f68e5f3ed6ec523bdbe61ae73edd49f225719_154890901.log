@@ -1,0 +1,321 @@
+travis_fold:start:worker_info[0K[33;1mWorker information[0m
+hostname: travis-worker-gce-org-prod3-6:93aa7cc2-59cb-451a-8d56-38240478af59
+version: v2.3.1-34-g4ab376b https://github.com/travis-ci/worker/tree/4ab376ba587e12cb465474238c78e88e6600aca2
+instance: testing-gce-d4951047-9898-4e9f-8889-855f7ca41287:travis-ci-ruby-precise-1471814219
+startup: 21.850211331s
+travis_fold:end:worker_info[0Ktravis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: ruby
+Build group: stable
+Build dist: precise
+Build id: 154890897
+Job id: 154890901
+travis-build version: 466baf6ac
+[34m[1mBuild image provisioning date and time[0m
+Sun Aug 21 21:37:50 UTC 2016
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-92-generic
+[34m[1mCookbooks Version[0m
+f77e708 https://github.com/travis-ci/travis-cookbooks/tree/f77e708
+[34m[1mGit version[0m
+git version 1.8.5.6
+[34m[1mbash version[0m
+GNU bash, version 4.2.25(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2011 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ree-1.8.7-2012.02
+ruby-1.8.7-p374
+ruby-1.9.2-p330
+ruby-1.9.3-p551
+ruby-2.0.0-p648-clang
+ruby-2.1.2
+ruby-2.1.3
+ruby-2.1.4
+ruby-2.1.5
+ruby-2.2.5
+ruby-2.3.1
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.2
+[34m[1mmysql --version[0m
+mysql  Ver 14.14 Distrib 5.5.50, for debian-linux-gnu (x86_64) using readline 6.2
+[34m[1mPre-installed PostgreSQL versions[0m
+9.1.23
+9.2.18
+9.3.14
+9.4.9
+[34m[1mRedis version[0m
+redis-server 3.0.6
+[34m[1mriak version[0m
+2.0.2
+[34m[1mmemcached version[0m
+1.4.13
+[34m[1mMongoDB version[0m
+MongoDB 2.4.14
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 38.4.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-92-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:fix.CVE-2015-7547[0K$ export DEBIAN_FRONTEND=noninteractive
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libc6 is already the newest version.
+0 upgraded, 0 newly installed, 0 to remove and 11 not upgraded.
+travis_fold:end:fix.CVE-2015-7547[0Ktravis_fold:start:git.checkout[0Ktravis_time:start:0dc8e3ac[0K$ git clone --depth=50 https://github.com/mojombo/god.git mojombo/god
+Cloning into 'mojombo/god'...
+remote: Counting objects: 1198, done.[K
+remote: Compressing objects:   0% (1/647)   [Kremote: Compressing objects:   1% (7/647)   [Kremote: Compressing objects:   2% (13/647)   [Kremote: Compressing objects:   3% (20/647)   [Kremote: Compressing objects:   4% (26/647)   [Kremote: Compressing objects:   5% (33/647)   [Kremote: Compressing objects:   6% (39/647)   [Kremote: Compressing objects:   7% (46/647)   [Kremote: Compressing objects:   8% (52/647)   [Kremote: Compressing objects:   9% (59/647)   [Kremote: Compressing objects:  10% (65/647)   [Kremote: Compressing objects:  11% (72/647)   [Kremote: Compressing objects:  12% (78/647)   [Kremote: Compressing objects:  13% (85/647)   [Kremote: Compressing objects:  14% (91/647)   [Kremote: Compressing objects:  15% (98/647)   [Kremote: Compressing objects:  16% (104/647)   [Kremote: Compressing objects:  17% (110/647)   [Kremote: Compressing objects:  18% (117/647)   [Kremote: Compressing objects:  19% (123/647)   [Kremote: Compressing objects:  20% (130/647)   [Kremote: Compressing objects:  21% (136/647)   [Kremote: Compressing objects:  22% (143/647)   [Kremote: Compressing objects:  23% (149/647)   [Kremote: Compressing objects:  24% (156/647)   [Kremote: Compressing objects:  25% (162/647)   [Kremote: Compressing objects:  26% (169/647)   [Kremote: Compressing objects:  27% (175/647)   [Kremote: Compressing objects:  28% (182/647)   [Kremote: Compressing objects:  29% (188/647)   [Kremote: Compressing objects:  30% (195/647)   [Kremote: Compressing objects:  31% (201/647)   [Kremote: Compressing objects:  32% (208/647)   [Kremote: Compressing objects:  33% (214/647)   [Kremote: Compressing objects:  34% (220/647)   [Kremote: Compressing objects:  35% (227/647)   [Kremote: Compressing objects:  36% (233/647)   [Kremote: Compressing objects:  37% (240/647)   [Kremote: Compressing objects:  38% (246/647)   [Kremote: Compressing objects:  39% (253/647)   [Kremote: Compressing objects:  40% (259/647)   [Kremote: Compressing objects:  41% (266/647)   [Kremote: Compressing objects:  42% (272/647)   [Kremote: Compressing objects:  43% (279/647)   [Kremote: Compressing objects:  44% (285/647)   [Kremote: Compressing objects:  45% (292/647)   [Kremote: Compressing objects:  46% (298/647)   [Kremote: Compressing objects:  47% (305/647)   [Kremote: Compressing objects:  48% (311/647)   [Kremote: Compressing objects:  49% (318/647)   [Kremote: Compressing objects:  50% (324/647)   [Kremote: Compressing objects:  51% (330/647)   [Kremote: Compressing objects:  52% (337/647)   [Kremote: Compressing objects:  53% (343/647)   [Kremote: Compressing objects:  54% (350/647)   [Kremote: Compressing objects:  55% (356/647)   [Kremote: Compressing objects:  56% (363/647)   [Kremote: Compressing objects:  57% (369/647)   [Kremote: Compressing objects:  58% (376/647)   [Kremote: Compressing objects:  59% (382/647)   [Kremote: Compressing objects:  60% (389/647)   [Kremote: Compressing objects:  61% (395/647)   [Kremote: Compressing objects:  62% (402/647)   [Kremote: Compressing objects:  63% (408/647)   [Kremote: Compressing objects:  64% (415/647)   [Kremote: Compressing objects:  65% (421/647)   [Kremote: Compressing objects:  66% (428/647)   [Kremote: Compressing objects:  67% (434/647)   [Kremote: Compressing objects:  68% (440/647)   [Kremote: Compressing objects:  69% (447/647)   [Kremote: Compressing objects:  70% (453/647)   [Kremote: Compressing objects:  71% (460/647)   [Kremote: Compressing objects:  72% (466/647)   [Kremote: Compressing objects:  73% (473/647)   [Kremote: Compressing objects:  74% (479/647)   [Kremote: Compressing objects:  75% (486/647)   [Kremote: Compressing objects:  76% (492/647)   [Kremote: Compressing objects:  77% (499/647)   [Kremote: Compressing objects:  78% (505/647)   [Kremote: Compressing objects:  79% (512/647)   [Kremote: Compressing objects:  80% (518/647)   [Kremote: Compressing objects:  81% (525/647)   [Kremote: Compressing objects:  82% (531/647)   [Kremote: Compressing objects:  83% (538/647)   [Kremote: Compressing objects:  84% (544/647)   [Kremote: Compressing objects:  85% (550/647)   [Kremote: Compressing objects:  86% (557/647)   [Kremote: Compressing objects:  87% (563/647)   [Kremote: Compressing objects:  88% (570/647)   [Kremote: Compressing objects:  89% (576/647)   [Kremote: Compressing objects:  90% (583/647)   [Kremote: Compressing objects:  91% (589/647)   [Kremote: Compressing objects:  92% (596/647)   [Kremote: Compressing objects:  93% (602/647)   [Kremote: Compressing objects:  94% (609/647)   [Kremote: Compressing objects:  95% (615/647)   [Kremote: Compressing objects:  96% (622/647)   [Kremote: Compressing objects:  97% (628/647)   [Kremote: Compressing objects:  98% (635/647)   [Kremote: Compressing objects:  99% (641/647)   [Kremote: Compressing objects: 100% (647/647)   [Kremote: Compressing objects: 100% (647/647), done.[K
+Receiving objects:   0% (1/1198)   Receiving objects:   1% (12/1198)   Receiving objects:   2% (24/1198)   Receiving objects:   3% (36/1198)   Receiving objects:   4% (48/1198)   Receiving objects:   5% (60/1198)   Receiving objects:   6% (72/1198)   Receiving objects:   7% (84/1198)   Receiving objects:   8% (96/1198)   Receiving objects:   9% (108/1198)   Receiving objects:  10% (120/1198)   Receiving objects:  11% (132/1198)   Receiving objects:  12% (144/1198)   Receiving objects:  13% (156/1198)   Receiving objects:  14% (168/1198)   Receiving objects:  15% (180/1198)   Receiving objects:  16% (192/1198)   Receiving objects:  17% (204/1198)   Receiving objects:  18% (216/1198)   Receiving objects:  19% (228/1198)   Receiving objects:  20% (240/1198)   Receiving objects:  21% (252/1198)   Receiving objects:  22% (264/1198)   Receiving objects:  23% (276/1198)   Receiving objects:  24% (288/1198)   Receiving objects:  25% (300/1198)   Receiving objects:  26% (312/1198)   Receiving objects:  27% (324/1198)   Receiving objects:  28% (336/1198)   Receiving objects:  29% (348/1198)   Receiving objects:  30% (360/1198)   Receiving objects:  31% (372/1198)   Receiving objects:  32% (384/1198)   Receiving objects:  33% (396/1198)   Receiving objects:  34% (408/1198)   Receiving objects:  35% (420/1198)   Receiving objects:  36% (432/1198)   Receiving objects:  37% (444/1198)   Receiving objects:  38% (456/1198)   Receiving objects:  39% (468/1198)   Receiving objects:  40% (480/1198)   Receiving objects:  41% (492/1198)   Receiving objects:  42% (504/1198)   Receiving objects:  43% (516/1198)   Receiving objects:  44% (528/1198)   Receiving objects:  45% (540/1198)   Receiving objects:  46% (552/1198)   Receiving objects:  47% (564/1198)   Receiving objects:  48% (576/1198)   Receiving objects:  49% (588/1198)   Receiving objects:  50% (599/1198)   Receiving objects:  51% (611/1198)   Receiving objects:  52% (623/1198)   Receiving objects:  53% (635/1198)   Receiving objects:  54% (647/1198)   Receiving objects:  55% (659/1198)   Receiving objects:  56% (671/1198)   Receiving objects:  57% (683/1198)   Receiving objects:  58% (695/1198)   Receiving objects:  59% (707/1198)   Receiving objects:  60% (719/1198)   Receiving objects:  61% (731/1198)   Receiving objects:  62% (743/1198)   Receiving objects:  63% (755/1198)   Receiving objects:  64% (767/1198)   Receiving objects:  65% (779/1198)   Receiving objects:  66% (791/1198)   Receiving objects:  67% (803/1198)   Receiving objects:  68% (815/1198)   Receiving objects:  69% (827/1198)   Receiving objects:  70% (839/1198)   Receiving objects:  71% (851/1198)   Receiving objects:  72% (863/1198)   remote: Total 1198 (delta 625), reused 1020 (delta 525), pack-reused 0[K
+Receiving objects:  73% (875/1198)   Receiving objects:  74% (887/1198)   Receiving objects:  75% (899/1198)   Receiving objects:  76% (911/1198)   Receiving objects:  77% (923/1198)   Receiving objects:  78% (935/1198)   Receiving objects:  79% (947/1198)   Receiving objects:  80% (959/1198)   Receiving objects:  81% (971/1198)   Receiving objects:  82% (983/1198)   Receiving objects:  83% (995/1198)   Receiving objects:  84% (1007/1198)   Receiving objects:  85% (1019/1198)   Receiving objects:  86% (1031/1198)   Receiving objects:  87% (1043/1198)   Receiving objects:  88% (1055/1198)   Receiving objects:  89% (1067/1198)   Receiving objects:  90% (1079/1198)   Receiving objects:  91% (1091/1198)   Receiving objects:  92% (1103/1198)   Receiving objects:  93% (1115/1198)   Receiving objects:  94% (1127/1198)   Receiving objects:  95% (1139/1198)   Receiving objects:  96% (1151/1198)   Receiving objects:  97% (1163/1198)   Receiving objects:  98% (1175/1198)   Receiving objects:  99% (1187/1198)   Receiving objects: 100% (1198/1198)   Receiving objects: 100% (1198/1198), 331.11 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/625)   Resolving deltas:   2% (15/625)   Resolving deltas:   3% (22/625)   Resolving deltas:   7% (44/625)   Resolving deltas:  12% (78/625)   Resolving deltas:  14% (92/625)   Resolving deltas:  16% (103/625)   Resolving deltas:  18% (117/625)   Resolving deltas:  30% (193/625)   Resolving deltas:  31% (196/625)   Resolving deltas:  32% (203/625)   Resolving deltas:  35% (220/625)   Resolving deltas:  41% (259/625)   Resolving deltas:  42% (264/625)   Resolving deltas:  43% (273/625)   Resolving deltas:  44% (276/625)   Resolving deltas:  47% (295/625)   Resolving deltas:  48% (301/625)   Resolving deltas:  49% (311/625)   Resolving deltas:  50% (316/625)   Resolving deltas:  51% (319/625)   Resolving deltas:  52% (327/625)   Resolving deltas:  55% (347/625)   Resolving deltas:  62% (389/625)   Resolving deltas:  63% (394/625)   Resolving deltas:  64% (400/625)   Resolving deltas:  66% (414/625)   Resolving deltas:  67% (424/625)   Resolving deltas:  68% (425/625)   Resolving deltas:  69% (433/625)   Resolving deltas:  70% (439/625)   Resolving deltas:  71% (445/625)   Resolving deltas:  72% (454/625)   Resolving deltas:  73% (460/625)   Resolving deltas:  74% (464/625)   Resolving deltas:  75% (469/625)   Resolving deltas:  76% (477/625)   Resolving deltas:  77% (482/625)   Resolving deltas:  78% (489/625)   Resolving deltas:  79% (497/625)   Resolving deltas:  80% (502/625)   Resolving deltas:  81% (510/625)   Resolving deltas:  82% (514/625)   Resolving deltas:  83% (519/625)   Resolving deltas:  84% (525/625)   Resolving deltas:  85% (532/625)   Resolving deltas:  86% (540/625)   Resolving deltas:  87% (546/625)   Resolving deltas:  88% (550/625)   Resolving deltas:  89% (557/625)   Resolving deltas:  90% (564/625)   Resolving deltas:  91% (570/625)   Resolving deltas:  92% (580/625)   Resolving deltas:  93% (582/625)   Resolving deltas:  94% (590/625)   Resolving deltas:  95% (595/625)   Resolving deltas:  96% (601/625)   Resolving deltas:  97% (607/625)   Resolving deltas:  98% (615/625)   Resolving deltas:  99% (620/625)   Resolving deltas: 100% (625/625)   Resolving deltas: 100% (625/625), done.
+Checking connectivity... done.
+
+travis_time:end:0dc8e3ac:start=1472076918700621182,finish=1472076919592518268,duration=891897086[0K$ cd mojombo/god
+travis_time:start:04ed28f4[0K$ git fetch origin +refs/pull/243/merge:
+remote: Counting objects: 7, done.[K
+remote: Compressing objects:  33% (1/3)   [Kremote: Compressing objects:  66% (2/3)   [Kremote: Compressing objects: 100% (3/3)   [Kremote: Compressing objects: 100% (3/3), done.[K
+remote: Total 7 (delta 4), reused 6 (delta 4), pack-reused 0[K
+Unpacking objects:  14% (1/7)   Unpacking objects:  28% (2/7)   Unpacking objects:  42% (3/7)   Unpacking objects:  57% (4/7)   Unpacking objects:  71% (5/7)   Unpacking objects:  85% (6/7)   Unpacking objects: 100% (7/7)   Unpacking objects: 100% (7/7), done.
+From https://github.com/mojombo/god
+ * branch            refs/pull/243/merge -> FETCH_HEAD
+
+travis_time:end:04ed28f4:start=1472076919597068880,finish=1472076920224121059,duration=627052179[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0Ktravis_fold:start:rvm[0Ktravis_time:start:00cd3dc4[0K$ rvm use 2.0.0 --install --binary --fuzzy
+[32mUsing /home/travis/.rvm/gems/ruby-2.0.0-p648-clang[0m
+
+travis_time:end:00cd3dc4:start=1472076920242120319,finish=1472076920769145621,duration=527025302[0Ktravis_fold:end:rvm[0K$ export BUNDLE_GEMFILE=$PWD/Gemfile
+$ ruby --version
+ruby 2.0.0p648 (2015-12-16 revision 53162) [x86_64-linux]
+$ rvm --version
+rvm 1.26.10 (1.26.10) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+$ bundle --version
+Bundler version 1.12.5
+$ gem --version
+2.6.6
+travis_fold:start:install.bundler[0Ktravis_time:start:042c2689[0K$ bundle install --jobs=3 --retry=3
+Fetching gem metadata from https://rubygems.org/
+Fetching version metadata from https://rubygems.org/
+Fetching dependency metadata from https://rubygems.org/
+Resolving dependencies....
+[32mInstalling i18n 0.6.11[0m
+[32mInstalling rake 11.2.2[0m
+[32mInstalling multi_json 1.12.1[0m
+[32mInstalling addressable 2.4.0[0m
+[32mInstalling builder 3.2.2[0m
+[32mInstalling posix-spawn 0.3.11 with native extensions[0m
+[32mInstalling attributes 5.0.1[0m
+[32mInstalling buftok 0.2.0[0m
+[32mInstalling daemons 1.2.4[0m
+[32mInstalling diff-lcs 1.2.5[0m
+[32mInstalling orderedhash 0.0.6[0m
+[32mInstalling equalizer 0.0.10[0m
+[32mInstalling unf_ext 0.0.7.2 with native extensions[0m
+[32mInstalling multipart-post 2.0.0[0m
+[32mInstalling github-markup 0.7.5[0m
+Using god 0.13.7 from source at `.`
+[32mInstalling mime-types 1.25.1[0m
+[32mInstalling mustache 0.99.6[0m
+[32mInstalling redcarpet 2.3.0 with native extensions[0m
+[32mInstalling nokogiri 1.5.11 with native extensions[0m
+[32mInstalling rack 1.6.4[0m
+[32mInstalling tilt 2.0.5[0m
+[32mInstalling http-form_data 1.0.1[0m
+[32mInstalling http_parser.rb 0.6.0 with native extensions[0m
+[32mInstalling json 1.8.3 with native extensions[0m
+[32mInstalling thread_safe 0.3.5[0m
+[32mInstalling metaclass 0.0.4[0m
+[32mInstalling minitest 5.9.0[0m
+[32mInstalling naught 1.1.0[0m
+[32mInstalling prowly 0.3.0[0m
+[32mInstalling simple_oauth 0.3.1[0m
+[32mInstalling statsd-ruby 1.3.0[0m
+Using bundler 1.12.5
+[32mInstalling xmpp4r 0.5.6[0m
+[32mInstalling activesupport 3.2.22.4[0m
+[32mInstalling albino 1.3.3[0m
+[32mInstalling airbrake 3.1.17[0m
+[32mInstalling dike 0.0.3[0m
+[32mInstalling faraday 0.9.2[0m
+[32mInstalling unf 0.1.4[0m
+[32mInstalling grit 2.4.1[0m
+[32mInstalling rack-protection 1.5.3[0m
+[32mInstalling sanitize 2.0.3[0m
+[32mInstalling memoizable 0.4.2[0m
+[32mInstalling mocha 0.14.0[0m
+[32mInstalling rdoc 3.12.2[0m
+[32mInstalling domain_name 0.5.20160615[0m
+[32mInstalling http-cookie 1.0.2[0m
+[32mInstalling sinatra 1.4.7[0m
+[32mInstalling http 1.0.4[0m
+[32mInstalling gollum 1.3.1[0m
+[32mInstalling twitter 5.16.0[0m
+[32mBundle complete! 20 Gemfile dependencies, 52 gems now installed.[0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+[32mPost-install message from rdoc:[0m
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+<= 1.8.6 : unsupported
+ = 1.8.7 : gem install rdoc-data; rdoc-data --install
+ = 1.9.1 : gem install rdoc-data; rdoc-data --install
+>= 1.9.2 : nothing to do! Yay!
+
+travis_time:end:042c2689:start=1472076921280056695,finish=1472076941570541282,duration=20290484587[0Ktravis_fold:end:install.bundler[0Ktravis_time:start:15ff36b8[0K$ bundle exec rake
+/home/travis/.rvm/rubies/ruby-2.0.0-p648-clang/bin/ruby -w -I"lib:lib:test" -I"/home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/rake-11.2.2/lib" "/home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/rake-11.2.2/lib/rake/rake_test_loader.rb" "test/test_airbrake.rb" "test/test_behavior.rb" "test/test_campfire.rb" "test/test_condition.rb" "test/test_conditions_disk_usage.rb" "test/test_conditions_http_response_code.rb" "test/test_conditions_process_running.rb" "test/test_conditions_socket_responding.rb" "test/test_conditions_tries.rb" "test/test_contact.rb" "test/test_driver.rb" "test/test_email.rb" "test/test_event_handler.rb" "test/test_god.rb" "test/test_handlers_kqueue_handler.rb" "test/test_hipchat.rb" "test/test_jabber.rb" "test/test_logger.rb" "test/test_metric.rb" "test/test_process.rb" "test/test_prowl.rb" "test/test_registry.rb" "test/test_sensu.rb" "test/test_slack.rb" "test/test_socket.rb" "test/test_statsd.rb" "test/test_sugar.rb" "test/test_system_portable_poller.rb" "test/test_system_process.rb" "test/test_task.rb" "test/test_timeline.rb" "test/test_trigger.rb" "test/test_watch.rb" "test/test_webhook.rb" 
+/home/travis/.rvm/gems/ruby-2.0.0-p648-clang@global/gems/bundler-1.12.5/lib/bundler/rubygems_integration.rb:468: warning: method redefined; discarding old find_spec_for_exe
+/home/travis/.rvm/rubies/ruby-2.0.0-p648-clang/lib/ruby/site_ruby/2.0.0/rubygems.rb:261: warning: previous definition of find_spec_for_exe was here
+/home/travis/build/mojombo/god/lib/god/system/portable_poller.rb:37: warning: assigned but unused variable - useconds
+/home/travis/build/mojombo/god/lib/god/configurable.rb:34: warning: assigned but unused variable - x
+/home/travis/build/mojombo/god/lib/god/conditions/http_response_code.rb:123: warning: assigned but unused variable - pem
+/home/travis/build/mojombo/god/lib/god/event_handler.rb:84: warning: assigned but unused variable - event_system
+/home/travis/build/mojombo/god/lib/god/process.rb:55: warning: assigned but unused variable - wpid
+/home/travis/build/mojombo/god/lib/god/process.rb:213: warning: assigned but unused variable - name
+/home/travis/build/mojombo/god/lib/god/contacts/hipchat.rb:19: warning: method redefined; discarding old initialize
+/home/travis/build/mojombo/god/lib/god/contacts/campfire.rb:20: warning: previous definition of initialize was here
+/home/travis/build/mojombo/god/lib/god/contacts/hipchat.rb:24: warning: method redefined; discarding old base_url
+/home/travis/build/mojombo/god/lib/god/contacts/campfire.rb:26: warning: previous definition of base_url was here
+/home/travis/build/mojombo/god/lib/god/contacts/hipchat.rb:29: warning: method redefined; discarding old find_room_id_by_name
+/home/travis/build/mojombo/god/lib/god/contacts/campfire.rb:32: warning: previous definition of find_room_id_by_name was here
+/home/travis/build/mojombo/god/lib/god/contacts/hipchat.rb:48: warning: method redefined; discarding old speak
+/home/travis/build/mojombo/god/lib/god/contacts/campfire.rb:52: warning: previous definition of speak was here
+/home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/client.rb:354: warning: assigned but unused variable - err
+/home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/vcard/iq/vcard.rb:5: warning: loading in progress, circular require considered harmful - /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/iq.rb
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/rake-11.2.2/lib/rake/rake_test_loader.rb:4:in `<main>'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/rake-11.2.2/lib/rake/rake_test_loader.rb:4:in `select'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/rake-11.2.2/lib/rake/rake_test_loader.rb:15:in `block in <main>'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/rake-11.2.2/lib/rake/rake_test_loader.rb:15:in `require'
+	from /home/travis/build/mojombo/god/test/test_airbrake.rb:2:in `<top (required)>'
+	from /home/travis/build/mojombo/god/test/test_airbrake.rb:2:in `require'
+	from /home/travis/build/mojombo/god/test/helper.rb:7:in `<top (required)>'
+	from /home/travis/build/mojombo/god/test/helper.rb:7:in `require'
+	from /home/travis/build/mojombo/god/lib/god.rb:90:in `<top (required)>'
+	from /home/travis/build/mojombo/god/lib/god.rb:80:in `load_contact'
+	from /home/travis/build/mojombo/god/lib/god.rb:80:in `require'
+	from /home/travis/build/mojombo/god/lib/god/contacts/jabber.rb:11:in `<top (required)>'
+	from /home/travis/build/mojombo/god/lib/god/contacts/jabber.rb:11:in `each'
+	from /home/travis/build/mojombo/god/lib/god/contacts/jabber.rb:12:in `block in <top (required)>'
+	from /home/travis/build/mojombo/god/lib/god/contacts/jabber.rb:12:in `require'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r.rb:116:in `<top (required)>'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r.rb:116:in `require'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/xmpp4r.rb:14:in `<top (required)>'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/xmpp4r.rb:14:in `require'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/client.rb:6:in `<top (required)>'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/client.rb:6:in `require'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/connection.rb:9:in `<top (required)>'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/connection.rb:9:in `require'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/stream.rb:12:in `<top (required)>'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/stream.rb:12:in `require'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/iq.rb:10:in `<top (required)>'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/iq.rb:10:in `require'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/vcard/iq/vcard.rb:5:in `<top (required)>'
+	from /home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/vcard/iq/vcard.rb:5:in `require'
+/home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/xmpp4r-0.5.6/lib/xmpp4r/reliable.rb:77: warning: assigned but unused variable - e
+/home/travis/build/mojombo/god/lib/god/contacts/statsd.rb:27: warning: ambiguous first argument; put parentheses or even spaces
+/home/travis/build/mojombo/god/lib/god/contacts/statsd.rb:28: warning: ambiguous first argument; put parentheses or even spaces
+/home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/naught-1.1.0/lib/naught/null_class_builder/commands/predicates_return.rb:39: warning: method redefined; discarding old respond_to?
+/home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/naught-1.1.0/lib/naught/null_class_builder.rb:76: warning: previous definition of respond_to? was here
+/home/travis/.rvm/gems/ruby-2.0.0-p648-clang/gems/airbrake-3.1.17/lib/airbrake/configuration.rb:307: warning: method redefined; discarding old rescue_rake_exceptions=
+/home/travis/build/mojombo/god/test/test_god.rb:441: warning: assigned but unused variable - w
+/home/travis/build/mojombo/god/test/test_god.rb:510: warning: assigned but unused variable - e
+/home/travis/build/mojombo/god/test/test_socket.rb:17: warning: assigned but unused variable - server
+Run options: --seed 22088
+
+# Running:
+
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @subject not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @port not initialized
+............................................................................../home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @status_code not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @status_code not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @handler not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @handler not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @host not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @host not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @port not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @port not initialized
+./home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @from_email not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @from_name not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @to_email not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @to_name not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @to_name not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @to_email not initialized
+./home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @from_email not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @from_name not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @to_email not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @to_name not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @to_name not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @to_email not initialized
+./home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @to_email not initialized
+....................................../home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @ssl not initialized
+....................................................................................................................../home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @notify_channel not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @format not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @channel not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @username not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @username not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @emoji not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @emoji not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @channel not initialized
+./home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @notify_channel not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @format not initialized
+./home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @notify_channel not initialized
+./home/travis/build/mojombo/god/lib/god/contacts/slack.rb:46: warning: too many arguments for format string
+./home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @notify_channel not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @format not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @username not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @username not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @emoji not initialized
+/home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @emoji not initialized
+./home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @format not initialized
+./home/travis/build/mojombo/god/lib/god/contact.rb:32: warning: instance variable @format not initialized
+..............................
+
+Finished in 1.995500s, 136.8078 runs/s, 216.4870 assertions/s.
+
+273 runs, 432 assertions, 0 failures, 0 errors, 0 skips
+
+travis_time:end:15ff36b8:start=1472076941575414775,finish=1472076944976353671,duration=3400938896[0K
+[32;1mThe command "bundle exec rake" exited with 0.[0m
+
+Done. Your build exited with 0.
