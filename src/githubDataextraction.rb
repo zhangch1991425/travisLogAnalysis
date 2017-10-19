@@ -1,0 +1,3 @@
+require 'travistorrent'
+
+GhtorrentExtractor.run

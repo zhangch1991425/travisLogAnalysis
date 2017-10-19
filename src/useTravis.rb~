@@ -1,0 +1,27 @@
+require 'travis'
+require 'csv'
+
+@inputCSV="/home/zc/project/travisLogAnalysis/data/databaseData.csv"
+@outputCSV="/home/zc/project/travisLogAnalysis/data/repositoryUseTravis.csv"
+
+def travisBuildsForProject(repo)
+  begin
+    repository=Travis::Repository.find(repo);
+    return true
+  rescue Exception=>e
+    STDERR.puts "Exception at #{repo}"
+    return false
+  end
+end
+
+def useTravis
+  File.open(@outputCSV,"w") do |file|
+    CSV.foreach(@inputCSV,"r") do |row|
+      if travisBuildsForProject("#{row[0]}/#{row[1]}")
+        tempRow=["#{row[0]}","#{row[1]}"]
+        file.write(tempRow.to_csv)
+      end
+    end
+  end
+end
+useTravis
