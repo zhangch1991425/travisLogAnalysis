@@ -1,0 +1,506 @@
+Using worker: worker-linux-docker-b5f16a32.prod.travis-ci.org:travis-linux-6
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: ruby
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:fix.CVE-2015-7547[0K$ export DEBIAN_FRONTEND=noninteractive
+W: Size of file /var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_precise-backports_multiverse_source_Sources.gz is not what the server reported 5886 5888
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-amd64_Packages.gz is not what the server reported 36669 36677
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-i386_Packages.gz is not what the server reported 36729 36733
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libc-bin libc-dev-bin libc6-dev
+Suggested packages:
+  glibc-doc
+The following packages will be upgraded:
+  libc-bin libc-dev-bin libc6 libc6-dev
+4 upgraded, 0 newly installed, 0 to remove and 235 not upgraded.
+Need to get 8,844 kB of archives.
+After this operation, 9,216 B disk space will be freed.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6-dev amd64 2.15-0ubuntu10.13 [2,943 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-dev-bin amd64 2.15-0ubuntu10.13 [84.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-bin amd64 2.15-0ubuntu10.13 [1,179 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6 amd64 2.15-0ubuntu10.13 [4,637 kB]
+Fetched 8,844 kB in 0s (21.3 MB/s)
+Preconfiguring packages ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 71420 files and directories currently installed.)
+Preparing to replace libc6-dev 2.15-0ubuntu10.10 (using .../libc6-dev_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc6-dev ...
+Preparing to replace libc-dev-bin 2.15-0ubuntu10.10 (using .../libc-dev-bin_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc-bin 2.15-0ubuntu10.10 (using .../libc-bin_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc-bin ...
+Processing triggers for man-db ...
+Setting up libc-bin (2.15-0ubuntu10.13) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 71420 files and directories currently installed.)
+Preparing to replace libc6 2.15-0ubuntu10.10 (using .../libc6_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc6 ...
+Setting up libc6 (2.15-0ubuntu10.13) ...
+Setting up libc-dev-bin (2.15-0ubuntu10.13) ...
+Setting up libc6-dev (2.15-0ubuntu10.13) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+travis_fold:end:fix.CVE-2015-7547[0Ktravis_fold:start:git.checkout[0Ktravis_time:start:223f3972[0K$ git clone --depth=50 --branch=1.x-dev https://github.com/jruby/warbler.git jruby/warbler
+Cloning into 'jruby/warbler'...
+remote: Counting objects: 539, done.[K
+remote: Compressing objects:   0% (1/366)   [Kremote: Compressing objects:   1% (4/366)   [Kremote: Compressing objects:   2% (8/366)   [Kremote: Compressing objects:   3% (11/366)   [Kremote: Compressing objects:   4% (15/366)   [Kremote: Compressing objects:   5% (19/366)   [Kremote: Compressing objects:   6% (22/366)   [Kremote: Compressing objects:   7% (26/366)   [Kremote: Compressing objects:   8% (30/366)   [Kremote: Compressing objects:   9% (33/366)   [Kremote: Compressing objects:  10% (37/366)   [Kremote: Compressing objects:  11% (41/366)   [Kremote: Compressing objects:  12% (44/366)   [Kremote: Compressing objects:  13% (48/366)   [Kremote: Compressing objects:  14% (52/366)   [Kremote: Compressing objects:  15% (55/366)   [Kremote: Compressing objects:  16% (59/366)   [Kremote: Compressing objects:  17% (63/366)   [Kremote: Compressing objects:  18% (66/366)   [Kremote: Compressing objects:  19% (70/366)   [Kremote: Compressing objects:  20% (74/366)   [Kremote: Compressing objects:  21% (77/366)   [Kremote: Compressing objects:  22% (81/366)   [Kremote: Compressing objects:  23% (85/366)   [Kremote: Compressing objects:  24% (88/366)   [Kremote: Compressing objects:  25% (92/366)   [Kremote: Compressing objects:  26% (96/366)   [Kremote: Compressing objects:  27% (99/366)   [Kremote: Compressing objects:  28% (103/366)   [Kremote: Compressing objects:  29% (107/366)   [Kremote: Compressing objects:  30% (110/366)   [Kremote: Compressing objects:  31% (114/366)   [Kremote: Compressing objects:  32% (118/366)   [Kremote: Compressing objects:  33% (121/366)   [Kremote: Compressing objects:  34% (125/366)   [Kremote: Compressing objects:  35% (129/366)   [Kremote: Compressing objects:  36% (132/366)   [Kremote: Compressing objects:  37% (136/366)   [Kremote: Compressing objects:  38% (140/366)   [Kremote: Compressing objects:  39% (143/366)   [Kremote: Compressing objects:  40% (147/366)   [Kremote: Compressing objects:  41% (151/366)   [Kremote: Compressing objects:  42% (154/366)   [Kremote: Compressing objects:  43% (158/366)   [Kremote: Compressing objects:  44% (162/366)   [Kremote: Compressing objects:  45% (165/366)   [Kremote: Compressing objects:  46% (169/366)   [Kremote: Compressing objects:  47% (173/366)   [Kremote: Compressing objects:  48% (176/366)   [Kremote: Compressing objects:  49% (180/366)   [Kremote: Compressing objects:  50% (183/366)   [Kremote: Compressing objects:  51% (187/366)   [Kremote: Compressing objects:  52% (191/366)   [Kremote: Compressing objects:  53% (194/366)   [Kremote: Compressing objects:  54% (198/366)   [Kremote: Compressing objects:  55% (202/366)   [Kremote: Compressing objects:  56% (205/366)   [Kremote: Compressing objects:  57% (209/366)   [Kremote: Compressing objects:  58% (213/366)   [Kremote: Compressing objects:  59% (216/366)   [Kremote: Compressing objects:  60% (220/366)   [Kremote: Compressing objects:  61% (224/366)   [Kremote: Compressing objects:  62% (227/366)   [Kremote: Compressing objects:  63% (231/366)   [Kremote: Compressing objects:  64% (235/366)   [Kremote: Compressing objects:  65% (238/366)   [Kremote: Compressing objects:  66% (242/366)   [Kremote: Compressing objects:  67% (246/366)   [Kremote: Compressing objects:  68% (249/366)   [Kremote: Compressing objects:  69% (253/366)   [Kremote: Compressing objects:  70% (257/366)   [Kremote: Compressing objects:  71% (260/366)   [Kremote: Compressing objects:  72% (264/366)   [Kremote: Compressing objects:  73% (268/366)   [Kremote: Compressing objects:  74% (271/366)   [Kremote: Compressing objects:  75% (275/366)   [Kremote: Compressing objects:  76% (279/366)   [Kremote: Compressing objects:  77% (282/366)   [Kremote: Compressing objects:  78% (286/366)   [Kremote: Compressing objects:  79% (290/366)   [Kremote: Compressing objects:  80% (293/366)   [Kremote: Compressing objects:  81% (297/366)   [Kremote: Compressing objects:  82% (301/366)   [Kremote: Compressing objects:  83% (304/366)   [Kremote: Compressing objects:  84% (308/366)   [Kremote: Compressing objects:  85% (312/366)   [Kremote: Compressing objects:  86% (315/366)   [Kremote: Compressing objects:  87% (319/366)   [Kremote: Compressing objects:  88% (323/366)   [Kremote: Compressing objects:  89% (326/366)   [Kremote: Compressing objects:  90% (330/366)   [Kremote: Compressing objects:  91% (334/366)   [Kremote: Compressing objects:  92% (337/366)   [Kremote: Compressing objects:  93% (341/366)   [Kremote: Compressing objects:  94% (345/366)   [Kremote: Compressing objects:  95% (348/366)   [Kremote: Compressing objects:  96% (352/366)   [Kremote: Compressing objects:  97% (356/366)   [Kremote: Compressing objects:  98% (359/366)   [Kremote: Compressing objects:  99% (363/366)   [Kremote: Compressing objects: 100% (366/366)   [Kremote: Compressing objects: 100% (366/366), done.[K
+Receiving objects:   0% (1/539)   Receiving objects:   1% (6/539)   Receiving objects:   2% (11/539)   Receiving objects:   3% (17/539)   Receiving objects:   4% (22/539)   Receiving objects:   5% (27/539)   Receiving objects:   6% (33/539)   Receiving objects:   7% (38/539)   Receiving objects:   8% (44/539)   Receiving objects:   9% (49/539)   Receiving objects:  10% (54/539)   Receiving objects:  11% (60/539)   Receiving objects:  12% (65/539)   Receiving objects:  13% (71/539)   Receiving objects:  14% (76/539)   Receiving objects:  15% (81/539)   Receiving objects:  16% (87/539)   Receiving objects:  17% (92/539)   Receiving objects:  18% (98/539)   Receiving objects:  19% (103/539)   Receiving objects:  20% (108/539)   Receiving objects:  21% (114/539)   Receiving objects:  22% (119/539)   Receiving objects:  23% (124/539)   Receiving objects:  24% (130/539)   Receiving objects:  25% (135/539)   Receiving objects:  26% (141/539)   Receiving objects:  27% (146/539)   Receiving objects:  28% (151/539)   Receiving objects:  29% (157/539)   Receiving objects:  30% (162/539)   Receiving objects:  31% (168/539)   Receiving objects:  32% (173/539)   Receiving objects:  33% (178/539)   Receiving objects:  34% (184/539)   Receiving objects:  35% (189/539)   Receiving objects:  36% (195/539)   Receiving objects:  37% (200/539)   Receiving objects:  38% (205/539)   Receiving objects:  39% (211/539)   Receiving objects:  40% (216/539)   Receiving objects:  41% (221/539)   Receiving objects:  42% (227/539)   Receiving objects:  43% (232/539)   Receiving objects:  44% (238/539)   Receiving objects:  45% (243/539)   Receiving objects:  46% (248/539)   Receiving objects:  47% (254/539)   Receiving objects:  48% (259/539)   Receiving objects:  49% (265/539)   Receiving objects:  50% (270/539)   Receiving objects:  51% (275/539)   Receiving objects:  52% (281/539)   Receiving objects:  53% (286/539)   Receiving objects:  54% (292/539)   Receiving objects:  55% (297/539)   Receiving objects:  56% (302/539)   Receiving objects:  57% (308/539)   Receiving objects:  58% (313/539)   Receiving objects:  59% (319/539)   Receiving objects:  60% (324/539)   Receiving objects:  61% (329/539)   Receiving objects:  62% (335/539)   Receiving objects:  63% (340/539)   Receiving objects:  64% (345/539)   Receiving objects:  65% (351/539)   Receiving objects:  66% (356/539)   Receiving objects:  67% (362/539)   Receiving objects:  68% (367/539)   Receiving objects:  69% (372/539)   Receiving objects:  70% (378/539)   Receiving objects:  71% (383/539)   Receiving objects:  72% (389/539)   Receiving objects:  73% (394/539)   Receiving objects:  74% (399/539)   Receiving objects:  75% (405/539)   Receiving objects:  76% (410/539)   Receiving objects:  77% (416/539)   Receiving objects:  78% (421/539)   Receiving objects:  79% (426/539)   Receiving objects:  80% (432/539)   Receiving objects:  81% (437/539)   Receiving objects:  82% (442/539)   Receiving objects:  83% (448/539)   Receiving objects:  84% (453/539)   Receiving objects:  85% (459/539)   Receiving objects:  86% (464/539)   Receiving objects:  87% (469/539)   Receiving objects:  88% (475/539)   Receiving objects:  89% (480/539)   Receiving objects:  90% (486/539)   Receiving objects:  91% (491/539)   Receiving objects:  92% (496/539)   Receiving objects:  93% (502/539)   Receiving objects:  94% (507/539)   Receiving objects:  95% (513/539)   Receiving objects:  96% (518/539)   Receiving objects:  97% (523/539)   Receiving objects:  98% (529/539)   Receiving objects:  99% (534/539)   remote: Total 539 (delta 174), reused 413 (delta 106), pack-reused 0[K
+Receiving objects: 100% (539/539)   Receiving objects: 100% (539/539), 384.80 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/174)   Resolving deltas:   1% (3/174)   Resolving deltas:   6% (12/174)   Resolving deltas:  14% (26/174)   Resolving deltas:  15% (27/174)   Resolving deltas:  16% (29/174)   Resolving deltas:  17% (30/174)   Resolving deltas:  18% (33/174)   Resolving deltas:  41% (72/174)   Resolving deltas:  49% (86/174)   Resolving deltas:  51% (90/174)   Resolving deltas:  55% (96/174)   Resolving deltas:  56% (98/174)   Resolving deltas:  58% (101/174)   Resolving deltas:  59% (104/174)   Resolving deltas:  62% (108/174)   Resolving deltas:  63% (110/174)   Resolving deltas:  64% (113/174)   Resolving deltas:  66% (116/174)   Resolving deltas:  72% (127/174)   Resolving deltas:  73% (128/174)   Resolving deltas:  74% (129/174)   Resolving deltas:  75% (131/174)   Resolving deltas:  76% (133/174)   Resolving deltas:  78% (136/174)   Resolving deltas:  79% (138/174)   Resolving deltas:  81% (142/174)   Resolving deltas:  82% (143/174)   Resolving deltas:  83% (146/174)   Resolving deltas:  84% (147/174)   Resolving deltas:  85% (148/174)   Resolving deltas:  86% (151/174)   Resolving deltas:  87% (152/174)   Resolving deltas:  88% (154/174)   Resolving deltas:  90% (158/174)   Resolving deltas:  91% (160/174)   Resolving deltas:  92% (161/174)   Resolving deltas:  93% (162/174)   Resolving deltas:  97% (169/174)   Resolving deltas:  98% (171/174)   Resolving deltas:  99% (173/174)   Resolving deltas: 100% (174/174)   Resolving deltas: 100% (174/174), done.
+Checking connectivity... done.
+
+travis_time:end:223f3972:start=1462023103122409558,finish=1462023103604329560,duration=481920002[0K$ cd jruby/warbler
+$ git checkout -qf afacd6135da574c26fa90a7fc262b3c48fcdae61
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee https://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export BUNDLER_VERSION="~> 1.7.9"
+$ export RAKE_VERSION="~> 10.5.0"
+
+travis_fold:start:rvm[0Ktravis_time:start:03fb7a02[0K$ rvm use 1.9.2 --install --binary --fuzzy
+[32mUsing /home/travis/.rvm/gems/ruby-1.9.2-p330[0m
+
+travis_time:end:03fb7a02:start=1462023107061218587,finish=1462023107257307252,duration=196088665[0Ktravis_fold:end:rvm[0K$ export BUNDLE_GEMFILE=$PWD/Gemfile
+$ ruby --version
+ruby 1.9.2p330 (2014-08-07 revision 47094) [x86_64-linux]
+$ rvm --version
+rvm 1.26.10 (latest-minor) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+$ bundle --version
+Bundler version 1.7.12
+$ gem --version
+2.4.5
+travis_fold:start:before_install.1[0Ktravis_time:start:1c9afff4[0K$ ([ "$BUNDLER_VERSION" ] && gem uninstall bundler --all --force && gem install bundler -v "$BUNDLER_VERSION") || true
+Successfully uninstalled bundler-1.6.9
+Fetching: bundler-1.7.15.gemFetching: bundler-1.7.15.gem (  6%)Fetching: bundler-1.7.15.gem ( 11%)Fetching: bundler-1.7.15.gem ( 16%)Fetching: bundler-1.7.15.gem ( 22%)Fetching: bundler-1.7.15.gem ( 27%)Fetching: bundler-1.7.15.gem ( 32%)Fetching: bundler-1.7.15.gem ( 37%)Fetching: bundler-1.7.15.gem ( 43%)Fetching: bundler-1.7.15.gem ( 48%)Fetching: bundler-1.7.15.gem ( 53%)Fetching: bundler-1.7.15.gem ( 59%)Fetching: bundler-1.7.15.gem ( 64%)Fetching: bundler-1.7.15.gem ( 69%)Fetching: bundler-1.7.15.gem ( 75%)Fetching: bundler-1.7.15.gem ( 80%)Fetching: bundler-1.7.15.gem ( 85%)Fetching: bundler-1.7.15.gem ( 91%)Fetching: bundler-1.7.15.gem ( 96%)Fetching: bundler-1.7.15.gem (100%)Fetching: bundler-1.7.15.gem (100%)
+Successfully installed bundler-1.7.15
+1 gem installed
+
+travis_time:end:1c9afff4:start=1462023107949257748,finish=1462023110596081033,duration=2646823285[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:13033adf[0K$ bundle --version
+Bundler version 1.7.15
+
+travis_time:end:13033adf:start=1462023110602534930,finish=1462023110891872920,duration=289337990[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:install.bundler[0Ktravis_time:start:055dbf38[0K$ bundle install --jobs=3 --retry=3
+Fetching gem metadata from https://rubygems.org/.........
+Fetching version metadata from https://rubygems.org/..
+Resolving dependencies...
+[32mInstalling rake 10.5.0[0m
+Using bundler 1.7.15
+[32mInstalling backports 3.6.8[0m
+[32mInstalling thread_safe 0.3.5[0m
+[32mInstalling diff-lcs 1.2.5[0m
+[32mInstalling ruby-maven-libs 3.1.1[0m
+[32mInstalling jruby-jars 1.7.25[0m
+[32mInstalling jruby-rack 1.1.20[0m
+[32mInstalling minitest 1.7.2[0m
+[32mInstalling rspec-core 2.99.2[0m
+[32mInstalling rspec-mocks 2.99.4[0m
+[32mInstalling rubyzip 1.2.0[0m
+[32mInstalling hoe 3.15.0[0m
+[32mInstalling descendants_tracker 0.0.4[0m
+[32mInstalling ffi 1.9.10[0m
+Using warbler 1.4.10 from source at .
+[32mInstalling rspec-expectations 2.99.2[0m
+[32mInstalling rdoc 2.4.3[0m
+[32mInstalling virtus 0.5.5[0m
+[32mInstalling childprocess 0.5.9[0m
+[32mInstalling rspec 2.99.0[0m
+[32mInstalling maven-tools 0.34.5[0m
+[32mInstalling ruby-maven 3.1.1.0.2[0m
+[32mInstalling jbundler 0.5.5[0m
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+
+travis_time:end:055dbf38:start=1462023110897943899,finish=1462023130497267555,duration=19599323656[0Ktravis_fold:end:install.bundler[0Ktravis_fold:start:before_script[0Ktravis_time:start:0121e3fc[0K$ export JRUBY_OPTS="$JRUBY_OPTS --server -Xcext.enabled=false -Xcompile.invokedynamic=false"
+
+travis_time:end:0121e3fc:start=1462023130503252126,finish=1462023130507986691,duration=4734565[0Ktravis_fold:end:before_script[0Ktravis_time:start:02642e20[0K$ bundle exec rake spec
+/home/travis/.rvm/rubies/ruby-1.9.2-p330/bin/ruby -S rspec ./spec/warbler/application_spec.rb ./spec/warbler/bundler_spec.rb ./spec/warbler/config_spec.rb ./spec/warbler/gems_spec.rb ./spec/warbler/jar_spec.rb ./spec/warbler/jbundler_spec.rb ./spec/warbler/task_spec.rb ./spec/warbler/traits_spec.rb ./spec/warbler/war_spec.rb ./spec/warbler/web_server_spec.rb --color --format documentation
+/home/travis/build/jruby/warbler/spec/warbler/web_server_spec.rb:11: warning: class variable access from toplevel
+
+Warbler::Application
+[32m  should be able to list its tasks[0m
+[32m  should display the version[0m
+[32m  should copy a fresh config file into place[0m
+[32m  should refuse to copy over an existing config file[0m
+[32m  should complain if the config directory is missing[0m
+[32m  should refuse to pluginize if the lib/tasks/warbler directory exists[0m
+[32m  should define a pluginize task for adding the tasks to a Rails application[0m
+[32m  should provide a means to load the project Rakefile[0m
+
+Warbler::Application
+[32m  should report Warbler version with --version[0m
+
+Warbler::Jar with Bundler
+  in a war project
+[32m    detects a Bundler trait[0m
+[32m    detects a Gemfile and process only its gems[0m
+[32m    copies Gemfiles into the war[0m
+[32m    allows overriding of the gem path when using Bundler[0m
+[32m    does not bundle dependencies in the test group by default[0m
+[32m    adds BUNDLE_WITHOUT to init.rb[0m
+[32m    adds BUNDLE_GEMFILE to init.rb[0m
+[32m    uses ENV['BUNDLE_GEMFILE'] if set[0m
+    with :git entries in the Gemfile
+[32m      works with :git entries in Gemfiles[0m
+[32m      bundles only the gemspec for :git entries that are excluded[0m
+[32m      does not work with :path entries in Gemfiles[0m
+  in a jar project
+[32m    adds BUNDLE_GEMFILE to init.rb[0m
+    with :git entries in the Gemfile
+[32m      works with :git entries in Gemfiles[0m
+  when frozen
+[32m    includes the bundler gem[0m
+[32m    does not include the bundler cache directory[0m
+[32m    includes ENV['BUNDLE_FROZEN'] in init.rb[0m
+    with the runnable feature
+[32m      adds WarMain and JarMain to file[0m
+[32m      can run commands in the generated warfile[0m
+  when deployment
+[32m    includes the bundler gem[0m
+  in a rack app
+[32m    should have default load path[0m
+
+Warbler::Config
+  in an unknown application
+[32m    has suitable default values[0m
+  in a web application
+[32m    should have suitable default values[0m
+[32m    should allow configuration through an initializer block[0m
+[32m    should allow gems to be added/changed with =, +=, -=, <<[0m
+[32m    should exclude log files by default[0m
+[32m    should include log files if exclude_logs is false[0m
+[32m    should exclude Warbler itself when run as a plugin[0m
+[32m    should generate context parameters from the webxml openstruct[0m
+[32m    should determine the context listener from the webxml.booter parameter[0m
+[32m    should not include ignored webxml keys in the context params hash[0m
+[32m    should have a helpful string representation for an empty key[0m
+[32m    should HTML-escape all webxml keys and values[0m
+
+Warbler::Gems
+[32m  should accept a hash for initialization[0m
+[32m  should accept an array for initialization[0m
+[32m  should allow gems with a version[0m
+[32m  should allow gems without an explicit version[0m
+[32m  should allow to add gems[0m
+
+Warbler::Jar
+  in a jar project
+[32m    detects a Jar trait[0m
+[32m    collects java libraries[0m
+[32m    adds a JarMain class[0m
+[32m    adds an init.rb[0m
+[32m    requires 'rubygems' in init.rb[0m
+[32m    does not override ENV['GEM_HOME'] by default[0m
+[32m    overrides ENV['GEM_HOME'] when override_gem_home is set[0m
+[32m    adds a main.rb[0m
+[32m    adds script_files[0m
+[32m    accepts a custom manifest file[0m
+[32m    accepts a MANIFEST.MF file if it exists in the project root[0m
+[32m    does not add a manifest if one already exists[0m
+[32m    creates a jar[0m
+    with a .gemspec
+[32m      detects a Gemspec trait[0m
+[32m      detects gem dependencies[0m
+[32m      sets load paths in init.rb[0m
+[32m      loads the default executable in main.rb[0m
+[32m      includes compiled .rb and .class files[0m
+[32m      includes only specified dirs[0m
+[32m      excludes .rb and .class files from compile[0m
+[32m      compiles included gems when compile_gems is true[0m
+[32m      does not compile included gems by default[0m
+    with a gemspec without a default executable
+[32m      loads the first bin/executable in main.rb[0m
+[32m      loads the specified bin/executable in main.rb[0m
+    without a .gemspec
+[32m      detects a NoGemspec trait[0m
+[32m      collects gem files from configuration[0m
+[32m      collects all project files in the directory[0m
+[32m      sets load paths in init.rb[0m
+[32m      loads the first bin/executable in main.rb[0m
+[32m      loads the specified bin/executable in main.rb[0m
+[32m      loads the bin/executable from other gem in main.rb[0m
+[32m      does not set parameters in main.rb[0m
+[32m      does set parameters in main.rb[0m
+  in a war project
+[32m    detects a War trait[0m
+[32m    collects files in public[0m
+[32m    collects gem files[0m
+[31m    collects gem files with dependencies (FAILED - 1)[0m
+[32m    collects gem files without dependencies[0m
+[32m    adds ENV['GEM_HOME'] to init.rb[0m
+[32m    overrides ENV['GEM_HOME'] when override_gem_home is set[0m
+[32m    does not include log files by default[0m
+[32m    creates a web.xml file[0m
+[32m    includes custom context parameters in web.xml[0m
+[32m    allows one jndi resource to be included[0m
+[32m    allows multiple jndi resources to be included[0m
+[32m    does not include any ignored context parameters[0m
+[32m    uses a config/web.xml if it exists[0m
+[32m    uses a config/web.xml.erb if it exists[0m
+[32m    collects java libraries[0m
+[32m    collects application files[0m
+[32m    accepts an autodeploy directory where the war should be created[0m
+[32m    allows the jar extension to be customized[0m
+[32m    can exclude files from the .war[0m
+[32m    can exclude public files from the .war[0m
+[32m    reads configuration from config/warble.rb[0m
+[32m    fails if a gem is requested that is not installed[0m
+[32m    allows specification of dependency by Gem::Dependency[0m
+[32m    copies loose java classes to WEB-INF/classes[0m
+[32m    does not try to autodetect frameworks when Warbler.framework_detection is false[0m
+[32m    skips directories that don't exist in config.dirs and print a warning[0m
+[32m    excludes Warbler's old tmp/war directory by default[0m
+[32m    writes gems to location specified by gem_path[0m
+[32m    allows adding additional WEB-INF files via config.webinf_files[0m
+[32m    allows expanding of additional WEB-INF files via config.webinf_files[0m
+[32m    excludes test files in gems according to config.gem_excludes[0m
+[32m    creates a META-INF/init.rb file with startup config[0m
+[32m    allows adjusting the init file location in the war[0m
+[32m    allows adding custom files' contents to init.rb[0m
+[32m    does not have escaped HTML in WARBLER_CONFIG[0m
+    with embedded jar files
+      with move_jars_to_webinf_lib set to true
+[32m        moves jar files to WEB-INF/lib[0m
+[32m        leaves jar files alone that are already in WEB-INF/lib[0m
+      with move_jars_to_webinf_lib not set
+[32m        moves jar files to WEB-INF/lib[0m
+      with move_jars_to_webinf_lib set to regexp
+[32m        moves jar files that match to WEB-INF/lib[0m
+[32m        removes default jars not matched by filter from WEB-INF/lib[0m
+    with the executable feature
+[32m      adds WarMain (and JarMain) class[0m
+    with the runnable feature
+[32m      adds WarMain (and JarMain) class[0m
+    in a Rails application
+[32m      detects a Rails trait[0m
+[32m      auto-detects a Rails application[0m
+[32m      adds the rails.rb to the script files[0m
+[32m      provides Rails gems by default, unless vendor/rails is present[0m
+[32m      automatically adds Rails.configuration.gems to the list of gems[0m
+[32m      adds RAILS_ENV to init.rb[0m
+      with asset_pipeline
+[32m        automatically adds asset pipeline manifest file to the included files[0m
+      with threadsafe! enabled in production.rb
+        it should behave like threaded environment
+[32m          sets the jruby min and max runtimes to 1[0m
+[32m          doesn't override already configured runtime numbers[0m
+      with threadsafe! enabled in environment.rb
+        it should behave like threaded environment
+[32m          sets the jruby min and max runtimes to 1[0m
+[32m          doesn't override already configured runtime numbers[0m
+      with rails version 4
+        When rails version is specified in Gemfile
+          it should behave like threaded environment
+[32m            sets the jruby min and max runtimes to 1[0m
+[32m            doesn't override already configured runtime numbers[0m
+          it should behave like asset pipeline
+[32m            automatically adds asset pipeline manifest file to the included files[0m
+        when rails version is not specified in Gemfile
+          it should behave like threaded environment
+[32m            sets the jruby min and max runtimes to 1[0m
+[32m            doesn't override already configured runtime numbers[0m
+          it should behave like asset pipeline
+[32m            automatically adds asset pipeline manifest file to the included files[0m
+    in a Merb application
+[32m      detects a Merb trait[0m
+[32m      auto-detects a Merb application[0m
+[32m      automatically adds Merb::BootLoader::Dependencies.dependencies to the list of gems[0m
+[32m      skips Merb development dependencies[0m
+[32m      warns about using Merb < 1.0[0m
+    in a Rack application
+[32m      detects a Rack trait[0m
+[32m      auto-detects a Rack application with a config.ru file[0m
+[32m      adds RACK_ENV to init.rb[0m
+
+Warbler::Jar with JBundler
+  in a war project
+[32m    detects a JBundler trait[0m
+[32m    detects a Jarfile and process only its jars[0m
+[32m    copies jars from jbundler classpath into the war[0m
+[32m    adds JBUNDLE_SKIP to init.rb[0m
+[32m    uses ENV['JBUNDLE_JARFILE'] if set[0m
+  when locked down
+[33m    does not include the jbundler gem (as it is in the development group) (PENDING: needs JRuby to work)[0m
+[33m    does not include the jbundler runtime config (PENDING: needs JRuby to work)[0m
+
+Warbler::Task
+[32m  should define a clean task for removing the war file[0m
+[32m  should define a make_gemjar task for storing gems in a jar file[0m
+[32m  should define a war task for bundling up everything[0m
+[32m  should define a jar task for creating the .war[0m
+[32m  should invoke feature tasks configured in config.features[0m
+[32m  should warn and skip unknown features configured in config.features[0m
+[32m  should define an executable task for embedding a server in the war file[0m
+[32m  should be able to define all tasks successfully[0m
+[32m  should compile any ruby files specified[0m
+[32m  should compile ruby 1.9 mode[0m
+[32m  should allow bytecode version in config[0m
+[32m  should delete .class files after finishing the jar[0m
+  where symlinks are available
+[32m    should process symlinks by storing a file in the archive that has the same contents as the source[0m
+[32m    should process directory symlinks by copying the whole subdirectory[0m
+  with a Bundler Gemfile
+[32m    includes gems from the Gemfile[0m
+
+Debug targets
+[32m  should print out lists of files[0m
+
+Warbler::Traits
+[32m  are ordered by fewer dependencies first[0m
+
+Warbler::War
+[32m  is deprecated, replace occurrences with Warbler::Jar[0m
+
+Warbler::WebServer::Artifact
+[32m  uses default (maven) local repository[0m
+[32m  detects a custom maven repository setting[0m
+/home/travis/build/jruby/warbler/spec/warbler/web_server_spec.rb:13: warning: class variable access from toplevel
+
+An error occurred in an after(:all) hook.
+  TypeError: can't convert Object into Hash
+  occurred at /home/travis/build/jruby/warbler/spec/warbler/web_server_spec.rb:13:in `update'
+
+
+Pending:
+[33m  Warbler::Jar with JBundler when locked down does not include the jbundler gem (as it is in the development group)[0m
+[36m    # needs JRuby to work[0m
+[36m    # ./spec/warbler/jbundler_spec.rb:70[0m
+[33m  Warbler::Jar with JBundler when locked down does not include the jbundler runtime config[0m
+[36m    # needs JRuby to work[0m
+[36m    # ./spec/warbler/jbundler_spec.rb:77[0m
+
+Failures:
+
+  1) Warbler::Jar in a war project collects gem files with dependencies
+     [31mFailure/Error:[0m [31mfile_list(%r{WEB-INF/gems/gems/json.*/lib/json.rb}).should_not be_empty[0m
+       [31mexpected empty? to return false, got true[0m
+[36m     # ./spec/warbler/jar_spec.rb:356:in `block (3 levels) in <top (required)>'[0m
+
+Deprecation Warnings:
+
+--------------------------------------------------------------------------------
+The semantics of `RSpec::Core::Pending#pending` are changing in
+RSpec 3.  In RSpec 2.x, it caused the example to be skipped. In
+RSpec 3, the rest of the example will still be run but is expected
+to fail, and will be marked as a failure (rather than as pending)
+if the example passes.
+
+Any passed block will no longer be executed. This feature is being
+removed since it was semantically inconsistent, and the behaviour it
+offered is being made available with the other ways of marking an
+example pending.
+
+To keep the same skip semantics, change `pending` to `skip`.
+Otherwise, if you want the new RSpec 3 behavior, you can safely
+ignore this warning and continue to upgrade to RSpec 3 without
+addressing it.
+
+Called from /home/travis/build/jruby/warbler/spec/warbler/jbundler_spec.rb:71:in `block (3 levels) in <top (required)>'.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+The semantics of `RSpec::Core::Pending#pending` are changing in
+RSpec 3.  In RSpec 2.x, it caused the example to be skipped. In
+RSpec 3, the rest of the example will still be run but is expected
+to fail, and will be marked as a failure (rather than as pending)
+if the example passes.
+
+Any passed block will no longer be executed. This feature is being
+removed since it was semantically inconsistent, and the behaviour it
+offered is being made available with the other ways of marking an
+example pending.
+
+To keep the same skip semantics, change `pending` to `skip`.
+Otherwise, if you want the new RSpec 3 behavior, you can safely
+ignore this warning and continue to upgrade to RSpec 3 without
+addressing it.
+
+Called from /home/travis/build/jruby/warbler/spec/warbler/jbundler_spec.rb:78:in `block (3 levels) in <top (required)>'.
+
+--------------------------------------------------------------------------------
+
+
+If you need more of the backtrace for any of these deprecations to
+identify where to make the necessary changes, you can configure
+`config.raise_errors_for_deprecations!`, and it will turn the
+deprecation warnings into errors, giving you the full backtrace.
+
+2 deprecation warnings total
+
+Finished in 2 minutes 13.7 seconds
+[31m174 examples, 1 failure, 2 pending[0m
+
+Failed examples:
+
+[31mrspec ./spec/warbler/jar_spec.rb:350[0m [36m# Warbler::Jar in a war project collects gem files with dependencies[0m
+/home/travis/.rvm/rubies/ruby-1.9.2-p330/bin/ruby -S rspec ./spec/warbler/application_spec.rb ./spec/warbler/bundler_spec.rb ./spec/warbler/config_spec.rb ./spec/warbler/gems_spec.rb ./spec/warbler/jar_spec.rb ./spec/warbler/jbundler_spec.rb ./spec/warbler/task_spec.rb ./spec/warbler/traits_spec.rb ./spec/warbler/war_spec.rb ./spec/warbler/web_server_spec.rb --color --format documentation failed
+
+travis_time:end:02642e20:start=1462023130513763695,finish=1462023267161227551,duration=136647463856[0K
+[31;1mThe command "bundle exec rake spec" exited with 1.[0m
+
+Done. Your build exited with 1.

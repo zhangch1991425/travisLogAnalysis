@@ -9,7 +9,7 @@ def extractDataFromDatabase
                             :encoding=>'utf8'
                                      )
 
-  result=client_server.query("Select name,user_name,stars from java_github_repository_1 where stars>=3000")
+  result=client_server.query("Select name,user_name,stars from java_github_repository_1 where stars>=50")
   File.open("/home/zc/project/travisLogAnalysis/data/databaseData.csv",'w') do |file|
     row=["username","reponame","stars"]
     file.write(row.to_csv)	 

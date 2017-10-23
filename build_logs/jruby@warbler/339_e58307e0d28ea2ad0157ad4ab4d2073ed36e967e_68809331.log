@@ -1,0 +1,191 @@
+Using worker: worker-linux-docker-572a9fbe.prod.travis-ci.org:travis-linux-1
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: ruby
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:25ed0e2c[0K$ git clone --depth=50 --branch=master git://github.com/jruby/warbler.git jruby/warbler
+Cloning into 'jruby/warbler'...
+remote: Counting objects: 578, done.[K
+remote: Compressing objects:   0% (1/380)   [Kremote: Compressing objects:   1% (4/380)   [Kremote: Compressing objects:   2% (8/380)   [Kremote: Compressing objects:   3% (12/380)   [Kremote: Compressing objects:   4% (16/380)   [Kremote: Compressing objects:   5% (19/380)   [Kremote: Compressing objects:   6% (23/380)   [Kremote: Compressing objects:   7% (27/380)   [Kremote: Compressing objects:   8% (31/380)   [Kremote: Compressing objects:   9% (35/380)   [Kremote: Compressing objects:  10% (38/380)   [Kremote: Compressing objects:  11% (42/380)   [Kremote: Compressing objects:  12% (46/380)   [Kremote: Compressing objects:  13% (50/380)   [Kremote: Compressing objects:  14% (54/380)   [Kremote: Compressing objects:  15% (57/380)   [Kremote: Compressing objects:  16% (61/380)   [Kremote: Compressing objects:  17% (65/380)   [Kremote: Compressing objects:  18% (69/380)   [Kremote: Compressing objects:  19% (73/380)   [Kremote: Compressing objects:  20% (76/380)   [Kremote: Compressing objects:  21% (80/380)   [Kremote: Compressing objects:  22% (84/380)   [Kremote: Compressing objects:  23% (88/380)   [Kremote: Compressing objects:  24% (92/380)   [Kremote: Compressing objects:  25% (95/380)   [Kremote: Compressing objects:  26% (99/380)   [Kremote: Compressing objects:  27% (103/380)   [Kremote: Compressing objects:  28% (107/380)   [Kremote: Compressing objects:  29% (111/380)   [Kremote: Compressing objects:  30% (114/380)   [Kremote: Compressing objects:  31% (118/380)   [Kremote: Compressing objects:  32% (122/380)   [Kremote: Compressing objects:  33% (126/380)   [Kremote: Compressing objects:  34% (130/380)   [Kremote: Compressing objects:  35% (133/380)   [Kremote: Compressing objects:  36% (137/380)   [Kremote: Compressing objects:  37% (141/380)   [Kremote: Compressing objects:  38% (145/380)   [Kremote: Compressing objects:  39% (149/380)   [Kremote: Compressing objects:  40% (152/380)   [Kremote: Compressing objects:  41% (156/380)   [Kremote: Compressing objects:  42% (160/380)   [Kremote: Compressing objects:  43% (164/380)   [Kremote: Compressing objects:  44% (168/380)   [Kremote: Compressing objects:  45% (171/380)   [Kremote: Compressing objects:  46% (175/380)   [Kremote: Compressing objects:  47% (179/380)   [Kremote: Compressing objects:  48% (183/380)   [Kremote: Compressing objects:  49% (187/380)   [Kremote: Compressing objects:  50% (190/380)   [Kremote: Compressing objects:  51% (194/380)   [Kremote: Compressing objects:  52% (198/380)   [Kremote: Compressing objects:  53% (202/380)   [Kremote: Compressing objects:  54% (206/380)   [Kremote: Compressing objects:  55% (209/380)   [Kremote: Compressing objects:  56% (213/380)   [Kremote: Compressing objects:  57% (217/380)   [Kremote: Compressing objects:  58% (221/380)   [Kremote: Compressing objects:  59% (225/380)   [Kremote: Compressing objects:  60% (228/380)   [Kremote: Compressing objects:  61% (232/380)   [Kremote: Compressing objects:  62% (236/380)   [Kremote: Compressing objects:  63% (240/380)   [Kremote: Compressing objects:  64% (244/380)   [Kremote: Compressing objects:  65% (247/380)   [Kremote: Compressing objects:  66% (251/380)   [Kremote: Compressing objects:  67% (255/380)   [Kremote: Compressing objects:  68% (259/380)   [Kremote: Compressing objects:  69% (263/380)   [Kremote: Compressing objects:  70% (266/380)   [Kremote: Compressing objects:  71% (270/380)   [Kremote: Compressing objects:  72% (274/380)   [Kremote: Compressing objects:  73% (278/380)   [Kremote: Compressing objects:  74% (282/380)   [Kremote: Compressing objects:  75% (285/380)   [Kremote: Compressing objects:  76% (289/380)   [Kremote: Compressing objects:  77% (293/380)   [Kremote: Compressing objects:  78% (297/380)   [Kremote: Compressing objects:  79% (301/380)   [Kremote: Compressing objects:  80% (304/380)   [Kremote: Compressing objects:  81% (308/380)   [Kremote: Compressing objects:  82% (312/380)   [Kremote: Compressing objects:  83% (316/380)   [Kremote: Compressing objects:  84% (320/380)   [Kremote: Compressing objects:  85% (323/380)   [Kremote: Compressing objects:  86% (327/380)   [Kremote: Compressing objects:  87% (331/380)   [Kremote: Compressing objects:  88% (335/380)   [Kremote: Compressing objects:  89% (339/380)   [Kremote: Compressing objects:  90% (342/380)   [Kremote: Compressing objects:  91% (346/380)   [Kremote: Compressing objects:  92% (350/380)   [Kremote: Compressing objects:  93% (354/380)   [Kremote: Compressing objects:  94% (358/380)   [Kremote: Compressing objects:  95% (361/380)   [Kremote: Compressing objects:  96% (365/380)   [Kremote: Compressing objects:  97% (369/380)   [Kremote: Compressing objects:  98% (373/380)   [Kremote: Compressing objects:  99% (377/380)   [Kremote: Compressing objects: 100% (380/380)   [Kremote: Compressing objects: 100% (380/380), done.[K
+Receiving objects:   0% (1/578)   Receiving objects:   1% (6/578)   Receiving objects:   2% (12/578)   Receiving objects:   3% (18/578)   Receiving objects:   4% (24/578)   Receiving objects:   5% (29/578)   Receiving objects:   6% (35/578)   Receiving objects:   7% (41/578)   Receiving objects:   8% (47/578)   Receiving objects:   9% (53/578)   Receiving objects:  10% (58/578)   Receiving objects:  11% (64/578)   Receiving objects:  12% (70/578)   Receiving objects:  13% (76/578)   Receiving objects:  14% (81/578)   Receiving objects:  15% (87/578)   Receiving objects:  16% (93/578)   Receiving objects:  17% (99/578)   Receiving objects:  18% (105/578)   Receiving objects:  19% (110/578)   Receiving objects:  20% (116/578)   Receiving objects:  21% (122/578)   Receiving objects:  22% (128/578)   Receiving objects:  23% (133/578)   Receiving objects:  24% (139/578)   Receiving objects:  25% (145/578)   Receiving objects:  26% (151/578)   Receiving objects:  27% (157/578)   Receiving objects:  28% (162/578)   Receiving objects:  29% (168/578)   Receiving objects:  30% (174/578)   Receiving objects:  31% (180/578)   Receiving objects:  32% (185/578)   Receiving objects:  33% (191/578)   Receiving objects:  34% (197/578)   Receiving objects:  35% (203/578)   Receiving objects:  36% (209/578)   Receiving objects:  37% (214/578)   Receiving objects:  38% (220/578)   Receiving objects:  39% (226/578)   Receiving objects:  40% (232/578)   Receiving objects:  41% (237/578)   Receiving objects:  42% (243/578)   Receiving objects:  43% (249/578)   Receiving objects:  44% (255/578)   Receiving objects:  45% (261/578)   Receiving objects:  46% (266/578)   Receiving objects:  47% (272/578)   Receiving objects:  48% (278/578)   Receiving objects:  49% (284/578)   Receiving objects:  50% (289/578)   Receiving objects:  51% (295/578)   Receiving objects:  52% (301/578)   Receiving objects:  53% (307/578)   Receiving objects:  54% (313/578)   Receiving objects:  55% (318/578)   Receiving objects:  56% (324/578)   Receiving objects:  57% (330/578)   Receiving objects:  58% (336/578)   Receiving objects:  59% (342/578)   Receiving objects:  60% (347/578)   Receiving objects:  61% (353/578)   Receiving objects:  62% (359/578)   Receiving objects:  63% (365/578)   Receiving objects:  64% (370/578)   Receiving objects:  65% (376/578)   Receiving objects:  66% (382/578)   Receiving objects:  67% (388/578)   Receiving objects:  68% (394/578)   Receiving objects:  69% (399/578)   Receiving objects:  70% (405/578)   Receiving objects:  71% (411/578)   Receiving objects:  72% (417/578)   Receiving objects:  73% (422/578)   Receiving objects:  74% (428/578)   Receiving objects:  75% (434/578)   Receiving objects:  76% (440/578)   Receiving objects:  77% (446/578)   Receiving objects:  78% (451/578)   Receiving objects:  79% (457/578)   Receiving objects:  80% (463/578)   Receiving objects:  81% (469/578)   Receiving objects:  82% (474/578)   Receiving objects:  83% (480/578)   Receiving objects:  84% (486/578)   Receiving objects:  85% (492/578)   Receiving objects:  86% (498/578)   Receiving objects:  87% (503/578)   Receiving objects:  88% (509/578)   Receiving objects:  89% (515/578)   Receiving objects:  90% (521/578)   Receiving objects:  91% (526/578)   Receiving objects:  92% (532/578)   Receiving objects:  93% (538/578)   Receiving objects:  94% (544/578)   Receiving objects:  95% (550/578)   Receiving objects:  96% (555/578)   remote: Total 578 (delta 187), reused 459 (delta 124), pack-reused 0[K
+Receiving objects:  97% (561/578)   Receiving objects:  98% (567/578)   Receiving objects:  99% (573/578)   Receiving objects: 100% (578/578)   Receiving objects: 100% (578/578), 384.17 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/187)   Resolving deltas:   3% (7/187)   Resolving deltas:   4% (8/187)   Resolving deltas:   5% (10/187)   Resolving deltas:  33% (63/187)   Resolving deltas:  40% (75/187)   Resolving deltas:  41% (78/187)   Resolving deltas:  47% (88/187)   Resolving deltas:  48% (90/187)   Resolving deltas:  51% (97/187)   Resolving deltas:  52% (98/187)   Resolving deltas:  54% (101/187)   Resolving deltas:  55% (103/187)   Resolving deltas:  58% (110/187)   Resolving deltas:  61% (115/187)   Resolving deltas:  62% (116/187)   Resolving deltas:  63% (119/187)   Resolving deltas:  66% (125/187)   Resolving deltas:  67% (126/187)   Resolving deltas:  68% (128/187)   Resolving deltas:  69% (130/187)   Resolving deltas:  71% (133/187)   Resolving deltas:  72% (136/187)   Resolving deltas:  75% (142/187)   Resolving deltas:  76% (143/187)   Resolving deltas:  77% (144/187)   Resolving deltas:  78% (146/187)   Resolving deltas:  79% (149/187)   Resolving deltas:  80% (150/187)   Resolving deltas:  81% (152/187)   Resolving deltas:  82% (155/187)   Resolving deltas:  83% (156/187)   Resolving deltas:  84% (158/187)   Resolving deltas:  85% (160/187)   Resolving deltas:  89% (168/187)   Resolving deltas:  91% (171/187)   Resolving deltas:  92% (173/187)   Resolving deltas:  95% (179/187)   Resolving deltas:  96% (181/187)   Resolving deltas:  97% (183/187)   Resolving deltas:  98% (184/187)   Resolving deltas:  99% (186/187)   Resolving deltas: 100% (187/187)   Resolving deltas: 100% (187/187), done.
+Checking connectivity... done.
+travis_time:end:25ed0e2c:start=1435584916393917107,finish=1435584916571127920,duration=177210813[0K$ cd jruby/warbler
+$ git checkout -qf e58307e0d28ea2ad0157ad4ab4d2073ed36e967e
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export JRUBY_OPTS=""
+$ export BUNDLER_VERSION="~> 1.9.9"
+
+travis_fold:start:rvm[0K[33;1mSetting up latest jruby-head[0m
+travis_time:start:0374c8b0[0K$ rvm get stable
+[32mDownloading https://get.rvm.io[0m
+[32mDownloading https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer.asc[0m
+[32mVerifying /home/travis/.rvm/archives/rvm-installer.asc[0m
+gpg: Signature made Tue 14 Apr 2015 12:05:41 AM UTC using RSA key ID BF04FF17
+gpg: Good signature from "Michal Papis (RVM signing) <mpapis@gmail.com>"
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 409B 6B17 96C2 7546 2A17  0311 3804 BB82 D39D C0E3
+     Subkey fingerprint: 62C9 E5F4 DA30 0D94 AC36  166B E206 C29F BF04 FF17
+[32mGPG verified '/home/travis/.rvm/archives/rvm-installer'[0m
+Downloading https://github.com/rvm/rvm/archive/1.26.11.tar.gz
+Downloading https://github.com/rvm/rvm/releases/download/1.26.11/1.26.11.tar.gz.asc
+gpg: Signature made Mon 30 Mar 2015 09:52:13 PM UTC using RSA key ID BF04FF17
+gpg: Good signature from "Michal Papis (RVM signing) <mpapis@gmail.com>"
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 409B 6B17 96C2 7546 2A17  0311 3804 BB82 D39D C0E3
+     Subkey fingerprint: 62C9 E5F4 DA30 0D94 AC36  166B E206 C29F BF04 FF17
+GPG verified '/home/travis/.rvm/archives/rvm-1.26.11.tgz'
+[32m
+Upgrading the RVM installation in /home/travis/.rvm/[0m
+chown: changing ownership of `/home/travis/.rvmrc': Operation not permitted
+[32m    RVM PATH line found in /home/travis/.mkshrc /home/travis/.profile /home/travis/.bashrc /home/travis/.zshrc.[0m
+[32m    RVM sourcing line found in /home/travis/.bashrc.[0m
+[33m    RVM sourcing line not found for Zsh, rerun this command with '--auto-dotfiles' flag to fix it.[0m
+[32mUpgrade of RVM in /home/travis/.rvm/ is complete.[0m
+
+# travis,
+#
+#   Thank you for using RVM!
+#   We sincerely hope that RVM helps to make your life easier and more enjoyable!!!
+#
+# ~Wayne, Michal & team.
+
+[33mIn case of problems: [32mhttp://rvm.io/help [33mand [32mhttps://twitter.com/rvm_io[0m
+
+Upgrade Notes:
+
+[31m
+  * WARNING: your RVM loading script `/etc/profile.d/rvm.sh` is deprecated
+    and causes you to have `umask g+w` set in your shell,
+    run `rvm get head --auto-dotfiles` again to fix your scripts.
+[0m
+  * No new notes to display.
+
+RVM reloaded!
+travis_time:end:0374c8b0:start=1435584921034097770,finish=1435584935450021989,duration=14415924219[0K$ export ruby_alias=`rvm alias show jruby-head 2>/dev/null`
+travis_time:start:1e0edd20[0K$ rvm alias delete jruby-head
+[32mDeleting alias: jruby-head[0m|/-\|/-\|.-\|/-\|/-.|/.
+travis_time:end:1e0edd20:start=1435584935602921189,finish=1435584935777906514,duration=174985325[0Ktravis_time:start:00788eea[0K$ rvm remove ${ruby_alias:-jruby-head} --gems
+chown: changing ownership of `/home/travis/.rvm/user/installs': Operation not permitted
+[32mjruby-head - #already gone[0m
+travis_time:end:00788eea:start=1435584935782581236,finish=1435584936144682290,duration=362101054[0Ktravis_time:start:021c999d[0K$ rvm remove jruby-head --gems --fuzzy
+[32mjruby-head - #already gone[0m
+travis_time:end:021c999d:start=1435584936148625056,finish=1435584936522969280,duration=374344224[0Ktravis_time:start:1c42c516[0K$ rvm install jruby-head --binary
+[32mSearching for binary rubies, this might take some time.[0m
+[32mFound remote file https://s3.amazonaws.com/travis-rubies/binaries/ubuntu/12.04/x86_64/jruby-head.tar.gz[0m
+[32mChecking requirements for ubuntu.[0m
+[32mRequirements installation successful.[0m
+[32mjruby-head - #configure[0m
+[32mjruby-head - #download[0m
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 69 65.1M   69 45.3M    0     0  48.3M      0  0:00:01 --:--:--  0:00:01 48.4M100 65.1M  100 65.1M    0     0  49.5M      0  0:00:01  0:00:01 --:--:-- 49.6M
+[33mNo checksum for downloaded archive, recording checksum in user configuration.[0m
+[32mjruby-head - #validate archive[0m
+[32mjruby-head - #extract[0m
+[32mjruby-head - #validate binary[0m
+[32mjruby-head - #setup[0m
+grep: /home/travis/.rvm/rubies/jruby-head/lib/ruby/truffle/truffle/rbconfig.rb
+/home/travis/.rvm/rubies/jruby-head/lib/target/classes/META-INF/jruby.home/lib/ruby/truffle/truffle/rbconfig.rb: No such file or directory
+[32mjruby-head - #gemset created /home/travis/.rvm/gems/jruby-head@global[0m
+[32mjruby-head - #importing gemset /home/travis/.rvm/gemsets/jruby/global.gems[0m|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|.
+[32mjruby-head - #generating global wrappers[0m|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-.
+[32mjruby-head - #uninstalling gem rubygems-bundler-1.4.4[0m|/.
+[32mjruby-head - #gemset created /home/travis/.rvm/gems/jruby-head[0m
+[32mjruby-head - #importing gemset /home/travis/.rvm/gemsets/default.gems[0m|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|.
+[32mjruby-head - #generating default wrappers[0m|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\|/-.|/-\|/-\|.-\|/-\.
+travis_time:end:1c42c516:start=1435584936526975108,finish=1435585063897928742,duration=127370953634[0Ktravis_time:start:06985467[0K$ rvm use jruby-head
+[32mUsing /home/travis/.rvm/gems/jruby-head[0m
+travis_time:end:06985467:start=1435585063902207946,finish=1435585064025056461,duration=122848515[0Ktravis_fold:end:rvm[0K$ export BUNDLE_GEMFILE=$PWD/Gemfile
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+$ ruby --version
+jruby 9.0.0.0-SNAPSHOT (2.2.2) 2015-06-29 9295b2f Java HotSpot(TM) 64-Bit Server VM 24.76-b04 on 1.7.0_76-b13 +jit [linux-amd64]
+$ rvm --version
+rvm 1.26.11 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+$ bundle --version
+Bundler version 1.6.9
+$ gem --version
+2.4.8
+travis_fold:start:before_install.1[0Ktravis_time:start:0c41f8a6[0K$ ([ "$BUNDLER_VERSION" ] && gem uninstall bundler --all --force && gem install bundler -v "$BUNDLER_VERSION") || true
+Remove executables:
+	bundle, bundler
+
+in addition to the gem? [Yn]  
+
+No output has been received in the last 10 minutes, this potentially indicates a stalled build or something wrong with the build itself.
+
+The build has been terminated
+

@@ -1,0 +1,1378 @@
+Using worker: worker-linux-f25aadab-2.bb.travis-ci.org:travis-linux-12
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: ruby
+[34m[1mBuild image provisioning date and time[0m
+Wed Feb  4 18:22:50 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+2.6.32-042stab090.5
+[34m[1mCookbooks Version[0m
+23bb455 https://github.com/travis-ci/travis-cookbooks/tree/23bb455
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0084e0d8[0K$ git clone --depth=50 git://github.com/jruby/warbler.git jruby/warbler
+Cloning into 'jruby/warbler'...
+remote: Counting objects: 615, done.[K
+remote: Compressing objects:   0% (1/427)   [Kremote: Compressing objects:   1% (5/427)   [Kremote: Compressing objects:   2% (9/427)   [Kremote: Compressing objects:   3% (13/427)   [Kremote: Compressing objects:   4% (18/427)   [Kremote: Compressing objects:   5% (22/427)   [Kremote: Compressing objects:   6% (26/427)   [Kremote: Compressing objects:   7% (30/427)   [Kremote: Compressing objects:   8% (35/427)   [Kremote: Compressing objects:   9% (39/427)   [Kremote: Compressing objects:  10% (43/427)   [Kremote: Compressing objects:  11% (47/427)   [Kremote: Compressing objects:  12% (52/427)   [Kremote: Compressing objects:  13% (56/427)   [Kremote: Compressing objects:  14% (60/427)   [Kremote: Compressing objects:  15% (65/427)   [Kremote: Compressing objects:  16% (69/427)   [Kremote: Compressing objects:  17% (73/427)   [Kremote: Compressing objects:  18% (77/427)   [Kremote: Compressing objects:  19% (82/427)   [Kremote: Compressing objects:  20% (86/427)   [Kremote: Compressing objects:  21% (90/427)   [Kremote: Compressing objects:  22% (94/427)   [Kremote: Compressing objects:  23% (99/427)   [Kremote: Compressing objects:  24% (103/427)   [Kremote: Compressing objects:  25% (107/427)   [Kremote: Compressing objects:  26% (112/427)   [Kremote: Compressing objects:  27% (116/427)   [Kremote: Compressing objects:  28% (120/427)   [Kremote: Compressing objects:  29% (124/427)   [Kremote: Compressing objects:  30% (129/427)   [Kremote: Compressing objects:  31% (133/427)   [Kremote: Compressing objects:  32% (137/427)   [Kremote: Compressing objects:  33% (141/427)   [Kremote: Compressing objects:  34% (146/427)   [Kremote: Compressing objects:  35% (150/427)   [Kremote: Compressing objects:  36% (154/427)   [Kremote: Compressing objects:  37% (158/427)   [Kremote: Compressing objects:  38% (163/427)   [Kremote: Compressing objects:  39% (167/427)   [Kremote: Compressing objects:  40% (171/427)   [Kremote: Compressing objects:  41% (176/427)   [Kremote: Compressing objects:  42% (180/427)   [Kremote: Compressing objects:  43% (184/427)   [Kremote: Compressing objects:  44% (188/427)   [Kremote: Compressing objects:  45% (193/427)   [Kremote: Compressing objects:  46% (197/427)   [Kremote: Compressing objects:  47% (201/427)   [Kremote: Compressing objects:  48% (205/427)   [Kremote: Compressing objects:  49% (210/427)   [Kremote: Compressing objects:  50% (214/427)   [Kremote: Compressing objects:  51% (218/427)   [Kremote: Compressing objects:  52% (223/427)   [Kremote: Compressing objects:  53% (227/427)   [Kremote: Compressing objects:  54% (231/427)   [Kremote: Compressing objects:  55% (235/427)   [Kremote: Compressing objects:  56% (240/427)   [Kremote: Compressing objects:  57% (244/427)   [Kremote: Compressing objects:  58% (248/427)   [Kremote: Compressing objects:  59% (252/427)   [Kremote: Compressing objects:  60% (257/427)   [Kremote: Compressing objects:  61% (261/427)   [Kremote: Compressing objects:  62% (265/427)   [Kremote: Compressing objects:  63% (270/427)   [Kremote: Compressing objects:  64% (274/427)   [Kremote: Compressing objects:  65% (278/427)   [Kremote: Compressing objects:  66% (282/427)   [Kremote: Compressing objects:  67% (287/427)   [Kremote: Compressing objects:  68% (291/427)   [Kremote: Compressing objects:  69% (295/427)   [Kremote: Compressing objects:  70% (299/427)   [Kremote: Compressing objects:  71% (304/427)   [Kremote: Compressing objects:  72% (308/427)   [Kremote: Compressing objects:  73% (312/427)   [Kremote: Compressing objects:  74% (316/427)   [Kremote: Compressing objects:  75% (321/427)   [Kremote: Compressing objects:  76% (325/427)   [Kremote: Compressing objects:  77% (329/427)   [Kremote: Compressing objects:  78% (334/427)   [Kremote: Compressing objects:  79% (338/427)   [Kremote: Compressing objects:  80% (342/427)   [Kremote: Compressing objects:  81% (346/427)   [Kremote: Compressing objects:  82% (351/427)   [Kremote: Compressing objects:  83% (355/427)   [Kremote: Compressing objects:  84% (359/427)   [Kremote: Compressing objects:  85% (363/427)   [Kremote: Compressing objects:  86% (368/427)   [Kremote: Compressing objects:  87% (372/427)   [Kremote: Compressing objects:  88% (376/427)   [Kremote: Compressing objects:  89% (381/427)   [Kremote: Compressing objects:  90% (385/427)   [Kremote: Compressing objects:  91% (389/427)   [Kremote: Compressing objects:  92% (393/427)   [Kremote: Compressing objects:  93% (398/427)   [Kremote: Compressing objects:  94% (402/427)   [Kremote: Compressing objects:  95% (406/427)   [Kremote: Compressing objects:  96% (410/427)   [Kremote: Compressing objects:  97% (415/427)   [Kremote: Compressing objects:  98% (419/427)   [Kremote: Compressing objects:  99% (423/427)   [Kremote: Compressing objects: 100% (427/427)   [Kremote: Compressing objects: 100% (427/427), done.[K
+Receiving objects:   0% (1/615)   Receiving objects:   1% (7/615)   Receiving objects:   2% (13/615)   Receiving objects:   3% (19/615)   Receiving objects:   4% (25/615)   Receiving objects:   5% (31/615)   Receiving objects:   6% (37/615)   Receiving objects:   7% (44/615)   Receiving objects:   8% (50/615)   Receiving objects:   9% (56/615)   Receiving objects:  10% (62/615)   Receiving objects:  11% (68/615)   Receiving objects:  12% (74/615)   Receiving objects:  13% (80/615)   Receiving objects:  14% (87/615)   Receiving objects:  15% (93/615)   Receiving objects:  16% (99/615)   Receiving objects:  17% (105/615)   Receiving objects:  18% (111/615)   Receiving objects:  19% (117/615)   Receiving objects:  20% (123/615)   Receiving objects:  21% (130/615)   Receiving objects:  22% (136/615)   Receiving objects:  23% (142/615)   Receiving objects:  24% (148/615)   Receiving objects:  25% (154/615)   Receiving objects:  26% (160/615)   Receiving objects:  27% (167/615)   Receiving objects:  28% (173/615)   Receiving objects:  29% (179/615)   Receiving objects:  30% (185/615)   Receiving objects:  31% (191/615)   Receiving objects:  32% (197/615)   Receiving objects:  33% (203/615)   Receiving objects:  34% (210/615)   Receiving objects:  35% (216/615)   Receiving objects:  36% (222/615)   Receiving objects:  37% (228/615)   Receiving objects:  38% (234/615)   Receiving objects:  39% (240/615)   Receiving objects:  40% (246/615)   Receiving objects:  41% (253/615)   Receiving objects:  42% (259/615)   Receiving objects:  43% (265/615)   Receiving objects:  44% (271/615)   Receiving objects:  45% (277/615)   Receiving objects:  46% (283/615)   Receiving objects:  47% (290/615)   Receiving objects:  48% (296/615)   Receiving objects:  49% (302/615)   Receiving objects:  50% (308/615)   Receiving objects:  51% (314/615)   Receiving objects:  52% (320/615)   Receiving objects:  53% (326/615)   Receiving objects:  54% (333/615)   Receiving objects:  55% (339/615)   Receiving objects:  56% (345/615)   Receiving objects:  57% (351/615)   Receiving objects:  58% (357/615)   Receiving objects:  59% (363/615)   Receiving objects:  60% (369/615)   Receiving objects:  61% (376/615)   Receiving objects:  62% (382/615)   Receiving objects:  63% (388/615)   Receiving objects:  64% (394/615)   Receiving objects:  65% (400/615)   Receiving objects:  66% (406/615)   Receiving objects:  67% (413/615)   Receiving objects:  68% (419/615)   Receiving objects:  69% (425/615)   Receiving objects:  70% (431/615)   Receiving objects:  71% (437/615)   Receiving objects:  72% (443/615)   Receiving objects:  73% (449/615)   Receiving objects:  74% (456/615)   Receiving objects:  75% (462/615)   Receiving objects:  76% (468/615)   Receiving objects:  77% (474/615)   Receiving objects:  78% (480/615)   Receiving objects:  79% (486/615)   Receiving objects:  80% (492/615)   Receiving objects:  81% (499/615)   Receiving objects:  82% (505/615)   Receiving objects:  83% (511/615)   Receiving objects:  84% (517/615)   Receiving objects:  85% (523/615)   Receiving objects:  86% (529/615)   Receiving objects:  87% (536/615)   remote: Total 615 (delta 205), reused 462 (delta 114), pack-reused 0[K
+Receiving objects:  88% (542/615)   Receiving objects:  89% (548/615)   Receiving objects:  90% (554/615)   Receiving objects:  91% (560/615)   Receiving objects:  92% (566/615)   Receiving objects:  93% (572/615)   Receiving objects:  94% (579/615)   Receiving objects:  95% (585/615)   Receiving objects:  96% (591/615)   Receiving objects:  97% (597/615)   Receiving objects:  98% (603/615)   Receiving objects:  99% (609/615)   Receiving objects: 100% (615/615)   Receiving objects: 100% (615/615), 377.71 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/205)   Resolving deltas:   2% (5/205)   Resolving deltas:   3% (7/205)   Resolving deltas:   4% (10/205)   Resolving deltas:   5% (11/205)   Resolving deltas:  12% (25/205)   Resolving deltas:  16% (34/205)   Resolving deltas:  19% (40/205)   Resolving deltas:  20% (41/205)   Resolving deltas:  39% (80/205)   Resolving deltas:  40% (84/205)   Resolving deltas:  41% (85/205)   Resolving deltas:  42% (87/205)   Resolving deltas:  48% (99/205)   Resolving deltas:  50% (104/205)   Resolving deltas:  52% (107/205)   Resolving deltas:  58% (120/205)   Resolving deltas:  60% (124/205)   Resolving deltas:  63% (131/205)   Resolving deltas:  64% (133/205)   Resolving deltas:  66% (136/205)   Resolving deltas:  68% (140/205)   Resolving deltas:  69% (142/205)   Resolving deltas:  70% (144/205)   Resolving deltas:  71% (146/205)   Resolving deltas:  74% (152/205)   Resolving deltas:  75% (154/205)   Resolving deltas:  77% (158/205)   Resolving deltas:  78% (161/205)   Resolving deltas:  79% (163/205)   Resolving deltas:  80% (164/205)   Resolving deltas:  84% (173/205)   Resolving deltas:  86% (177/205)   Resolving deltas:  88% (181/205)   Resolving deltas:  89% (183/205)   Resolving deltas:  90% (185/205)   Resolving deltas:  92% (189/205)   Resolving deltas:  93% (191/205)   Resolving deltas:  94% (193/205)   Resolving deltas:  95% (195/205)   Resolving deltas:  96% (198/205)   Resolving deltas:  97% (199/205)   Resolving deltas:  98% (201/205)   Resolving deltas:  99% (203/205)   Resolving deltas: 100% (205/205)   Resolving deltas: 100% (205/205), done.
+Checking connectivity... done.
+travis_time:end:0084e0d8:start=1433005602424124656,finish=1433005602601107068,duration=176982412[0K$ cd jruby/warbler
+travis_time:start:021975c3[0K$ git fetch origin +refs/pull/327/merge:
+remote: Counting objects: 6, done.[K
+remote: Compressing objects:  25% (1/4)   [Kremote: Compressing objects:  50% (2/4)   [Kremote: Compressing objects:  75% (3/4)   [Kremote: Compressing objects: 100% (4/4)   [Kremote: Compressing objects: 100% (4/4), done.[K
+remote: Total 6 (delta 3), reused 5 (delta 2), pack-reused 0[K
+Unpacking objects:  16% (1/6)   Unpacking objects:  33% (2/6)   Unpacking objects:  50% (3/6)   Unpacking objects:  66% (4/6)   Unpacking objects:  83% (5/6)   Unpacking objects: 100% (6/6)   Unpacking objects: 100% (6/6), done.
+From git://github.com/jruby/warbler
+ * branch            refs/pull/327/merge -> FETCH_HEAD
+travis_time:end:021975c3:start=1433005602608554065,finish=1433005602735840463,duration=127286398[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0Ktravis_fold:start:rvm[0Ktravis_time:start:0595849e[0K$ rvm use 1.9.2 --install --binary --fuzzy
+[32mUsing /home/travis/.rvm/gems/ruby-1.9.2-p330[0m
+travis_time:end:0595849e:start=1433005602768245102,finish=1433005603001724490,duration=233479388[0Ktravis_fold:end:rvm[0K$ export BUNDLE_GEMFILE=$PWD/Gemfile
+$ ruby --version
+ruby 1.9.2p330 (2014-08-07 revision 47094) [x86_64-linux]
+$ rvm --version
+rvm 1.26.10 (latest-minor) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+$ bundle --version
+Bundler version 1.7.12
+$ gem --version
+2.4.5
+travis_fold:start:before_install.1[0Ktravis_time:start:13fcaa7a[0K$ sudo apt-get update && sudo apt-get install git
+0% [Working]            Hit http://us.archive.ubuntu.com precise Release.gpg
+            7% [Waiting for headers] [Connecting to ppa.launchpad.net (91.189.95.83)] [Wait                                                                               Get:1 http://us.archive.ubuntu.com precise-updates Release.gpg [198 B]
+94% [1 Release.gpg 198 B/198 B 100%] [Waiting for headers] [Connecting to ppa.l94% [Waiting for headers] [Connecting to ppa.launchpad.net (91.189.95.83)] [Wai                                                                               Get:2 http://us.archive.ubuntu.com precise-backports Release.gpg [198 B]
+97% [2 Release.gpg 198 B/198 B 100%] [Waiting for headers] [Connecting to ppa.l97% [Waiting for headers] [Connecting to ppa.launchpad.net (91.189.95.83)] [Wai                                                                               Get:3 http://security.ubuntu.com precise-security Release.gpg [198 B]
+98% [Waiting for headers] [3 Release.gpg 198 B/198 B 100%] [Connecting to ppa.l98% [Waiting for headers] [Connecting to ppa.launchpad.net (91.189.95.83)] [Wai                                                                               Get:4 http://downloads-distro.mongodb.org dist Release.gpg [490 B]
+99% [Waiting for headers] [Waiting for headers] [Connecting to ppa.launchpad.ne                                                                               Get:5 http://downloads-distro.mongodb.org dist Release [2,040 B]
+100% [Waiting for headers] [Waiting for headers] [Connecting to ppa.launchpad.n100% [Waiting for headers] [Waiting for headers] [Connecting to ppa.launchpad.n100% [5 Release gpgv 2,040 B] [Waiting for headers] [Waiting for headers] [Conn                                                                               Hit http://us.archive.ubuntu.com precise Release
+100% [5 Release gpgv 2,040 B] [Waiting for headers] [Connecting to ppa.launchpa                                                                               Get:6 http://us.archive.ubuntu.com precise-updates Release [196 kB]
+5% [5 Release gpgv 2,040 B] [6 Release 6,789 B/196 kB 3%] [Waiting for headers]                                                                               Get:7 http://security.ubuntu.com precise-security Release [54.3 kB]
+10% [5 Release gpgv 2,040 B] [6 Release 8,217 B/196 kB 4%] [7 Release 13.9 kB/510% [6 Release 8,217 B/196 kB 4%] [7 Release 13.9 kB/54.3 kB 26%] [Connecting t10% [Release gpgv 49.6 kB] [6 Release 8,217 B/196 kB 4%] [7 Release 13.9 kB/54.10% [6 Release 8,217 B/196 kB 4%] [7 Release 13.9 kB/54.3 kB 26%] [Connecting t                                                                               Get:8 http://downloads-distro.mongodb.org dist/10gen amd64 Packages [29.1 kB]
+14% [6 Release 8,217 B/196 kB 4%] [7 Release 13.9 kB/54.3 kB 26%] [Connecting t19% [6 Release 8,217 B/196 kB 4%] [7 Release 13.9 kB/54.3 kB 26%] [Connecting t25% [8 Packages gzip 0 B] [6 Release 25.4 kB/196 kB 13%] [7 Release 13.9 kB/54.                                                                               Get:9 http://downloads-distro.mongodb.org dist/10gen i386 Packages [28.8 kB]
+34% [8 Packages gzip 0 B] [6 Release 25.4 kB/196 kB 13%] [7 Release 33.9 kB/54.39% [8 Packages gzip 0 B] [6 Release 25.4 kB/196 kB 13%] [7 Release 33.9 kB/54.                                                                               Ign http://downloads-distro.mongodb.org dist/10gen TranslationIndex
+39% [8 Packages gzip 0 B] [6 Release 25.4 kB/196 kB 13%] [7 Release 33.9 kB/54.54% [8 Packages gzip 0 B] [6 Release 51.1 kB/196 kB 26%] [Connecting to ppa.lau54% [8 Packages gzip 0 B] [7 Release gpgv 54.3 kB] [6 Release 51.1 kB/196 kB 2654% [7 Release gpgv 54.3 kB] [6 Release 51.1 kB/196 kB 26%] [Connecting to ppa.54% [9 Packages gzip 0 B] [7 Release gpgv 54.3 kB] [6 Release 51.1 kB/196 kB 2654% [9 Packages gzip 0 B] [6 Release 51.1 kB/196 kB 26%] [Connecting to ppa.lau62% [6 Release 76.8 kB/196 kB 39%] [Waiting for headers] [Waiting for headers]                                                                                Get:10 http://security.ubuntu.com precise-security/main Sources [130 kB]
+46% [6 Release 76.8 kB/196 kB 39%] [10 Sources 9,964 B/130 kB 8%] [Waiting for                                                                                Ign http://downloads-distro.mongodb.org dist/10gen Translation-en_US
+66% [6 Release 111 kB/196 kB 57%] [10 Sources 62.4 kB/130 kB 48%] [Waiting for                                                                                Ign http://downloads-distro.mongodb.org dist/10gen Translation-en
+70% [6 Release 129 kB/196 kB 66%] [10 Sources 62.4 kB/130 kB 48%] [Waiting for 92% [Waiting for headers] [10 Sources 96.7 kB/130 kB 75%] [Waiting for headers]                                                                               Get:11 http://us.archive.ubuntu.com precise-backports Release [54.3 kB]
+84% [11 Release 9,413 B/54.3 kB 17%] [10 Sources 96.7 kB/130 kB 75%] [Waiting f84% [6 Release gpgv 196 kB] [11 Release 9,413 B/54.3 kB 17%] [10 Sources 96.7 k91% [11 Release 9,413 B/54.3 kB 17%] [10 Sources 130 kB/130 kB 100%] [Waiting f100% [11 Release 54.3 kB/54.3 kB 100%] [Waiting for headers] [Connecting to apt                                                                               Hit http://us.archive.ubuntu.com precise/main Sources
+                                                                               Hit http://us.archive.ubuntu.com precise/restricted Sources
+                                                                               Hit http://us.archive.ubuntu.com precise/universe Sources
+100% [Waiting for headers] [Waiting for headers] [Connecting to apt.postgresql.                                                                               Hit http://us.archive.ubuntu.com precise/multiverse Sources
+                                                                               Hit http://us.archive.ubuntu.com precise/main amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/restricted amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/universe amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/multiverse amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/main i386 Packages
+100% [10 Sources bzip2 0 B] [Waiting for headers] [Connecting to apt.postgresql100% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [Connectin100% [Sources 4,356 kB] [10 Sources bzip2 0 B] [11 Release gpgv 54.3 kB] [Waiti100% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:12 http://security.ubuntu.com precise-security/restricted Sources [3,759 B]
+100% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [12 Source100% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:13 http://security.ubuntu.com precise-security/universe Sources [41.8 kB]
+92% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [13 Sources                                                                               Hit http://us.archive.ubuntu.com precise/restricted i386 Packages
+92% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [13 Sources                                                                               Hit http://us.archive.ubuntu.com precise/universe i386 Packages
+96% [Sources 4,356 kB] [10 Sources bzip2 0 B] [13 Sources 22.5 kB/41.8 kB 54%]                                                                                Hit http://us.archive.ubuntu.com precise/multiverse i386 Packages
+96% [Sources 4,356 kB] [10 Sources bzip2 0 B] [13 Sources 22.5 kB/41.8 kB 54%]                                                                                Hit http://us.archive.ubuntu.com precise/main TranslationIndex
+100% [Sources 4,356 kB] [10 Sources bzip2 0 B] [13 Sources 41.8 kB/41.8 kB 100%                                                                               Hit http://us.archive.ubuntu.com precise/multiverse TranslationIndex
+100% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [13 Source                                                                               Get:14 http://security.ubuntu.com precise-security/multiverse Sources [2,198 B]
+                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+100% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [14 Source                                                                               Hit http://us.archive.ubuntu.com precise/restricted TranslationIndex
+                                                                               Get:15 http://security.ubuntu.com precise-security/main amd64 Packages [515 kB]
+52% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [15 Package                                                                               Get:16 http://ppa.launchpad.net precise Release.gpg [316 B]
+                                                                               Get:17 http://ppa.launchpad.net precise Release.gpg [316 B]
+                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+                                                                               Get:18 http://ppa.launchpad.net precise Release.gpg [316 B]
+52% [Sources 4,356 kB] [10 Sources bzip2 0 B] [Waiting for headers] [15 Package                                                                               Hit http://us.archive.ubuntu.com precise/universe TranslationIndex
+52% [Sources 4,356 kB] [10 Sources bzip2 0 B] [15 Packages 10.5 kB/515 kB 2%] [                                                                               Get:19 http://us.archive.ubuntu.com precise-updates/main Sources [489 kB]
+36% [Sources 4,356 kB] [10 Sources bzip2 0 B] [19 Sources 5,326 B/489 kB 1%] [144% [Sources 4,356 kB] [19 Sources 69.6 kB/489 kB 14%] [15 Packages 71.9 kB/51544% [Sources 4,356 kB] [12 Sources bzip2 0 B] [19 Sources 69.6 kB/489 kB 14%] [44% [Sources 4,356 kB] [19 Sources 69.6 kB/489 kB 14%] [15 Packages 71.9 kB/51544% [Sources 4,356 kB] [13 Sources bzip2 0 B] [19 Sources 69.6 kB/489 kB 14%] [56% [Sources 4,356 kB] [19 Sources 174 kB/489 kB 36%] [15 Packages 143 kB/515 k56% [Sources 4,356 kB] [14 Sources bzip2 0 B] [19 Sources 174 kB/489 kB 36%] [156% [Sources 4,356 kB] [19 Sources 174 kB/489 kB 36%] [15 Packages 143 kB/515 k94% [Sources 4,356 kB] [15 Packages 419 kB/515 kB 81%] [Waiting for headers] [C                                                                               Get:20 http://us.archive.ubuntu.com precise-updates/restricted Sources [7,981 B]
+94% [Sources 4,356 kB] [20 Sources 7,981 B/7,981 B 100%] [15 Packages 419 kB/5194% [Sources 4,356 kB] [19 Sources bzip2 0 B] [20 Sources 7,981 B/7,981 B 100%]95% [Sources 4,356 kB] [19 Sources bzip2 0 B] [15 Packages 434 kB/515 kB 84%] [                                                                               Get:21 http://us.archive.ubuntu.com precise-updates/universe Sources [119 kB]
+90% [Sources 4,356 kB] [19 Sources bzip2 0 B] [21 Sources 16.4 kB/119 kB 14%] [98% [Sources 4,356 kB] [19 Sources bzip2 0 B] [15 Packages 482 kB/515 kB 93%] [                                                                               Get:22 http://us.archive.ubuntu.com precise-updates/multiverse Sources [9,726 B]
+98% [Sources 4,356 kB] [19 Sources bzip2 0 B] [22 Sources 9,726 B/9,726 B 100%]98% [Sources 4,356 kB] [19 Sources bzip2 0 B] [15 Packages 482 kB/515 kB 93%] [                                                                               Get:23 http://us.archive.ubuntu.com precise-updates/main amd64 Packages [897 kB]
+64% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 12.3 kB/897 kB 1%] [                                                                               Hit http://ppa.launchpad.net precise Release
+64% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 12.3 kB/897 kB 1%] [64% [Sources 4,356 kB] [19 Sources bzip2 0 B] [Release gpgv 12.4 kB] [23 Packag64% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 12.3 kB/897 kB 1%] [66% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 26.6 kB/897 kB 3%] [                                                                               Get:24 http://security.ubuntu.com precise-security/restricted amd64 Packages [8,943 B]
+66% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 26.6 kB/897 kB 3%] [66% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 28.0 kB/897 kB 3%] [                                                                               Get:25 http://security.ubuntu.com precise-security/universe amd64 Packages [121 kB]
+64% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 28.0 kB/897 kB 3%] [73% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 165 kB/897 kB 18%] [                                                                               Get:26 http://security.ubuntu.com precise-security/multiverse amd64 Packages [2,699 B]
+73% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 165 kB/897 kB 18%] [73% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 165 kB/897 kB 18%] [                                                                               Get:27 http://security.ubuntu.com precise-security/main i386 Packages [555 kB]
+61% [Sources 4,356 kB] [19 Sources bzip2 0 B] [23 Packages 165 kB/897 kB 18%] [88% [19 Sources bzip2 0 B] [23 Packages 329 kB/897 kB 37%] [27 Packages 205 kB/88% [Sources 19.0 kB] [19 Sources bzip2 0 B] [23 Packages 329 kB/897 kB 37%] [288% [19 Sources bzip2 0 B] [23 Packages 329 kB/897 kB 37%] [27 Packages 205 kB/88% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 329 kB/897 kB 37%] [298% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 709 kB/897 kB 79%] [W                                                                               Get:28 http://security.ubuntu.com precise-security/restricted i386 Packages [8,939 B]
+97% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 709 kB/897 kB 79%] [298% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 709 kB/897 kB 79%] [W                                                                               Get:29 http://security.ubuntu.com precise-security/universe i386 Packages [129 kB]
+96% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 709 kB/897 kB 79%] [2                                                                               Get:30 http://security.ubuntu.com precise-security/multiverse i386 Packages [2,865 B]
+                                                                               Get:31 http://security.ubuntu.com precise-security/main TranslationIndex [208 B]
+                                                                               Get:32 http://security.ubuntu.com precise-security/multiverse TranslationIndex [199 B]
+                                                                               Get:33 http://security.ubuntu.com precise-security/restricted TranslationIndex [202 B]
+98% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 722 kB/897 kB 80%] [398% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 722 kB/897 kB 80%] [W                                                                               Get:34 http://security.ubuntu.com precise-security/universe TranslationIndex [205 B]
+98% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 722 kB/897 kB 80%] [398% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 722 kB/897 kB 80%] [W                                                                               Get:35 http://security.ubuntu.com precise-security/main Translation-en [227 kB]
+95% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 752 kB/897 kB 84%] [3                                                                               Hit http://ppa.launchpad.net precise Release
+98% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 758 kB/897 kB 84%] [3                                                                               Get:36 http://ppa.launchpad.net precise Release [12.9 kB]
+98% [Sources 21.3 MB] [19 Sources bzip2 0 B] [Release gpgv 12.9 kB] [23 Package98% [Sources 21.3 MB] [19 Sources bzip2 0 B] [Release gpgv 12.9 kB] [23 Package98% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 772 kB/897 kB 86%] [W                                                                               Get:37 http://security.ubuntu.com precise-security/multiverse Translation-en [1,408 B]
+99% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 803 kB/897 kB 90%] [399% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 803 kB/897 kB 90%] [W                                                                               Hit http://security.ubuntu.com precise-security/restricted Translation-en
+99% [Sources 21.3 MB] [19 Sources bzip2 0 B] [23 Packages 803 kB/897 kB 90%] [W100% [Sources 21.3 MB] [19 Sources bzip2 0 B] [Waiting for headers] [36 Release                                                                               Get:38 http://us.archive.ubuntu.com precise-updates/restricted amd64 Packages [13.6 kB]
+100% [Sources 21.3 MB] [19 Sources bzip2 0 B] [38 Packages 12.3 kB/13.6 kB 90%]                                                                               Get:39 http://security.ubuntu.com precise-security/universe Translation-en [75.3 kB]
+99% [Sources 21.3 MB] [19 Sources bzip2 0 B] [38 Packages 12.3 kB/13.6 kB 90%] 100% [Sources 21.3 MB] [19 Sources bzip2 0 B] [38 Packages 12.3 kB/13.6 kB 90%]100% [Sources 21.3 MB] [19 Sources bzip2 0 B] [36 Release 12.7 kB/12.9 kB 98%]                                                                                Get:40 http://us.archive.ubuntu.com precise-updates/universe amd64 Packages [265 kB]
+97% [Sources 21.3 MB] [19 Sources bzip2 0 B] [40 Packages 8,285 B/265 kB 3%] [3100% [Sources 21.3 MB] [19 Sources bzip2 0 B] [36 Release 12.7 kB/12.9 kB 98%]                                                                                Get:41 http://us.archive.ubuntu.com precise-updates/multiverse amd64 Packages [16.5 kB]
+100% [Sources 21.3 MB] [19 Sources bzip2 0 B] [41 Packages 16.5 kB/16.5 kB 100%100% [Sources 21.3 MB] [19 Sources bzip2 0 B] [36 Release 12.7 kB/12.9 kB 98%]                                                                                Get:42 http://us.archive.ubuntu.com precise-updates/main i386 Packages [949 kB]
+90% [Sources 21.3 MB] [19 Sources bzip2 0 B] [42 Packages 12.3 kB/949 kB 1%] [391% [Sources 21.3 MB] [42 Packages 84.7 kB/949 kB 9%] [36 Release 12.7 kB/12.9 91% [Sources 21.3 MB] [20 Sources bzip2 0 B] [42 Packages 84.7 kB/949 kB 9%] [391% [Sources 21.3 MB] [42 Packages 97.0 kB/949 kB 10%] [36 Release 12.7 kB/12.991% [Sources 21.3 MB] [21 Sources bzip2 0 B] [42 Packages 97.0 kB/949 kB 10%] [92% [Sources 21.3 MB] [21 Sources bzip2 0 B] [42 Packages 207 kB/949 kB 22%] [W                                                                               Get:43 http://ppa.launchpad.net precise Release [12.9 kB]
+92% [Sources 21.3 MB] [21 Sources bzip2 0 B] [42 Packages 207 kB/949 kB 22%] [492% [Sources 21.3 MB] [21 Sources bzip2 0 B] [36 Release gpgv 12.9 kB] [42 Pack92% [Sources 21.3 MB] [21 Sources bzip2 0 B] [36 Release gpgv 12.9 kB] [42 Pack                                                                               Hit http://ppa.launchpad.net precise Release
+92% [Sources 21.3 MB] [21 Sources bzip2 0 B] [36 Release gpgv 12.9 kB] [42 Pack                                                                               Get:44 http://ppa.launchpad.net precise Release [13.0 kB]
+92% [Sources 21.3 MB] [21 Sources bzip2 0 B] [36 Release gpgv 12.9 kB] [42 Pack92% [Sources 21.3 MB] [21 Sources bzip2 0 B] [42 Packages 226 kB/949 kB 24%] [492% [Sources 21.3 MB] [21 Sources bzip2 0 B] [43 Release gpgv 12.9 kB] [42 Pack92% [Sources 21.3 MB] [21 Sources bzip2 0 B] [42 Packages 250 kB/949 kB 26%] [493% [Sources 21.3 MB] [21 Sources bzip2 0 B] [Release gpgv 12.4 kB] [42 Package93% [Sources 21.3 MB] [21 Sources bzip2 0 B] [42 Packages 290 kB/949 kB 31%] [494% [Sources 21.3 MB] [42 Packages 418 kB/949 kB 44%] [44 Release 6,080 B/13.0 94% [Sources 21.3 MB] [22 Sources bzip2 0 B] [42 Packages 418 kB/949 kB 44%] [494% [Sources 21.3 MB] [42 Packages 418 kB/949 kB 44%] [44 Release 6,080 B/13.0 94% [Sources 21.3 MB] [15 Packages bzip2 0 B] [42 Packages 418 kB/949 kB 44%] [99% [Sources 21.3 MB] [15 Packages bzip2 0 B] [42 Packages 868 kB/949 kB 91%] [                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+                                                                               Hit http://ppa.launchpad.net precise/main i386 Packages
+                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+99% [Sources 21.3 MB] [15 Packages bzip2 0 B] [42 Packages 868 kB/949 kB 91%] [99% [Sources 21.3 MB] [15 Packages bzip2 0 B] [44 Release gpgv 13.0 kB] [42 Pac100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [42 Packages 949 kB/949 kB 100%]                                                                               Get:45 http://us.archive.ubuntu.com precise-updates/restricted i386 Packages [13.6 kB]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [45 Packages 13.6 kB/13.6 kB 100100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:46 http://us.archive.ubuntu.com precise-updates/universe i386 Packages [275 kB]
+97% [Sources 21.3 MB] [15 Packages bzip2 0 B] [46 Packages 20.5 kB/275 kB 7%] [100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:47 http://us.archive.ubuntu.com precise-updates/multiverse i386 Packages [16.7 kB]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [47 Packages 10.6 kB/16.7 kB 64%100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:48 http://us.archive.ubuntu.com precise-updates/main TranslationIndex [10.6 kB]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [48 TranslationIndex 8,506 B/10.100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:49 http://us.archive.ubuntu.com precise-updates/multiverse TranslationIndex [7,613 B]
+                                                                               Get:50 http://us.archive.ubuntu.com precise-updates/restricted TranslationIndex [7,297 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:51 http://us.archive.ubuntu.com precise-updates/universe TranslationIndex [8,333 B]
+                                                                               Get:52 http://us.archive.ubuntu.com precise-backports/main Sources [5,411 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [52 Sources 5,411 B/5,411 B 100%                                                                               Get:53 http://us.archive.ubuntu.com precise-backports/restricted Sources [28 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [53 Sources 28 B/28 B 100%] [Wai                                                                               Get:54 http://us.archive.ubuntu.com precise-backports/universe Sources [41.8 kB]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [54 Sources 32.9 kB/41.8 kB 79%]100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:55 http://us.archive.ubuntu.com precise-backports/multiverse Sources [5,750 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [55 Sources 1,048 B/5,750 B 18%]100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:56 http://us.archive.ubuntu.com precise-backports/main amd64 Packages [5,491 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [56 Packages 1,048 B/5,491 B 19%100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:57 http://us.archive.ubuntu.com precise-backports/restricted amd64 Packages [28 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:58 http://us.archive.ubuntu.com precise-backports/universe amd64 Packages [43.6 kB]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [58 Packages 28.2 kB/43.6 kB 65%100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:59 http://us.archive.ubuntu.com precise-backports/multiverse amd64 Packages [5,419 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [59 Packages 5,419 B/5,419 B 100100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:60 http://us.archive.ubuntu.com precise-backports/main i386 Packages [5,484 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [60 Packages 5,484 B/5,484 B 100100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:61 http://us.archive.ubuntu.com precise-backports/restricted i386 Packages [28 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [61 Packages 28 B/28 B 100%] [Wa                                                                               Get:62 http://us.archive.ubuntu.com precise-backports/universe i386 Packages [43.4 kB]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [62 Packages 43.4 kB/43.4 kB 100100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:63 http://us.archive.ubuntu.com precise-backports/multiverse i386 Packages [5,413 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [63 Packages 5,413 B/5,413 B 100100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:64 http://us.archive.ubuntu.com precise-backports/main TranslationIndex [202 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [64 TranslationIndex 202 B/202 B100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:65 http://us.archive.ubuntu.com precise-backports/multiverse TranslationIndex [202 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [65 TranslationIndex 202 B/202 B100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:66 http://us.archive.ubuntu.com precise-backports/restricted TranslationIndex [193 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [66 TranslationIndex 193 B/193 B100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:67 http://us.archive.ubuntu.com precise-backports/universe TranslationIndex [205 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Hit http://us.archive.ubuntu.com precise/main Translation-en
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Hit http://us.archive.ubuntu.com precise/multiverse Translation-en
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Hit http://us.archive.ubuntu.com precise/restricted Translation-en
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Hit http://us.archive.ubuntu.com precise/universe Translation-en
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:68 http://us.archive.ubuntu.com precise-updates/main Translation-en [397 kB]
+96% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 722 B/397 kB 0                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB                                                                                Hit http://ppa.launchpad.net precise/main i386 Packages
+98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB                                                                                Hit http://ppa.launchpad.net precise/main TranslationIndex
+98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB                                                                                Get:69 http://ppa.launchpad.net precise/main amd64 Packages [682 B]
+98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB 98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB                                                                                Get:70 http://ppa.launchpad.net precise/main i386 Packages [684 B]
+98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB                                                                                Get:71 http://ppa.launchpad.net precise/main TranslationIndex [196 B]
+98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB                                                                                Get:72 http://ppa.launchpad.net precise/main amd64 Packages [1,398 B]
+98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB                                                                                Get:73 http://ppa.launchpad.net precise/main i386 Packages [943 B]
+98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB 98% [Sources 21.3 MB] [15 Packages bzip2 0 B] [68 Translation-en 182 kB/397 kB 100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:74 http://us.archive.ubuntu.com precise-updates/multiverse Translation-en [9,603 B]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [74 Translation-en 9,603 B/9,603100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Hit http://us.archive.ubuntu.com precise-updates/restricted Translation-en
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Get:75 http://us.archive.ubuntu.com precise-updates/universe Translation-en [157 kB]
+99% [Sources 21.3 MB] [15 Packages bzip2 0 B] [75 Translation-en 28.7 kB/157 kB100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Hit http://us.archive.ubuntu.com precise-backports/main Translation-en
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Hit http://us.archive.ubuntu.com precise-backports/multiverse Translation-en
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Waiting f                                                                               Hit http://us.archive.ubuntu.com precise-backports/restricted Translation-en
+                                                                               Get:76 http://us.archive.ubuntu.com precise-backports/universe Translation-en [34.5 kB]
+100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [76 Translation-en 640 B/34.5 kB100% [Sources 21.3 MB] [15 Packages bzip2 0 B] [Waiting for headers] [Connectin100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]100% [Sources 21.3 MB] [24 Packages bzip2 0 B] [Waiting for headers] [Connectin100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]100% [Sources 21.3 MB] [25 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:77 http://ppa.launchpad.net precise/main TranslationIndex [199 B]
+100% [Sources 21.3 MB] [25 Packages bzip2 0 B] [77 TranslationIndex 199 B/199 B                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [Sources 21.3 MB] [25 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Hit http://ppa.launchpad.net precise/main i386 Packages
+100% [Sources 21.3 MB] [25 Packages bzip2 0 B] [Connecting to apt.postgresql.or                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+100% [Sources 21.3 MB] [25 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:78 http://ppa.launchpad.net precise/main amd64 Packages [3,362 B]
+100% [Sources 21.3 MB] [25 Packages bzip2 0 B] [78 Packages 3,362 B/3,362 B 100100% [Sources 21.3 MB] [25 Packages bzip2 0 B] [Connecting to apt.postgresql.or                                                                               Get:79 http://ppa.launchpad.net precise/main i386 Packages [3,362 B]
+100% [Sources 21.3 MB] [25 Packages bzip2 0 B] [79 Packages 1,047 B/3,362 B 31%100% [Sources 21.3 MB] [25 Packages bzip2 0 B] [Waiting for headers] [Connectin100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]100% [Sources 21.3 MB] [26 Packages bzip2 0 B] [Waiting for headers] [Connectin100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]100% [Sources 21.3 MB] [27 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:80 http://ppa.launchpad.net precise/main TranslationIndex [199 B]
+100% [Sources 21.3 MB] [27 Packages bzip2 0 B] [80 TranslationIndex 199 B/199 B                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+                                                                               Get:81 http://ppa.launchpad.net precise/main Translation-en [464 B]
+100% [Sources 21.3 MB] [27 Packages bzip2 0 B] [81 Translation-en 464 B/464 B 1100% [Sources 21.3 MB] [27 Packages bzip2 0 B] [Waiting for headers] [Connectin                                                                               Get:82 http://ppa.launchpad.net precise/main Translation-en [735 B]
+100% [Sources 21.3 MB] [27 Packages bzip2 0 B] [82 Translation-en 735 B/735 B 1                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+100% [Sources 21.3 MB] [27 Packages bzip2 0 B] [Waiting for headers] [Connectin100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]100% [Sources 21.3 MB] [28 Packages bzip2 0 B] [Waiting for headers] [Connectin100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]100% [Sources 21.3 MB] [29 Packages bzip2 0 B] [Waiting for headers] [Connectin100% [29 Packages bzip2 0 B] [Waiting for headers] [Connecting to apt.postgresq100% [Sources 629 kB] [29 Packages bzip2 0 B] [Waiting for headers] [Connecting                                                                               Get:83 http://ppa.launchpad.net precise/main Translation-en [1,556 B]
+100% [Sources 629 kB] [29 Packages bzip2 0 B] [83 Translation-en 1,556 B/1,556 100% [Sources 629 kB] [29 Packages bzip2 0 B] [Connecting to apt.postgresql.org                                                                               100% [29 Packages bzip2 0 B] [Connecting to apt.postgresql.org]                                                               100% [Packages 7,819 kB] [29 Packages bzip2 0 B] [Connecting to apt.postgresql.                                                                               100% [Packages 7,819 kB] [Connecting to apt.postgresql.org]                                                           100% [Packages 7,819 kB] [30 Packages bzip2 0 B] [Connecting to apt.postgresql.                                                                               100% [Packages 7,819 kB] [Connecting to apt.postgresql.org]                                                           100% [Packages 7,819 kB] [35 Translation-en bzip2 0 B] [Connecting to apt.postg                                                                               100% [Packages 7,819 kB] [Waiting for headers]                                              100% [Packages 7,819 kB] [37 Translation-en bzip2 0 B] [Waiting for headers]                                                                            100% [Packages 7,819 kB] [Waiting for headers]                                              100% [Packages 7,819 kB] [23 Packages bzip2 0 B] [Waiting for headers]                                                                      Get:84 http://apt.postgresql.org precise-pgdg Release.gpg [819 B]
+                                                                      100% [Packages 7,819 kB] [23 Packages bzip2 0 B] [84 Release.gpg 819 B/819 B 10                                                                               100% [Packages 7,819 kB] [23 Packages bzip2 0 B]                                                100% [23 Packages bzip2 0 B] [Waiting for headers]                                                  100% [Packages 135 kB] [23 Packages bzip2 0 B] [Waiting for headers]                                                                    Get:85 http://apt.postgresql.org precise-pgdg Release [32.9 kB]
+                                                                    100% [Packages 135 kB] [23 Packages bzip2 0 B] [85 Release 13.4 kB/32.9 kB 41%]                                                                               100% [23 Packages bzip2 0 B] [85 Release 13.4 kB/32.9 kB 41%]                                                             100% [Packages 25.5 MB] [23 Packages bzip2 0 B] [85 Release 13.4 kB/32.9 kB 41%                                                                               100% [Packages 25.5 MB] [23 Packages bzip2 0 B]                                               100% [Packages 25.5 MB] [23 Packages bzip2 0 B] [85 Release gpgv 32.9 kB]                                                                         100% [Packages 25.5 MB] [23 Packages bzip2 0 B]                                               Get:86 http://apt.postgresql.org precise-pgdg/main amd64 Packages [52.8 kB]
+                                               100% [Packages 25.5 MB] [23 Packages bzip2 0 B] [86 Packages 0 B/52.8 kB 0%]                                                                            100% [Packages 25.5 MB] [23 Packages bzip2 0 B]                                               Get:87 http://apt.postgresql.org precise-pgdg/main i386 Packages [52.7 kB]
+                                               100% [Packages 25.5 MB] [23 Packages bzip2 0 B] [87 Packages 17.6 kB/52.7 kB 33                                                                               100% [Packages 25.5 MB] [23 Packages bzip2 0 B]                                               Ign http://apt.postgresql.org precise-pgdg/main TranslationIndex
+100% [Packages 25.5 MB] [23 Packages bzip2 0 B]                                               100% [Packages 25.5 MB] [Waiting for headers]                                             100% [Packages 25.5 MB] [39 Translation-en bzip2 0 B] [Waiting for headers]                                                                           100% [Packages 25.5 MB] [Waiting for headers]                                             100% [Packages 25.5 MB] [38 Packages bzip2 0 B] [Waiting for headers]                                                                     100% [Packages 25.5 MB] [Waiting for headers]                                             100% [Packages 25.5 MB] [40 Packages bzip2 0 B] [Waiting for headers]                                                                     100% [Packages 25.5 MB] [Waiting for headers]                                             100% [Packages 25.5 MB] [41 Packages bzip2 0 B] [Waiting for headers]                                                                     100% [Packages 25.5 MB] [Waiting for headers]                                             100% [Packages 25.5 MB] [42 Packages bzip2 0 B] [Waiting for headers]                                                                     Ign http://apt.postgresql.org precise-pgdg/main Translation-en_US
+                                                                     100% [Packages 25.5 MB] [42 Packages bzip2 0 B]                                               Ign http://apt.postgresql.org precise-pgdg/main Translation-en
+100% [Packages 25.5 MB] [42 Packages bzip2 0 B]                                               100% [Packages 25.5 MB]                       100% [Packages 25.5 MB] [45 Packages bzip2 0 B]                                               100% [45 Packages bzip2 0 B]                            100% [Packages 582 kB] [45 Packages bzip2 0 B]                                              100% [Packages 582 kB]                      100% [Packages 582 kB] [46 Packages bzip2 0 B]                                              100% [46 Packages bzip2 0 B]                            100% [Packages 7,816 kB] [46 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [47 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [52 Sources bzip2 0 B]                                               100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [53 Sources bzip2 0 B]                                               100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [54 Sources bzip2 0 B]                                               100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [55 Sources bzip2 0 B]                                               100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [56 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [57 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [58 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [59 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [60 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [61 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [62 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [63 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [69 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [70 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [72 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [73 Packages bzip2 0 B]                                                100% [Packages 7,816 kB]                        100% [Packages 7,816 kB] [68 Translation-en bzip2 0 B]                                                      100% [68 Translation-en bzip2 0 B]                                  100% [Packages 135 kB] [68 Translation-en bzip2 0 B]                                                    100% [68 Translation-en bzip2 0 B]                                  100% [Packages 25.6 MB] [68 Translation-en bzip2 0 B]                                                     100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [74 Translation-en bzip2 0 B]                                                     100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [75 Translation-en bzip2 0 B]                                                     100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [76 Translation-en bzip2 0 B]                                                     100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [78 Packages bzip2 0 B]                                               100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [79 Packages bzip2 0 B]                                               100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [81 Translation-en bzip2 0 B]                                                     100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [82 Translation-en bzip2 0 B]                                                     100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [83 Translation-en bzip2 0 B]                                                     100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [86 Packages bzip2 0 B]                                               100% [Packages 25.6 MB]                       100% [Packages 25.6 MB] [87 Packages bzip2 0 B]                                               100% [Packages 25.6 MB]                       100% [Working]              100% [Packages 592 kB]                      100% [Working]              100% [Translation-en 12.6 kB]                             100% [Working]              100% [Packages 2,464 B]                       100% [Working]              100% [Packages 2,461 B]                       100% [Working]              100% [Translation-en 3,862 kB]                              100% [Working]              100% [Translation-en 367 kB]                            100% [Working]              100% [Translation-en 10.2 kB]                             100% [Working]              100% [Translation-en 15.0 MB]                             100% [Working]              100% [Packages 12.4 kB]                       100% [Working]              100% [Packages 12.4 kB]                       100% [Working]              100% [Translation-en 18.6 kB]                             100% [Working]              100% [Translation-en 14.7 kB]                             100% [Working]              100% [Translation-en 13.6 kB]                             100% [Working]              100% [Translation-en 0 B]                         100% [Working]              100% [Packages 137 kB]                      100% [Working]              100% [Packages 137 kB]                      100% [Working]              100% [Translation-en 2,489 B]                             100% [Working]              100% [Translation-en 13.8 kB]                             100% [Working]              100% [Translation-en 97.3 kB]                             100% [Working]              Fetched 6,251 kB in 3s (1,839 kB/s)
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 1%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 24%Reading package lists... 26%Reading package lists... 26%Reading package lists... 26%Reading package lists... 26%Reading package lists... 33%Reading package lists... 33%Reading package lists... 33%Reading package lists... 33%Reading package lists... 49%Reading package lists... 53%Reading package lists... 53%Reading package lists... 53%Reading package lists... 53%Reading package lists... 56%Reading package lists... 56%Reading package lists... 57%Reading package lists... 57%Reading package lists... 57%Reading package lists... 57%Reading package lists... 68%Reading package lists... 68%Reading package lists... 71%Reading package lists... 74%Reading package lists... 74%Reading package lists... 74%Reading package lists... 74%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 87%Reading package lists... 87%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+git is already the newest version.
+The following package was automatically installed and is no longer required:
+  libgeos-3.2.2
+Use 'apt-get autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 227 not upgraded.
+travis_time:end:13fcaa7a:start=1433005603769168298,finish=1433005611091042563,duration=7321874265[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:3d6f26d5[0K$ git fetch --unshallow
+remote: Counting objects: 4604, done.[K
+remote: Compressing objects:   0% (1/1599)   [Kremote: Compressing objects:   1% (16/1599)   [Kremote: Compressing objects:   2% (32/1599)   [Kremote: Compressing objects:   3% (48/1599)   [Kremote: Compressing objects:   4% (64/1599)   [Kremote: Compressing objects:   5% (80/1599)   [Kremote: Compressing objects:   6% (96/1599)   [Kremote: Compressing objects:   7% (112/1599)   [Kremote: Compressing objects:   8% (128/1599)   [Kremote: Compressing objects:   9% (144/1599)   [Kremote: Compressing objects:  10% (160/1599)   [Kremote: Compressing objects:  11% (176/1599)   [Kremote: Compressing objects:  12% (192/1599)   [Kremote: Compressing objects:  13% (208/1599)   [Kremote: Compressing objects:  14% (224/1599)   [Kremote: Compressing objects:  15% (240/1599)   [Kremote: Compressing objects:  16% (256/1599)   [Kremote: Compressing objects:  17% (272/1599)   [Kremote: Compressing objects:  18% (288/1599)   [Kremote: Compressing objects:  19% (304/1599)   [Kremote: Compressing objects:  20% (320/1599)   [Kremote: Compressing objects:  21% (336/1599)   [Kremote: Compressing objects:  22% (352/1599)   [Kremote: Compressing objects:  23% (368/1599)   [Kremote: Compressing objects:  24% (384/1599)   [Kremote: Compressing objects:  25% (400/1599)   [Kremote: Compressing objects:  26% (416/1599)   [Kremote: Compressing objects:  27% (432/1599)   [Kremote: Compressing objects:  28% (448/1599)   [Kremote: Compressing objects:  29% (464/1599)   [Kremote: Compressing objects:  30% (480/1599)   [Kremote: Compressing objects:  31% (496/1599)   [Kremote: Compressing objects:  32% (512/1599)   [Kremote: Compressing objects:  33% (528/1599)   [Kremote: Compressing objects:  34% (544/1599)   [Kremote: Compressing objects:  35% (560/1599)   [Kremote: Compressing objects:  36% (576/1599)   [Kremote: Compressing objects:  37% (592/1599)   [Kremote: Compressing objects:  38% (608/1599)   [Kremote: Compressing objects:  39% (624/1599)   [Kremote: Compressing objects:  40% (640/1599)   [Kremote: Compressing objects:  41% (656/1599)   [Kremote: Compressing objects:  42% (672/1599)   [Kremote: Compressing objects:  43% (688/1599)   [Kremote: Compressing objects:  44% (704/1599)   [Kremote: Compressing objects:  45% (720/1599)   [Kremote: Compressing objects:  46% (736/1599)   [Kremote: Compressing objects:  47% (752/1599)   [Kremote: Compressing objects:  48% (768/1599)   [Kremote: Compressing objects:  49% (784/1599)   [Kremote: Compressing objects:  50% (800/1599)   [Kremote: Compressing objects:  51% (816/1599)   [Kremote: Compressing objects:  52% (832/1599)   [Kremote: Compressing objects:  53% (848/1599)   [Kremote: Compressing objects:  54% (864/1599)   [Kremote: Compressing objects:  55% (880/1599)   [Kremote: Compressing objects:  56% (896/1599)   [Kremote: Compressing objects:  57% (912/1599)   [Kremote: Compressing objects:  58% (928/1599)   [Kremote: Compressing objects:  59% (944/1599)   [Kremote: Compressing objects:  60% (960/1599)   [Kremote: Compressing objects:  61% (976/1599)   [Kremote: Compressing objects:  62% (992/1599)   [Kremote: Compressing objects:  63% (1008/1599)   [Kremote: Compressing objects:  64% (1024/1599)   [Kremote: Compressing objects:  65% (1040/1599)   [Kremote: Compressing objects:  66% (1056/1599)   [Kremote: Compressing objects:  67% (1072/1599)   [Kremote: Compressing objects:  68% (1088/1599)   [Kremote: Compressing objects:  69% (1104/1599)   [Kremote: Compressing objects:  70% (1120/1599)   [Kremote: Compressing objects:  71% (1136/1599)   [Kremote: Compressing objects:  72% (1152/1599)   [Kremote: Compressing objects:  73% (1168/1599)   [Kremote: Compressing objects:  74% (1184/1599)   [Kremote: Compressing objects:  75% (1200/1599)   [Kremote: Compressing objects:  76% (1216/1599)   [Kremote: Compressing objects:  77% (1232/1599)   [Kremote: Compressing objects:  78% (1248/1599)   [Kremote: Compressing objects:  79% (1264/1599)   [Kremote: Compressing objects:  80% (1280/1599)   [Kremote: Compressing objects:  81% (1296/1599)   [Kremote: Compressing objects:  82% (1312/1599)   [Kremote: Compressing objects:  83% (1328/1599)   [Kremote: Compressing objects:  84% (1344/1599)   [Kremote: Compressing objects:  85% (1360/1599)   [Kremote: Compressing objects:  86% (1376/1599)   [Kremote: Compressing objects:  87% (1392/1599)   [Kremote: Compressing objects:  88% (1408/1599)   [Kremote: Compressing objects:  89% (1424/1599)   [Kremote: Compressing objects:  90% (1440/1599)   [Kremote: Compressing objects:  91% (1456/1599)   [Kremote: Compressing objects:  92% (1472/1599)   [Kremote: Compressing objects:  93% (1488/1599)   [Kremote: Compressing objects:  94% (1504/1599)   [Kremote: Compressing objects:  95% (1520/1599)   [Kremote: Compressing objects:  96% (1536/1599)   [Kremote: Compressing objects:  97% (1552/1599)   [Kremote: Compressing objects:  98% (1568/1599)   [Kremote: Compressing objects:  99% (1584/1599)   [Kremote: Compressing objects: 100% (1599/1599)   [Kremote: Compressing objects: 100% (1599/1599), done.[K
+Receiving objects:   0% (1/4604)   Receiving objects:   1% (47/4604)   Receiving objects:   2% (93/4604)   Receiving objects:   3% (139/4604)   Receiving objects:   4% (185/4604)   Receiving objects:   5% (231/4604)   Receiving objects:   6% (277/4604)   Receiving objects:   7% (323/4604)   Receiving objects:   8% (369/4604)   Receiving objects:   9% (415/4604)   Receiving objects:  10% (461/4604)   Receiving objects:  11% (507/4604)   Receiving objects:  12% (553/4604)   Receiving objects:  13% (599/4604)   Receiving objects:  14% (645/4604)   Receiving objects:  15% (691/4604)   Receiving objects:  16% (737/4604)   Receiving objects:  17% (783/4604)   Receiving objects:  18% (829/4604)   Receiving objects:  19% (875/4604)   Receiving objects:  20% (921/4604)   Receiving objects:  21% (967/4604)   Receiving objects:  22% (1013/4604)   Receiving objects:  23% (1059/4604)   Receiving objects:  24% (1105/4604)   Receiving objects:  25% (1151/4604)   Receiving objects:  26% (1198/4604)   Receiving objects:  27% (1244/4604)   Receiving objects:  28% (1290/4604)   Receiving objects:  29% (1336/4604)   Receiving objects:  30% (1382/4604)   Receiving objects:  31% (1428/4604)   Receiving objects:  32% (1474/4604)   Receiving objects:  33% (1520/4604)   Receiving objects:  34% (1566/4604)   Receiving objects:  35% (1612/4604)   Receiving objects:  36% (1658/4604)   Receiving objects:  37% (1704/4604)   Receiving objects:  38% (1750/4604)   Receiving objects:  39% (1796/4604)   Receiving objects:  40% (1842/4604)   Receiving objects:  41% (1888/4604)   Receiving objects:  42% (1934/4604)   Receiving objects:  43% (1980/4604)   Receiving objects:  44% (2026/4604)   Receiving objects:  45% (2072/4604)   Receiving objects:  46% (2118/4604)   Receiving objects:  47% (2164/4604)   Receiving objects:  48% (2210/4604)   Receiving objects:  49% (2256/4604)   Receiving objects:  50% (2302/4604)   Receiving objects:  51% (2349/4604)   Receiving objects:  52% (2395/4604)   Receiving objects:  53% (2441/4604)   Receiving objects:  54% (2487/4604)   Receiving objects:  55% (2533/4604)   Receiving objects:  56% (2579/4604)   Receiving objects:  57% (2625/4604)   Receiving objects:  58% (2671/4604)   Receiving objects:  59% (2717/4604)   Receiving objects:  60% (2763/4604)   Receiving objects:  61% (2809/4604)   Receiving objects:  62% (2855/4604)   Receiving objects:  63% (2901/4604)   Receiving objects:  64% (2947/4604)   Receiving objects:  65% (2993/4604)   Receiving objects:  66% (3039/4604)   Receiving objects:  67% (3085/4604)   Receiving objects:  68% (3131/4604)   Receiving objects:  69% (3177/4604)   Receiving objects:  70% (3223/4604)   Receiving objects:  71% (3269/4604)   Receiving objects:  72% (3315/4604)   Receiving objects:  73% (3361/4604)   Receiving objects:  74% (3407/4604)   Receiving objects:  75% (3453/4604)   Receiving objects:  76% (3500/4604)   Receiving objects:  77% (3546/4604)   Receiving objects:  78% (3592/4604)   Receiving objects:  79% (3638/4604)   Receiving objects:  80% (3684/4604)   Receiving objects:  81% (3730/4604)   Receiving objects:  82% (3776/4604)   Receiving objects:  83% (3822/4604)   Receiving objects:  84% (3868/4604)   Receiving objects:  85% (3914/4604)   Receiving objects:  86% (3960/4604)   Receiving objects:  87% (4006/4604)   Receiving objects:  88% (4052/4604)   Receiving objects:  89% (4098/4604)   Receiving objects:  90% (4144/4604)   Receiving objects:  91% (4190/4604)   Receiving objects:  92% (4236/4604)   Receiving objects:  93% (4282/4604)   Receiving objects:  94% (4328/4604)   Receiving objects:  95% (4374/4604)   Receiving objects:  96% (4420/4604), 22.89 MiB | 45.68 MiB/s   Receiving objects:  97% (4466/4604), 22.89 MiB | 45.68 MiB/s   Receiving objects:  98% (4512/4604), 22.89 MiB | 45.68 MiB/s   Receiving objects:  99% (4558/4604), 22.89 MiB | 45.68 MiB/s   remote: Total 4604 (delta 2983), reused 4490 (delta 2869), pack-reused 0[K
+Receiving objects: 100% (4604/4604), 22.89 MiB | 45.68 MiB/s   Receiving objects: 100% (4604/4604), 47.07 MiB | 45.68 MiB/s, done.
+Resolving deltas:   0% (0/2983)   Resolving deltas:   1% (46/2983)   Resolving deltas:   2% (71/2983)   Resolving deltas:   3% (91/2983)   Resolving deltas:   4% (123/2983)   Resolving deltas:   5% (151/2983)   Resolving deltas:   6% (189/2983)   Resolving deltas:   7% (215/2983)   Resolving deltas:   8% (239/2983)   Resolving deltas:   9% (274/2983)   Resolving deltas:  10% (313/2983)   Resolving deltas:  11% (342/2983)   Resolving deltas:  12% (369/2983)   Resolving deltas:  13% (391/2983)   Resolving deltas:  14% (446/2983)   Resolving deltas:  15% (461/2983)   Resolving deltas:  16% (503/2983)   Resolving deltas:  17% (508/2983)   Resolving deltas:  18% (537/2983)   Resolving deltas:  19% (578/2983)   Resolving deltas:  20% (606/2983)   Resolving deltas:  21% (631/2983)   Resolving deltas:  22% (660/2983)   Resolving deltas:  23% (699/2983)   Resolving deltas:  24% (731/2983)   Resolving deltas:  25% (746/2983)   Resolving deltas:  27% (806/2983)   Resolving deltas:  28% (836/2983)   Resolving deltas:  29% (883/2983)   Resolving deltas:  30% (907/2983)   Resolving deltas:  32% (955/2983)   Resolving deltas:  34% (1039/2983)   Resolving deltas:  35% (1046/2983)   Resolving deltas:  36% (1083/2983)   Resolving deltas:  37% (1117/2983)   Resolving deltas:  38% (1145/2983)   Resolving deltas:  39% (1168/2983)   Resolving deltas:  40% (1194/2983)   Resolving deltas:  41% (1245/2983)   Resolving deltas:  42% (1260/2983)   Resolving deltas:  43% (1283/2983)   Resolving deltas:  44% (1318/2983)   Resolving deltas:  45% (1351/2983)   Resolving deltas:  46% (1378/2983)   Resolving deltas:  47% (1410/2983)   Resolving deltas:  48% (1437/2983)   Resolving deltas:  49% (1466/2983)   Resolving deltas:  50% (1492/2983)   Resolving deltas:  51% (1525/2983)   Resolving deltas:  52% (1552/2983)   Resolving deltas:  53% (1585/2983)   Resolving deltas:  54% (1630/2983)   Resolving deltas:  55% (1650/2983)   Resolving deltas:  56% (1676/2983)   Resolving deltas:  57% (1707/2983)   Resolving deltas:  58% (1736/2983)   Resolving deltas:  60% (1796/2983)   Resolving deltas:  61% (1834/2983)   Resolving deltas:  62% (1856/2983)   Resolving deltas:  63% (1889/2983)   Resolving deltas:  64% (1910/2983)   Resolving deltas:  65% (1952/2983)   Resolving deltas:  66% (1972/2983)   Resolving deltas:  67% (2020/2983)   Resolving deltas:  69% (2060/2983)   Resolving deltas:  70% (2099/2983)   Resolving deltas:  72% (2150/2983)   Resolving deltas:  73% (2183/2983)   Resolving deltas:  74% (2232/2983)   Resolving deltas:  75% (2255/2983)   Resolving deltas:  77% (2297/2983)   Resolving deltas:  78% (2346/2983)   Resolving deltas:  79% (2366/2983)   Resolving deltas:  80% (2401/2983)   Resolving deltas:  81% (2439/2983)   Resolving deltas:  83% (2479/2983)   Resolving deltas:  86% (2592/2983)   Resolving deltas:  87% (2612/2983)   Resolving deltas:  88% (2628/2983)   Resolving deltas:  89% (2664/2983)   Resolving deltas:  90% (2689/2983)   Resolving deltas:  91% (2716/2983)   Resolving deltas:  92% (2751/2983)   Resolving deltas:  93% (2786/2983)   Resolving deltas:  94% (2823/2983)   Resolving deltas:  95% (2834/2983)   Resolving deltas:  96% (2869/2983)   Resolving deltas:  97% (2894/2983)   Resolving deltas:  98% (2944/2983)   Resolving deltas:  99% (2959/2983)   Resolving deltas: 100% (2983/2983)   Resolving deltas: 100% (2983/2983), completed with 80 local objects.
+remote: Counting objects: 4, done.[K
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 4[K
+Unpacking objects:  25% (1/4)   Unpacking objects:  50% (2/4)   Unpacking objects:  75% (3/4)   Unpacking objects: 100% (4/4)   Unpacking objects: 100% (4/4), done.
+From git://github.com/jruby/warbler
+ * [new tag]         0.9.10     -> 0.9.10
+ * [new tag]         0.9.11     -> 0.9.11
+ * [new tag]         0.9.12     -> 0.9.12
+ * [new tag]         0.9.13     -> 0.9.13
+ * [new tag]         0.9.14     -> 0.9.14
+ * [new tag]         0.9.3      -> 0.9.3
+ * [new tag]         0.9.4      -> 0.9.4
+ * [new tag]         0.9.5      -> 0.9.5
+ * [new tag]         0.9.9      -> 0.9.9
+ * [new tag]         1.0        -> 1.0
+ * [new tag]         1.0.1      -> 1.0.1
+ * [new tag]         1.1.0      -> 1.1.0
+ * [new tag]         1.2.0      -> 1.2.0
+ * [new tag]         1.2.1      -> 1.2.1
+ * [new tag]         1.3.0      -> 1.3.0
+ * [new tag]         1.3.1      -> 1.3.1
+ * [new tag]         1.3.2      -> 1.3.2
+ * [new tag]         v1.3.4     -> v1.3.4
+ * [new tag]         v1.3.5     -> v1.3.5
+ * [new tag]         v1.3.6     -> v1.3.6
+ * [new tag]         v1.3.7     -> v1.3.7
+ * [new tag]         v1.3.8     -> v1.3.8
+ * [new tag]         v1.4.0     -> v1.4.0
+ * [new tag]         v1.4.0.beta1 -> v1.4.0.beta1
+ * [new tag]         v1.4.0.beta2 -> v1.4.0.beta2
+ * [new tag]         v1.4.1     -> v1.4.1
+ * [new tag]         v1.4.2     -> v1.4.2
+ * [new tag]         v1.4.3     -> v1.4.3
+travis_time:end:3d6f26d5:start=1433005611100246938,finish=1433005613009145991,duration=1908899053[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:08df6400[0K$ gem install bundler --pre
+Fetching: bundler-1.10.2.gemFetching: bundler-1.10.2.gem (  7%)Fetching: bundler-1.10.2.gem ( 13%)Fetching: bundler-1.10.2.gem ( 20%)Fetching: bundler-1.10.2.gem ( 26%)Fetching: bundler-1.10.2.gem ( 33%)Fetching: bundler-1.10.2.gem ( 40%)Fetching: bundler-1.10.2.gem ( 46%)Fetching: bundler-1.10.2.gem ( 53%)Fetching: bundler-1.10.2.gem ( 59%)Fetching: bundler-1.10.2.gem ( 66%)Fetching: bundler-1.10.2.gem ( 72%)Fetching: bundler-1.10.2.gem ( 79%)Fetching: bundler-1.10.2.gem ( 85%)Fetching: bundler-1.10.2.gem ( 92%)Fetching: bundler-1.10.2.gem ( 99%)Fetching: bundler-1.10.2.gem (100%)Fetching: bundler-1.10.2.gem (100%)
+Successfully installed bundler-1.10.2
+1 gem installed
+travis_time:end:08df6400:start=1433005613018402138,finish=1433005614709104141,duration=1690702003[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:install.bundler[0Ktravis_time:start:3208323e[0K$ bundle install --jobs=3 --retry=3
+Fetching gem metadata from http://rubygems.org/.........
+Fetching version metadata from http://rubygems.org/..
+Resolving dependencies...
+[32mInstalling rake 10.4.2[0m
+Using bundler 1.10.2
+[32mInstalling backports 3.6.4[0m
+[32mInstalling childprocess 0.5.6[0m
+with native extensions [32mInstalling thread_safe 0.3.5[0m
+[32mInstalling descendants_tracker 0.0.4[0m
+[32mInstalling diff-lcs 1.2.5[0m
+[32mInstalling virtus 0.5.5[0m
+[32mInstalling maven-tools 0.34.5[0m
+[32mInstalling ruby-maven-libs 3.1.1[0m
+[32mInstalling ruby-maven 3.1.1.0.2[0m
+[32mInstalling jbundler 0.5.5[0m
+[32mInstalling jruby-jars 1.7.20[0m
+[32mInstalling jruby-rack 1.1.18[0m
+with native extensions [32mInstalling ffi 1.9.8[0m
+[32mInstalling rdoc 4.2.0[0m
+[32mInstalling rspec-core 2.99.2[0m
+[32mInstalling rspec-expectations 2.99.2[0m
+[32mInstalling rspec-mocks 2.99.3[0m
+[32mInstalling rspec 2.99.0[0m
+[32mInstalling json 1.8.2[0m
+Using warbler 1.4.8.dev from source at .
+[32mInstalling rubyzip 1.1.7[0m
+[32mBundle complete! 9 Gemfile dependencies, 23 gems now installed.[0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+[32mPost-install message from rdoc:[0m
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+<= 1.8.6 : unsupported
+ = 1.8.7 : gem install rdoc-data; rdoc-data --install
+ = 1.9.1 : gem install rdoc-data; rdoc-data --install
+>= 1.9.2 : nothing to do! Yay!
+travis_time:end:3208323e:start=1433005614717715510,finish=1433005627509108603,duration=12791393093[0Ktravis_fold:end:install.bundler[0Ktravis_time:start:0e5ba22c[0K$ bundle exec rake
+/home/travis/.rvm/rubies/ruby-1.9.2-p330/bin/ruby -S rspec ./spec/warbler/application_spec.rb ./spec/warbler/bundler_spec.rb ./spec/warbler/config_spec.rb ./spec/warbler/gems_spec.rb ./spec/warbler/jar_spec.rb ./spec/warbler/jbundler_spec.rb ./spec/warbler/task_spec.rb ./spec/warbler/traits_spec.rb ./spec/warbler/war_spec.rb ./spec/warbler/web_server_spec.rb --color --format documentation
+/home/travis/build/jruby/warbler/spec/warbler/web_server_spec.rb:11: warning: class variable access from toplevel
+
+Warbler::Application
+[32m  should be able to list its tasks[0m
+[31m  should display the version (FAILED - 1)[0m
+[31m  should copy a fresh config file into place (FAILED - 2)[0m
+[31m  should refuse to copy over an existing config file (FAILED - 3)[0m
+[31m  should complain if the config directory is missing (FAILED - 4)[0m
+[31m  should refuse to pluginize if the lib/tasks/warbler directory exists (FAILED - 5)[0m
+[31m  should define a pluginize task for adding the tasks to a Rails application (FAILED - 6)[0m
+[32m  should provide a means to load the project Rakefile[0m
+
+Warbler::Application
+[32m  should report Warbler version with --version[0m
+
+Warbler::Jar with Bundler
+  in a war project
+[32m    detects a Bundler trait[0m
+[31m    detects a Gemfile and process only its gems (FAILED - 7)[0m
+[31m    copies Gemfiles into the war (FAILED - 8)[0m
+[31m    allows overriding of the gem path when using Bundler (FAILED - 9)[0m
+[31m    bundles only the gemspec for :git entries that are excluded (FAILED - 10)[0m
+[31m    does not work with :path entries in Gemfiles (FAILED - 11)[0m
+[31m    does not bundle dependencies in the test group by default (FAILED - 12)[0m
+[32m    adds BUNDLE_WITHOUT to init.rb[0m
+[32m    adds BUNDLE_GEMFILE to init.rb[0m
+[32m    uses ENV['BUNDLE_GEMFILE'] if set[0m
+    with :git entries in the Gemfile
+[31m      works with :git entries in Gemfiles (FAILED - 13)[0m
+[31m      can run commands in the generated warfile (FAILED - 14)[0m
+  in a jar project
+[31m    works with :git entries in Gemfiles (FAILED - 15)[0m
+[32m    adds BUNDLE_GEMFILE to init.rb[0m
+  when frozen
+[31m    includes the bundler gem (FAILED - 16)[0m
+[31m    does not include the bundler cache directory (FAILED - 17)[0m
+[31m    includes ENV['BUNDLE_FROZEN'] in init.rb (FAILED - 18)[0m
+  when deployment
+[31m    includes the bundler gem (FAILED - 19)[0m
+  in a rack app
+[32m    should have default load path[0m
+
+Warbler::Config
+  in an unknown application
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    has suitable default values (FAILED - 20)[0m
+  in a web application
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should have suitable default values (FAILED - 21)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should allow configuration through an initializer block (FAILED - 22)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should allow gems to be added/changed with =, +=, -=, << (FAILED - 23)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should exclude log files by default (FAILED - 24)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should include log files if exclude_logs is false (FAILED - 25)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should exclude Warbler itself when run as a plugin (FAILED - 26)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should generate context parameters from the webxml openstruct (FAILED - 27)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should determine the context listener from the webxml.booter parameter (FAILED - 28)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should not include ignored webxml keys in the context params hash (FAILED - 29)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should have a helpful string representation for an empty key (FAILED - 30)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m    should HTML-escape all webxml keys and values (FAILED - 31)[0m
+
+Warbler::Gems
+[32m  should accept a hash for initialization[0m
+[32m  should accept an array for initialization[0m
+[32m  should allow gems with a version[0m
+[32m  should allow gems without an explicit version[0m
+[32m  should allow to add gems[0m
+
+Warbler::Jar
+  in a jar project
+[32m    detects a Jar trait[0m
+[32m    collects java libraries[0m
+[32m    adds a JarMain class[0m
+[32m    adds an init.rb[0m
+[32m    requires 'rubygems' in init.rb[0m
+[32m    does not override ENV['GEM_HOME'] by default[0m
+[32m    overrides ENV['GEM_HOME'] when override_gem_home is set[0m
+[32m    adds a main.rb[0m
+[32m    adds script_files[0m
+[32m    accepts a custom manifest file[0m
+[32m    accepts a MANIFEST.MF file if it exists in the project root[0m
+[32m    does not add a manifest if one already exists[0m
+[32m    creates a jar[0m
+    with a .gemspec
+[32m      detects a Gemspec trait[0m
+[32m      detects gem dependencies[0m
+[32m      sets load paths in init.rb[0m
+[32m      loads the default executable in main.rb[0m
+[32m      includes compiled .rb and .class files[0m
+[32m      includes only specified dirs[0m
+[32m      excludes .rb and .class files from compile[0m
+[32m      compiles included gems when compile_gems is true[0m
+[32m      does not compile included gems by default[0m
+    with a gemspec without a default executable
+[32m      loads the first bin/executable in main.rb[0m
+[32m      loads the specified bin/executable in main.rb[0m
+    without a .gemspec
+[32m      detects a NoGemspec trait[0m
+[32m      collects gem files from configuration[0m
+[32m      collects all project files in the directory[0m
+[32m      sets load paths in init.rb[0m
+[32m      loads the first bin/executable in main.rb[0m
+[32m      loads the specified bin/executable in main.rb[0m
+[32m      loads the bin/executable from other gem in main.rb[0m
+[32m      does not set parameters in main.rb[0m
+[32m      does set parameters in main.rb[0m
+  in a war project
+[32m    detects a War trait[0m
+[32m    collects files in public[0m
+[32m    collects gem files[0m
+[32m    collects gem files with dependencies[0m
+[32m    collects gem files without dependencies[0m
+[32m    adds ENV['GEM_HOME'] to init.rb[0m
+[32m    overrides ENV['GEM_HOME'] when override_gem_home is set[0m
+[32m    does not include log files by default[0m
+[32m    creates a web.xml file[0m
+[32m    includes custom context parameters in web.xml[0m
+[32m    allows one jndi resource to be included[0m
+[32m    allows multiple jndi resources to be included[0m
+[32m    does not include any ignored context parameters[0m
+[32m    uses a config/web.xml if it exists[0m
+[32m    uses a config/web.xml.erb if it exists[0m
+[32m    collects java libraries[0m
+[32m    collects application files[0m
+[32m    accepts an autodeploy directory where the war should be created[0m
+[32m    allows the jar extension to be customized[0m
+[32m    can exclude files from the .war[0m
+[32m    can exclude public files from the .war[0m
+[32m    reads configuration from config/warble.rb[0m
+[32m    fails if a gem is requested that is not installed[0m
+[32m    allows specification of dependency by Gem::Dependency[0m
+[32m    copies loose java classes to WEB-INF/classes[0m
+[32m    does not try to autodetect frameworks when Warbler.framework_detection is false[0m
+[32m    skips directories that don't exist in config.dirs and print a warning[0m
+[32m    excludes Warbler's old tmp/war directory by default[0m
+[32m    writes gems to location specified by gem_path[0m
+[32m    allows adding additional WEB-INF files via config.webinf_files[0m
+[32m    allows expanding of additional WEB-INF files via config.webinf_files[0m
+[32m    excludes test files in gems according to config.gem_excludes[0m
+[32m    creates a META-INF/init.rb file with startup config[0m
+[32m    allows adjusting the init file location in the war[0m
+[32m    allows adding custom files' contents to init.rb[0m
+[32m    does not have escaped HTML in WARBLER_CONFIG[0m
+    with embedded jar files
+      with move_jars_to_webinf_lib set to true
+[32m        moves jar files to WEB-INF/lib[0m
+[32m        leaves jar files alone that are already in WEB-INF/lib[0m
+      with move_jars_to_webinf_lib not set
+[32m        moves jar files to WEB-INF/lib[0m
+      with move_jars_to_webinf_lib set to regexp
+[32m        moves jar files that match to WEB-INF/lib[0m
+[32m        removes default jars not matched by filter from WEB-INF/lib[0m
+    with the executable feature
+[32m      adds WarMain (and JarMain) class[0m
+    with the runnable feature
+[32m      adds WarMain (and JarMain) class[0m
+    in a Rails application
+[32m      detects a Rails trait[0m
+[32m      auto-detects a Rails application[0m
+[32m      adds the rails.rb to the script files[0m
+[32m      provides Rails gems by default, unless vendor/rails is present[0m
+[32m      automatically adds Rails.configuration.gems to the list of gems[0m
+[32m      adds RAILS_ENV to init.rb[0m
+      with asset_pipeline
+[32m        automatically adds asset pipeline manifest file to the included files[0m
+      with threadsafe! enabled in production.rb
+        it should behave like threaded environment
+[32m          sets the jruby min and max runtimes to 1[0m
+[32m          doesn't override already configured runtime numbers[0m
+      with threadsafe! enabled in environment.rb
+        it should behave like threaded environment
+[32m          sets the jruby min and max runtimes to 1[0m
+[32m          doesn't override already configured runtime numbers[0m
+      with rails version 4
+        When rails version is specified in Gemfile
+          it should behave like threaded environment
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m            sets the jruby min and max runtimes to 1 (FAILED - 32)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m            doesn't override already configured runtime numbers (FAILED - 33)[0m
+          it should behave like asset pipeline
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m            automatically adds asset pipeline manifest file to the included files (FAILED - 34)[0m
+        when rails version is not specified in Gemfile
+          it should behave like threaded environment
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m            sets the jruby min and max runtimes to 1 (FAILED - 35)[0m
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m            doesn't override already configured runtime numbers (FAILED - 36)[0m
+          it should behave like asset pipeline
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+[31m            automatically adds asset pipeline manifest file to the included files (FAILED - 37)[0m
+    in a Merb application
+[32m      detects a Merb trait[0m
+[32m      auto-detects a Merb application[0m
+[32m      automatically adds Merb::BootLoader::Dependencies.dependencies to the list of gems[0m
+[32m      skips Merb development dependencies[0m
+[32m      warns about using Merb < 1.0[0m
+    in a Rack application
+[32m      detects a Rack trait[0m
+[32m      auto-detects a Rack application with a config.ru file[0m
+[32m      adds RACK_ENV to init.rb[0m
+
+Warbler::Jar with JBundler
+  in a war project
+[32m    detects a JBundler trait[0m
+[31m    detects a Jarfile and process only its jars (FAILED - 38)[0m
+[31m    copies jars from jbundler classpath into the war (FAILED - 39)[0m
+[32m    adds JBUNDLE_SKIP to init.rb[0m
+[32m    uses ENV['JBUNDLE_JARFILE'] if set[0m
+  when locked down
+[33m    does not include the jbundler gem (as it is in the development group) (PENDING: needs JRuby to work)[0m
+[33m    does not include the jbundler runtime config (PENDING: needs JRuby to work)[0m
+
+Warbler::Task
+[32m  should define a clean task for removing the war file[0m
+[32m  should define a make_gemjar task for storing gems in a jar file[0m
+[32m  should define a war task for bundling up everything[0m
+[32m  should define a jar task for creating the .war[0m
+[32m  should invoke feature tasks configured in config.features[0m
+[32m  should warn and skip unknown features configured in config.features[0m
+[32m  should define an executable task for embedding a server in the war file[0m
+[32m  should be able to define all tasks successfully[0m
+[32m  should compile any ruby files specified[0m
+[32m  should compile ruby 1.9 mode[0m
+[32m  should allow bytecode version in config[0m
+[32m  should delete .class files after finishing the jar[0m
+  where symlinks are available
+[32m    should process symlinks by storing a file in the archive that has the same contents as the source[0m
+[32m    should process directory symlinks by copying the whole subdirectory[0m
+  with a Bundler Gemfile
+warning: Unable to detect bundler spec under '/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/gems/bundler-1.10.2'' and is sub-dirs
+
+An error occurred in an after hook
+  SystemExit: exit
+  occurred at /home/travis/build/jruby/warbler/lib/warbler/traits/bundler.rb:50:in `exit'
+
+[31m    includes gems from the Gemfile (FAILED - 40)[0m
+
+Debug targets
+[31m  should print out lists of files (FAILED - 41)[0m
+
+Warbler::Traits
+[32m  are ordered by fewer dependencies first[0m
+
+Warbler::War
+[32m  is deprecated, replace occurrences with Warbler::Jar[0m
+
+Warbler::WebServer::Artifact
+[32m  uses default (maven) local repository[0m
+[32m  detects a custom maven repository setting[0m
+/home/travis/build/jruby/warbler/spec/warbler/web_server_spec.rb:13: warning: class variable access from toplevel
+
+An error occurred in an after(:all) hook.
+  TypeError: can't convert Object into Hash
+  occurred at /home/travis/build/jruby/warbler/spec/warbler/web_server_spec.rb:13:in `update'
+
+
+Pending:
+[33m  Warbler::Jar with JBundler when locked down does not include the jbundler gem (as it is in the development group)[0m
+[36m    # needs JRuby to work[0m
+[36m    # ./spec/warbler/jbundler_spec.rb:70[0m
+[33m  Warbler::Jar with JBundler when locked down does not include the jbundler runtime config[0m
+[36m    # needs JRuby to work[0m
+[36m    # ./spec/warbler/jbundler_spec.rb:77[0m
+
+Failures:
+
+  1) Warbler::Application should display the version
+     [31mFailure/Error:[0m [31mcapture { Warbler::Application.new.run }.should =~ /#{Warbler::VERSION}/[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./lib/warbler/task.rb:48:in `new'[0m
+[36m     # ./lib/warbler/task.rb:48:in `initialize'[0m
+[36m     # ./lib/warbler/application.rb:27:in `new'[0m
+[36m     # ./lib/warbler/application.rb:27:in `load_rakefile'[0m
+[36m     # ./lib/warbler/application.rb:77:in `run'[0m
+[36m     # ./spec/warbler/application_spec.rb:44:in `block (3 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/application_spec.rb:44:in `block (2 levels) in <top (required)>'[0m
+
+  2) Warbler::Application should copy a fresh config file into place
+     [31mFailure/Error:[0m [31msilence { Warbler::Application.new.run }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./lib/warbler/task.rb:48:in `new'[0m
+[36m     # ./lib/warbler/task.rb:48:in `initialize'[0m
+[36m     # ./lib/warbler/application.rb:27:in `new'[0m
+[36m     # ./lib/warbler/application.rb:27:in `load_rakefile'[0m
+[36m     # ./lib/warbler/application.rb:77:in `run'[0m
+[36m     # ./spec/warbler/application_spec.rb:50:in `block (3 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/application_spec.rb:50:in `block (2 levels) in <top (required)>'[0m
+
+  3) Warbler::Application should refuse to copy over an existing config file
+     [31mFailure/Error:[0m [31mcapture { Warbler::Application.new.run }.should =~ /already exists/[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./lib/warbler/task.rb:48:in `new'[0m
+[36m     # ./lib/warbler/task.rb:48:in `initialize'[0m
+[36m     # ./lib/warbler/application.rb:27:in `new'[0m
+[36m     # ./lib/warbler/application.rb:27:in `load_rakefile'[0m
+[36m     # ./lib/warbler/application.rb:77:in `run'[0m
+[36m     # ./spec/warbler/application_spec.rb:57:in `block (3 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/application_spec.rb:57:in `block (2 levels) in <top (required)>'[0m
+
+  4) Warbler::Application should complain if the config directory is missing
+     [31mFailure/Error:[0m [31mcapture { Warbler::Application.new.run }.should =~ /missing/[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./lib/warbler/task.rb:48:in `new'[0m
+[36m     # ./lib/warbler/task.rb:48:in `initialize'[0m
+[36m     # ./lib/warbler/application.rb:27:in `new'[0m
+[36m     # ./lib/warbler/application.rb:27:in `load_rakefile'[0m
+[36m     # ./lib/warbler/application.rb:77:in `run'[0m
+[36m     # ./spec/warbler/application_spec.rb:64:in `block (3 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/application_spec.rb:64:in `block (2 levels) in <top (required)>'[0m
+
+  5) Warbler::Application should refuse to pluginize if the lib/tasks/warbler directory exists
+     [31mFailure/Error:[0m [31msilence { Warbler::Application.new.run }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./lib/warbler/task.rb:48:in `new'[0m
+[36m     # ./lib/warbler/task.rb:48:in `initialize'[0m
+[36m     # ./lib/warbler/application.rb:27:in `new'[0m
+[36m     # ./lib/warbler/application.rb:27:in `load_rakefile'[0m
+[36m     # ./lib/warbler/application.rb:77:in `run'[0m
+[36m     # ./spec/warbler/application_spec.rb:73:in `block (3 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/application_spec.rb:73:in `block (2 levels) in <top (required)>'[0m
+
+  6) Warbler::Application should define a pluginize task for adding the tasks to a Rails application
+     [31mFailure/Error:[0m [31msilence { Warbler::Application.new.run }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./lib/warbler/task.rb:48:in `new'[0m
+[36m     # ./lib/warbler/task.rb:48:in `initialize'[0m
+[36m     # ./lib/warbler/application.rb:27:in `new'[0m
+[36m     # ./lib/warbler/application.rb:27:in `load_rakefile'[0m
+[36m     # ./lib/warbler/application.rb:77:in `run'[0m
+[36m     # ./spec/warbler/application_spec.rb:79:in `block (3 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/application_spec.rb:79:in `block (2 levels) in <top (required)>'[0m
+
+  7) Warbler::Jar with Bundler in a war project detects a Gemfile and process only its gems
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007f6e78730eb8 @name="bundler", @version=#<Gem::Version "1.10.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007f6e7873e310 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/bundler-1.10.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007f6e7873e180 @parts=["bundler", "1.10.2", "ruby", "lib"]>, @extensions=[], @name="bundler", @spec=#<Gem::Specification:0x3fb73c07e328 bundler-1.10.2>, @platform="ruby", @version=#<Gem::Version "1.10.2">>, @source=rubygems repository , @full_gem_path="/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/bundler-1.10.2">[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:43:in `block (3 levels) in <top (required)>'[0m
+
+  8) Warbler::Jar with Bundler in a war project copies Gemfiles into the war
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007fe13c5b8388 @name="bundler", @version=#<Gem::Version "1.10.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007fe13c5c5ec0 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/bundler-1.10.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007fe13c5c5d58 @parts=["bundler", "1.10.2", "ruby", "lib"]>, @extensions=[], @name="bundler", @spec=#<Gem::Specification:0x3ff09e019fcc bundler-1.10.2>, @platform="ruby", @version=#<Gem::Version "1.10.2">>, @source=rubygems repository , @full_gem_path="/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/bundler-1.10.2">[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:51:in `block (3 levels) in <top (required)>'[0m
+
+  9) Warbler::Jar with Bundler in a war project allows overriding of the gem path when using Bundler
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007fe60872ebb0 @name="bundler", @version=#<Gem::Version "1.10.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007fe60873bf68 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/bundler-1.10.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007fe60873bcc0 @parts=["bundler", "1.10.2", "ruby", "lib"]>, @extensions=[], @name="bundler", @spec=#<Gem::Specification:0x3ff304070c9c bundler-1.10.2>, @platform="ruby", @version=#<Gem::Version "1.10.2">>, @source=rubygems repository , @full_gem_path="/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/bundler-1.10.2">[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:60:in `block (3 levels) in <top (required)>'[0m
+
+  10) Warbler::Jar with Bundler in a war project bundles only the gemspec for :git entries that are excluded
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007fe74c7fee60 @name="rake", @version=#<Gem::Version "10.4.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007fe74c844e60 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/rake-10.4.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007fe74c844cd0 @parts=["rake", "10.4.2", "ruby", "lib"]>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3ff3a62d72e0 rake-10.4.2>, @platform="ruby", @version=#<Gem::Version "10.4.2">>, @source=rubygems repository >[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:96:in `block (3 levels) in <top (required)>'[0m
+
+  11) Warbler::Jar with Bundler in a war project does not work with :path entries in Gemfiles
+     [31mFailure/Error:[0m [31msilence { jar.apply(config) }[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007f7fa83e88f0 @name="rake", @version=#<Gem::Version "10.4.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007f7fa8456990 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/rake-10.4.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007f7fa8456828 @parts=["rake", "10.4.2", "ruby", "lib"]>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3fbfd410ddd4 rake-10.4.2>, @platform="ruby", @version=#<Gem::Version "10.4.2">>, @source=rubygems repository >[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:104:in `block (4 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:104:in `block (3 levels) in <top (required)>'[0m
+
+  12) Warbler::Jar with Bundler in a war project does not bundle dependencies in the test group by default
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007f829072edf8 @name="rake", @version=#<Gem::Version "10.4.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007f829073ccc8 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/rake-10.4.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007f829073ca98 @parts=["rake", "10.4.2", "ruby", "lib"]>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3fc1482bfc70 rake-10.4.2>, @platform="ruby", @version=#<Gem::Version "10.4.2">>, @source=rubygems repository >[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:110:in `block (3 levels) in <top (required)>'[0m
+
+  13) Warbler::Jar with Bundler in a war project with :git entries in the Gemfile works with :git entries in Gemfiles
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007fa3188009b8 @name="rake", @version=#<Gem::Version "10.4.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007fa318845d60 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/rake-10.4.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007fa318845ba8 @parts=["rake", "10.4.2", "ruby", "lib"]>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3fd18c2d7e48 rake-10.4.2>, @platform="ruby", @version=#<Gem::Version "10.4.2">>, @source=rubygems repository >[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:71:in `block (4 levels) in <top (required)>'[0m
+
+  14) Warbler::Jar with Bundler in a war project with :git entries in the Gemfile can run commands in the generated warfile
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007f8b70801cb0 @name="rake", @version=#<Gem::Version "10.4.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007f8b70847288 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/rake-10.4.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007f8b708470f8 @parts=["rake", "10.4.2", "ruby", "lib"]>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3fc5b82d8954 rake-10.4.2>, @platform="ruby", @version=#<Gem::Version "10.4.2">>, @source=rubygems repository >[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:81:in `block (4 levels) in <top (required)>'[0m
+
+  15) Warbler::Jar with Bundler in a jar project works with :git entries in Gemfiles
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007f92d09b8a10 @name="rake", @version=#<Gem::Version "10.4.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007f92d09dc668 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/rake-10.4.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007f92d09dc500 @parts=["rake", "10.4.2", "ruby", "lib"]>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3fc9683fafa4 rake-10.4.2>, @platform="ruby", @version=#<Gem::Version "10.4.2">>, @source=rubygems repository >[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:144:in `block (3 levels) in <top (required)>'[0m
+
+  16) Warbler::Jar with Bundler when frozen includes the bundler gem
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007f3fa47b9860 @name="rake", @version=#<Gem::Version "0.8.7">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007f3fa47deb10 @loaded_from="/home/travis/build/jruby/warbler/spec/sample_bundler/vendor/bundle/ruby/1.9.1/specifications/rake-0.8.7.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::Specification:0x3f9fd23e8a44 rake-0.8.7>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3f9fd23e8a44 rake-0.8.7>, @platform="ruby", @version=#<Gem::Version "0.8.7">>, @source=rubygems repository http://rubygems.org/>[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:164:in `block (3 levels) in <top (required)>'[0m
+
+  17) Warbler::Jar with Bundler when frozen does not include the bundler cache directory
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007faaa87ba818 @name="rake", @version=#<Gem::Version "0.8.7">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007faaa87dfb40 @loaded_from="/home/travis/build/jruby/warbler/spec/sample_bundler/vendor/bundle/ruby/1.9.1/specifications/rake-0.8.7.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::Specification:0x3fd5543e9284 rake-0.8.7>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3fd5543e9284 rake-0.8.7>, @platform="ruby", @version=#<Gem::Version "0.8.7">>, @source=rubygems repository http://rubygems.org/>[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:170:in `block (3 levels) in <top (required)>'[0m
+
+  18) Warbler::Jar with Bundler when frozen includes ENV['BUNDLE_FROZEN'] in init.rb
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007f1a207c11e0 @name="rake", @version=#<Gem::Version "0.8.7">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007f1a207dded0 @loaded_from="/home/travis/build/jruby/warbler/spec/sample_bundler/vendor/bundle/ruby/1.9.1/specifications/rake-0.8.7.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::Specification:0x3f8d103e8528 rake-0.8.7>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3f8d103e8528 rake-0.8.7>, @platform="ruby", @version=#<Gem::Version "0.8.7">>, @source=rubygems repository http://rubygems.org/>[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:175:in `block (3 levels) in <top (required)>'[0m
+
+  19) Warbler::Jar with Bundler when deployment includes the bundler gem
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007fa2647d10f0 @name="rake", @version=#<Gem::Version "0.8.7">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007fa2647f5220 @loaded_from="/home/travis/build/jruby/warbler/spec/sample_bundler/vendor/bundle/ruby/1.9.1/specifications/rake-0.8.7.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::Specification:0x3fd1323e9bc4 rake-0.8.7>, @extensions=[], @name="rake", @spec=#<Gem::Specification:0x3fd1323e9bc4 rake-0.8.7>, @platform="ruby", @version=#<Gem::Version "0.8.7">>, @source=rubygems repository http://rubygems.org/>[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/bundler_spec.rb:186:in `block (3 levels) in <top (required)>'[0m
+
+  20) Warbler::Config in an unknown application has suitable default values
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:23:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:23:in `block (3 levels) in <top (required)>'[0m
+
+  21) Warbler::Config in a web application should have suitable default values
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:38:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:38:in `block (3 levels) in <top (required)>'[0m
+
+  22) Warbler::Config in a web application should allow configuration through an initializer block
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new do |c|[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:50:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:50:in `block (3 levels) in <top (required)>'[0m
+
+  23) Warbler::Config in a web application should allow gems to be added/changed with =, +=, -=, <<
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new do |c|[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:57:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:57:in `block (3 levels) in <top (required)>'[0m
+
+  24) Warbler::Config in a web application should exclude log files by default
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:68:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:68:in `block (3 levels) in <top (required)>'[0m
+
+  25) Warbler::Config in a web application should include log files if exclude_logs is false
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new {|c| c.exclude_logs = false }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:76:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:76:in `block (3 levels) in <top (required)>'[0m
+
+  26) Warbler::Config in a web application should exclude Warbler itself when run as a plugin
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:82:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:82:in `block (3 levels) in <top (required)>'[0m
+
+  27) Warbler::Config in a web application should generate context parameters from the webxml openstruct
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:89:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:89:in `block (3 levels) in <top (required)>'[0m
+
+  28) Warbler::Config in a web application should determine the context listener from the webxml.booter parameter
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:110:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:110:in `block (3 levels) in <top (required)>'[0m
+
+  29) Warbler::Config in a web application should not include ignored webxml keys in the context params hash
+     [31mFailure/Error:[0m [31mWarbler::Config.new.webxml.context_params.should_not have_key('ignored')[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:121:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:121:in `block (3 levels) in <top (required)>'[0m
+
+  30) Warbler::Config in a web application should have a helpful string representation for an empty key
+     [31mFailure/Error:[0m [31mWarbler::Config.new.webxml.missing_key.to_s.should =~ /No value for 'missing_key' found/[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:127:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:127:in `block (3 levels) in <top (required)>'[0m
+
+  31) Warbler::Config in a web application should HTML-escape all webxml keys and values
+     [31mFailure/Error:[0m [31mconfig = Warbler::Config.new[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/config_spec.rb:131:in `new'[0m
+[36m     # ./spec/warbler/config_spec.rb:131:in `block (3 levels) in <top (required)>'[0m
+
+  32) Warbler::Jar in a war project in a Rails application with rails version 4 When rails version is specified in Gemfile it should behave like threaded environment sets the jruby min and max runtimes to 1
+     [31mFailure/Error:[0m [31mlet(:config) { Warbler::Config.new {|c| apply_extra_config(c) } }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+     Shared Example Group: "threaded environment" called from ./spec/warbler/jar_spec.rb:830
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `new'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `block (2 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/jar_spec.rb:744:in `block (5 levels) in <top (required)>'[0m
+
+  33) Warbler::Jar in a war project in a Rails application with rails version 4 When rails version is specified in Gemfile it should behave like threaded environment doesn't override already configured runtime numbers
+     [31mFailure/Error:[0m [31mlet(:config) { Warbler::Config.new {|c| apply_extra_config(c) } }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+     Shared Example Group: "threaded environment" called from ./spec/warbler/jar_spec.rb:830
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `new'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `block (2 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/jar_spec.rb:754:in `block (5 levels) in <top (required)>'[0m
+
+  34) Warbler::Jar in a war project in a Rails application with rails version 4 When rails version is specified in Gemfile it should behave like asset pipeline automatically adds asset pipeline manifest file to the included files
+     [31mFailure/Error:[0m [31mlet(:config) { Warbler::Config.new {|c| apply_extra_config(c) } }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+     Shared Example Group: "asset pipeline" called from ./spec/warbler/jar_spec.rb:831
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `new'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `block (2 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/jar_spec.rb:808:in `block (6 levels) in <top (required)>'[0m
+
+  35) Warbler::Jar in a war project in a Rails application with rails version 4 when rails version is not specified in Gemfile it should behave like threaded environment sets the jruby min and max runtimes to 1
+     [31mFailure/Error:[0m [31mlet(:config) { Warbler::Config.new {|c| apply_extra_config(c) } }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+     Shared Example Group: "threaded environment" called from ./spec/warbler/jar_spec.rb:845
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `new'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `block (2 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/jar_spec.rb:744:in `block (5 levels) in <top (required)>'[0m
+
+  36) Warbler::Jar in a war project in a Rails application with rails version 4 when rails version is not specified in Gemfile it should behave like threaded environment doesn't override already configured runtime numbers
+     [31mFailure/Error:[0m [31mlet(:config) { Warbler::Config.new {|c| apply_extra_config(c) } }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+     Shared Example Group: "threaded environment" called from ./spec/warbler/jar_spec.rb:845
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `new'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `block (2 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/jar_spec.rb:754:in `block (5 levels) in <top (required)>'[0m
+
+  37) Warbler::Jar in a war project in a Rails application with rails version 4 when rails version is not specified in Gemfile it should behave like asset pipeline automatically adds asset pipeline manifest file to the included files
+     [31mFailure/Error:[0m [31mlet(:config) { Warbler::Config.new {|c| apply_extra_config(c) } }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+     Shared Example Group: "asset pipeline" called from ./spec/warbler/jar_spec.rb:846
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `new'[0m
+[36m     # ./spec/warbler/jar_spec.rb:26:in `block (2 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/jar_spec.rb:808:in `block (6 levels) in <top (required)>'[0m
+
+  38) Warbler::Jar with JBundler in a war project detects a Jarfile and process only its jars
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007f6ae8730de8 @name="backports", @version=#<Gem::Version "3.6.4">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007f6ae87410a8 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/backports-3.6.4.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path="/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/backports-3.6.4", @gem_dir=nil, @gems_dir="/home/travis/.rvm/gems/ruby-1.9.2-p330/gems", @base_dir="/home/travis/.rvm/gems/ruby-1.9.2-p330", @data=#<Gem::StubSpecification::StubLine:0x007f6ae8740e28 @parts=["backports", "3.6.4", "ruby", "lib"]>, @extensions=[], @name="backports", @spec=#<Gem::Specification:0x3fb574106bac backports-3.6.4>, @platform="ruby", @version=#<Gem::Version "3.6.4">, @activated=true, @contains_requirable_file={"jbundler/config"=>:no, "yaml"=>:no, "syck"=>:no, "yaml/syck"=>:no, "stringio"=>:no, "syck.so"=>:no, "syck/error"=>:no, "syck/syck"=>:no, "syck/basenode"=>:no, "syck/tag"=>:no, "syck/stream"=>:no, "syck/constants"=>:no, "syck/rubytypes"=>:no, "date"=>:no, "date/format"=>:no, "enumerator"=>:no, "syck/types"=>:no, "/home/travis/build/jruby/warbler/spec/sample_war/.jbundler/classpath.rb"=>:no, "jruby-jars"=>:no}, @require_paths=["lib"], @full_require_paths=["/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/backports-3.6.4/lib"]>, @source=rubygems repository >[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/jbundler_spec.rb:43:in `block (3 levels) in <top (required)>'[0m
+
+  39) Warbler::Jar with JBundler in a war project copies jars from jbundler classpath into the war
+     [31mFailure/Error:[0m [31mjar.apply(config)[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007fbef872f588 @name="backports", @version=#<Gem::Version "3.6.4">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007fbef87403b0 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/backports-3.6.4.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path="/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/backports-3.6.4", @gem_dir=nil, @gems_dir="/home/travis/.rvm/gems/ruby-1.9.2-p330/gems", @base_dir="/home/travis/.rvm/gems/ruby-1.9.2-p330", @data=#<Gem::StubSpecification::StubLine:0x007fbef87401f8 @parts=["backports", "3.6.4", "ruby", "lib"]>, @extensions=[], @name="backports", @spec=#<Gem::Specification:0x3fdf7c0af488 backports-3.6.4>, @platform="ruby", @version=#<Gem::Version "3.6.4">, @activated=true, @contains_requirable_file={"jbundler/config"=>:no, "yaml"=>:no, "syck"=>:no, "yaml/syck"=>:no, "stringio"=>:no, "syck.so"=>:no, "syck/error"=>:no, "syck/syck"=>:no, "syck/basenode"=>:no, "syck/tag"=>:no, "syck/stream"=>:no, "syck/constants"=>:no, "syck/rubytypes"=>:no, "date"=>:no, "date/format"=>:no, "enumerator"=>:no, "syck/types"=>:no, "/home/travis/build/jruby/warbler/spec/sample_war/.jbundler/classpath.rb"=>:no, "jruby-jars"=>:no}, @require_paths=["lib"], @full_require_paths=["/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/backports-3.6.4/lib"]>, @source=rubygems repository >[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # ./spec/warbler/jbundler_spec.rb:50:in `block (3 levels) in <top (required)>'[0m
+
+  40) Warbler::Task with a Bundler Gemfile includes gems from the Gemfile
+     [31mFailure/Error:[0m [31mdrbclient.run_task "warble"[0m
+     [31mArgumentError[0m:
+       [31mdependency name must be a String, was #<Bundler::StubSpecification:0x007f51d072d278 @name="bundler", @version=#<Gem::Version "1.10.2">, @platform="ruby", @spec_fetcher=nil, @stub=#<Gem::StubSpecification:0x007f51d073b0f8 @loaded_from="/home/travis/.rvm/gems/ruby-1.9.2-p330/specifications/bundler-1.10.2.gemspec", @extension_dir=nil, @extensions_dir=nil, @full_gem_path=nil, @gem_dir=nil, @gems_dir=nil, @base_dir=nil, @data=#<Gem::StubSpecification::StubLine:0x007f51d073af68 @parts=["bundler", "1.10.2", "ruby", "lib"]>, @extensions=[], @name="bundler", @spec=#<Gem::Specification:0x3fa8e8021cac bundler-1.10.2>, @platform="ruby", @version=#<Gem::Version "1.10.2">>, @source=rubygems repository , @full_gem_path="/home/travis/.rvm/gems/ruby-1.9.2-p330/gems/bundler-1.10.2">[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `new'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:59:in `find_single_gem_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `block in specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `map'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/gems.rb:46:in `specs'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:197:in `find_gems_files'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/jar.rb:144:in `apply'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/task.rb:118:in `block in define_files_task'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/task.rb:94:in `block (2 levels) in define_main_task'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/task.rb:93:in `each'[0m
+[36m     # (druby://127.0.0.1:7890) ./lib/warbler/task.rb:93:in `block in define_main_task'[0m
+[36m     # (druby://127.0.0.1:7890) ./spec/drb_helper.rb:45:in `run_task'[0m
+[36m     # ./spec/warbler/task_spec.rb:199:in `block (3 levels) in <top (required)>'[0m
+
+  41) Debug targets should print out lists of files
+     [31mFailure/Error:[0m [31msilence { Warbler::Task.new :war, Object.new }[0m
+     [31mSystemExit[0m:
+       [31mexit[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `exit'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:50:in `block in add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `each'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:39:in `add_bundler_gems'[0m
+[36m     # ./lib/warbler/traits/bundler.rb:30:in `after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `block in after_configure'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `each'[0m
+[36m     # ./lib/warbler/traits.rb:33:in `after_configure'[0m
+[36m     # ./lib/warbler/config.rb:215:in `initialize'[0m
+[36m     # ./lib/warbler/task.rb:51:in `new'[0m
+[36m     # ./lib/warbler/task.rb:51:in `initialize'[0m
+[36m     # ./spec/warbler/task_spec.rb:221:in `new'[0m
+[36m     # ./spec/warbler/task_spec.rb:221:in `block (3 levels) in <top (required)>'[0m
+[36m     # ./spec/warbler/task_spec.rb:221:in `block (2 levels) in <top (required)>'[0m
+
+Deprecation Warnings:
+
+--------------------------------------------------------------------------------
+The semantics of `RSpec::Core::Pending#pending` are changing in
+RSpec 3.  In RSpec 2.x, it caused the example to be skipped. In
+RSpec 3, the rest of the example will still be run but is expected
+to fail, and will be marked as a failure (rather than as pending)
+if the example passes.
+
+Any passed block will no longer be executed. This feature is being
+removed since it was semantically inconsistent, and the behaviour it
+offered is being made available with the other ways of marking an
+example pending.
+
+To keep the same skip semantics, change `pending` to `skip`.
+Otherwise, if you want the new RSpec 3 behavior, you can safely
+ignore this warning and continue to upgrade to RSpec 3 without
+addressing it.
+
+Called from /home/travis/build/jruby/warbler/spec/warbler/jbundler_spec.rb:71:in `block (3 levels) in <top (required)>'.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+The semantics of `RSpec::Core::Pending#pending` are changing in
+RSpec 3.  In RSpec 2.x, it caused the example to be skipped. In
+RSpec 3, the rest of the example will still be run but is expected
+to fail, and will be marked as a failure (rather than as pending)
+if the example passes.
+
+Any passed block will no longer be executed. This feature is being
+removed since it was semantically inconsistent, and the behaviour it
+offered is being made available with the other ways of marking an
+example pending.
+
+To keep the same skip semantics, change `pending` to `skip`.
+Otherwise, if you want the new RSpec 3 behavior, you can safely
+ignore this warning and continue to upgrade to RSpec 3 without
+addressing it.
+
+Called from /home/travis/build/jruby/warbler/spec/warbler/jbundler_spec.rb:78:in `block (3 levels) in <top (required)>'.
+
+--------------------------------------------------------------------------------
+
+
+If you need more of the backtrace for any of these deprecations to
+identify where to make the necessary changes, you can configure
+`config.raise_errors_for_deprecations!`, and it will turn the
+deprecation warnings into errors, giving you the full backtrace.
+
+2 deprecation warnings total
+
+Finished in 1 minute 46 seconds
+[31m173 examples, 41 failures, 2 pending[0m
+
+Failed examples:
+
+[31mrspec ./spec/warbler/application_spec.rb:42[0m [36m# Warbler::Application should display the version[0m
+[31mrspec ./spec/warbler/application_spec.rb:47[0m [36m# Warbler::Application should copy a fresh config file into place[0m
+[31mrspec ./spec/warbler/application_spec.rb:54[0m [36m# Warbler::Application should refuse to copy over an existing config file[0m
+[31mrspec ./spec/warbler/application_spec.rb:60[0m [36m# Warbler::Application should complain if the config directory is missing[0m
+[31mrspec ./spec/warbler/application_spec.rb:70[0m [36m# Warbler::Application should refuse to pluginize if the lib/tasks/warbler directory exists[0m
+[31mrspec ./spec/warbler/application_spec.rb:77[0m [36m# Warbler::Application should define a pluginize task for adding the tasks to a Rails application[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:39[0m [36m# Warbler::Jar with Bundler in a war project detects a Gemfile and process only its gems[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:49[0m [36m# Warbler::Jar with Bundler in a war project copies Gemfiles into the war[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:56[0m [36m# Warbler::Jar with Bundler in a war project allows overriding of the gem path when using Bundler[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:93[0m [36m# Warbler::Jar with Bundler in a war project bundles only the gemspec for :git entries that are excluded[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:101[0m [36m# Warbler::Jar with Bundler in a war project does not work with :path entries in Gemfiles[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:108[0m [36m# Warbler::Jar with Bundler in a war project does not bundle dependencies in the test group by default[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:70[0m [36m# Warbler::Jar with Bundler in a war project with :git entries in the Gemfile works with :git entries in Gemfiles[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:76[0m [36m# Warbler::Jar with Bundler in a war project with :git entries in the Gemfile can run commands in the generated warfile[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:141[0m [36m# Warbler::Jar with Bundler in a jar project works with :git entries in Gemfiles[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:163[0m [36m# Warbler::Jar with Bundler when frozen includes the bundler gem[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:169[0m [36m# Warbler::Jar with Bundler when frozen does not include the bundler cache directory[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:174[0m [36m# Warbler::Jar with Bundler when frozen includes ENV['BUNDLE_FROZEN'] in init.rb[0m
+[31mrspec ./spec/warbler/bundler_spec.rb:184[0m [36m# Warbler::Jar with Bundler when deployment includes the bundler gem[0m
+[31mrspec ./spec/warbler/config_spec.rb:22[0m [36m# Warbler::Config in an unknown application has suitable default values[0m
+[31mrspec ./spec/warbler/config_spec.rb:37[0m [36m# Warbler::Config in a web application should have suitable default values[0m
+[31mrspec ./spec/warbler/config_spec.rb:49[0m [36m# Warbler::Config in a web application should allow configuration through an initializer block[0m
+[31mrspec ./spec/warbler/config_spec.rb:56[0m [36m# Warbler::Config in a web application should allow gems to be added/changed with =, +=, -=, <<[0m
+[31mrspec ./spec/warbler/config_spec.rb:65[0m [36m# Warbler::Config in a web application should exclude log files by default[0m
+[31mrspec ./spec/warbler/config_spec.rb:73[0m [36m# Warbler::Config in a web application should include log files if exclude_logs is false[0m
+[31mrspec ./spec/warbler/config_spec.rb:81[0m [36m# Warbler::Config in a web application should exclude Warbler itself when run as a plugin[0m
+[31mrspec ./spec/warbler/config_spec.rb:88[0m [36m# Warbler::Config in a web application should generate context parameters from the webxml openstruct[0m
+[31mrspec ./spec/warbler/config_spec.rb:109[0m [36m# Warbler::Config in a web application should determine the context listener from the webxml.booter parameter[0m
+[31mrspec ./spec/warbler/config_spec.rb:120[0m [36m# Warbler::Config in a web application should not include ignored webxml keys in the context params hash[0m
+[31mrspec ./spec/warbler/config_spec.rb:126[0m [36m# Warbler::Config in a web application should have a helpful string representation for an empty key[0m
+[31mrspec ./spec/warbler/config_spec.rb:130[0m [36m# Warbler::Config in a web application should HTML-escape all webxml keys and values[0m
+[31mrspec ./spec/warbler/jar_spec.rb:742[0m [36m# Warbler::Jar in a war project in a Rails application with rails version 4 When rails version is specified in Gemfile it should behave like threaded environment sets the jruby min and max runtimes to 1[0m
+[31mrspec ./spec/warbler/jar_spec.rb:749[0m [36m# Warbler::Jar in a war project in a Rails application with rails version 4 When rails version is specified in Gemfile it should behave like threaded environment doesn't override already configured runtime numbers[0m
+[31mrspec ./spec/warbler/jar_spec.rb:807[0m [36m# Warbler::Jar in a war project in a Rails application with rails version 4 When rails version is specified in Gemfile it should behave like asset pipeline automatically adds asset pipeline manifest file to the included files[0m
+[31mrspec ./spec/warbler/jar_spec.rb:742[0m [36m# Warbler::Jar in a war project in a Rails application with rails version 4 when rails version is not specified in Gemfile it should behave like threaded environment sets the jruby min and max runtimes to 1[0m
+[31mrspec ./spec/warbler/jar_spec.rb:749[0m [36m# Warbler::Jar in a war project in a Rails application with rails version 4 when rails version is not specified in Gemfile it should behave like threaded environment doesn't override already configured runtime numbers[0m
+[31mrspec ./spec/warbler/jar_spec.rb:807[0m [36m# Warbler::Jar in a war project in a Rails application with rails version 4 when rails version is not specified in Gemfile it should behave like asset pipeline automatically adds asset pipeline manifest file to the included files[0m
+[31mrspec ./spec/warbler/jbundler_spec.rb:39[0m [36m# Warbler::Jar with JBundler in a war project detects a Jarfile and process only its jars[0m
+[31mrspec ./spec/warbler/jbundler_spec.rb:47[0m [36m# Warbler::Jar with JBundler in a war project copies jars from jbundler classpath into the war[0m
+[31mrspec ./spec/warbler/task_spec.rb:195[0m [36m# Warbler::Task with a Bundler Gemfile includes gems from the Gemfile[0m
+[31mrspec ./spec/warbler/task_spec.rb:224[0m [36m# Debug targets should print out lists of files[0m
+/home/travis/.rvm/rubies/ruby-1.9.2-p330/bin/ruby -S rspec ./spec/warbler/application_spec.rb ./spec/warbler/bundler_spec.rb ./spec/warbler/config_spec.rb ./spec/warbler/gems_spec.rb ./spec/warbler/jar_spec.rb ./spec/warbler/jbundler_spec.rb ./spec/warbler/task_spec.rb ./spec/warbler/traits_spec.rb ./spec/warbler/war_spec.rb ./spec/warbler/web_server_spec.rb --color --format documentation failed
+travis_time:end:0e5ba22c:start=1433005627518504358,finish=1433005736405056759,duration=108886552401[0K
+[31;1mThe command "bundle exec rake" exited with 1.[0m
+
+Done. Your build exited with 1.

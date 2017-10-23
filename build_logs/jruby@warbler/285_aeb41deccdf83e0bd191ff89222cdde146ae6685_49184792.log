@@ -1,0 +1,663 @@
+Using worker: worker-linux-bb3654bb-2.bb.travis-ci.org:travis-linux-8
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: ruby
+[34m[1mBuild image provisioning date and time[0m
+Sat Dec 13 04:56:50 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+4f2272c https://github.com/travis-ci/travis-cookbooks/tree/4f2272c
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:226f73b8[0K$ git clone --depth=50 --branch=master git://github.com/jruby/warbler.git jruby/warbler
+Cloning into 'jruby/warbler'...
+remote: Counting objects: 655, done.[K
+remote: Compressing objects:   0% (1/442)   [Kremote: Compressing objects:   1% (5/442)   [Kremote: Compressing objects:   2% (9/442)   [Kremote: Compressing objects:   3% (14/442)   [Kremote: Compressing objects:   4% (18/442)   [Kremote: Compressing objects:   5% (23/442)   [Kremote: Compressing objects:   6% (27/442)   [Kremote: Compressing objects:   7% (31/442)   [Kremote: Compressing objects:   8% (36/442)   [Kremote: Compressing objects:   9% (40/442)   [Kremote: Compressing objects:  10% (45/442)   [Kremote: Compressing objects:  11% (49/442)   [Kremote: Compressing objects:  12% (54/442)   [Kremote: Compressing objects:  13% (58/442)   [Kremote: Compressing objects:  14% (62/442)   [Kremote: Compressing objects:  15% (67/442)   [Kremote: Compressing objects:  16% (71/442)   [Kremote: Compressing objects:  17% (76/442)   [Kremote: Compressing objects:  18% (80/442)   [Kremote: Compressing objects:  19% (84/442)   [Kremote: Compressing objects:  20% (89/442)   [Kremote: Compressing objects:  21% (93/442)   [Kremote: Compressing objects:  22% (98/442)   [Kremote: Compressing objects:  23% (102/442)   [Kremote: Compressing objects:  24% (107/442)   [Kremote: Compressing objects:  25% (111/442)   [Kremote: Compressing objects:  26% (115/442)   [Kremote: Compressing objects:  27% (120/442)   [Kremote: Compressing objects:  28% (124/442)   [Kremote: Compressing objects:  29% (129/442)   [Kremote: Compressing objects:  30% (133/442)   [Kremote: Compressing objects:  31% (138/442)   [Kremote: Compressing objects:  32% (142/442)   [Kremote: Compressing objects:  33% (146/442)   [Kremote: Compressing objects:  34% (151/442)   [Kremote: Compressing objects:  35% (155/442)   [Kremote: Compressing objects:  36% (160/442)   [Kremote: Compressing objects:  37% (164/442)   [Kremote: Compressing objects:  38% (168/442)   [Kremote: Compressing objects:  39% (173/442)   [Kremote: Compressing objects:  40% (177/442)   [Kremote: Compressing objects:  41% (182/442)   [Kremote: Compressing objects:  42% (186/442)   [Kremote: Compressing objects:  43% (191/442)   [Kremote: Compressing objects:  44% (195/442)   [Kremote: Compressing objects:  45% (199/442)   [Kremote: Compressing objects:  46% (204/442)   [Kremote: Compressing objects:  47% (208/442)   [Kremote: Compressing objects:  48% (213/442)   [Kremote: Compressing objects:  49% (217/442)   [Kremote: Compressing objects:  50% (221/442)   [Kremote: Compressing objects:  51% (226/442)   [Kremote: Compressing objects:  52% (230/442)   [Kremote: Compressing objects:  53% (235/442)   [Kremote: Compressing objects:  54% (239/442)   [Kremote: Compressing objects:  55% (244/442)   [Kremote: Compressing objects:  56% (248/442)   [Kremote: Compressing objects:  57% (252/442)   [Kremote: Compressing objects:  58% (257/442)   [Kremote: Compressing objects:  59% (261/442)   [Kremote: Compressing objects:  60% (266/442)   [Kremote: Compressing objects:  61% (270/442)   [Kremote: Compressing objects:  62% (275/442)   [Kremote: Compressing objects:  63% (279/442)   [Kremote: Compressing objects:  64% (283/442)   [Kremote: Compressing objects:  65% (288/442)   [Kremote: Compressing objects:  66% (292/442)   [Kremote: Compressing objects:  67% (297/442)   [Kremote: Compressing objects:  68% (301/442)   [Kremote: Compressing objects:  69% (305/442)   [Kremote: Compressing objects:  70% (310/442)   [Kremote: Compressing objects:  71% (314/442)   [Kremote: Compressing objects:  72% (319/442)   [Kremote: Compressing objects:  73% (323/442)   [Kremote: Compressing objects:  74% (328/442)   [Kremote: Compressing objects:  75% (332/442)   [Kremote: Compressing objects:  76% (336/442)   [Kremote: Compressing objects:  77% (341/442)   [Kremote: Compressing objects:  78% (345/442)   [Kremote: Compressing objects:  79% (350/442)   [Kremote: Compressing objects:  80% (354/442)   [Kremote: Compressing objects:  81% (359/442)   [Kremote: Compressing objects:  82% (363/442)   [Kremote: Compressing objects:  83% (367/442)   [Kremote: Compressing objects:  84% (372/442)   [Kremote: Compressing objects:  85% (376/442)   [Kremote: Compressing objects:  86% (381/442)   [Kremote: Compressing objects:  87% (385/442)   [Kremote: Compressing objects:  88% (389/442)   [Kremote: Compressing objects:  89% (394/442)   [Kremote: Compressing objects:  90% (398/442)   [Kremote: Compressing objects:  91% (403/442)   [Kremote: Compressing objects:  92% (407/442)   [Kremote: Compressing objects:  93% (412/442)   [Kremote: Compressing objects:  94% (416/442)   [Kremote: Compressing objects:  95% (420/442)   [Kremote: Compressing objects:  96% (425/442)   [Kremote: Compressing objects:  97% (429/442)   [Kremote: Compressing objects:  98% (434/442)   [Kremote: Compressing objects:  99% (438/442)   [Kremote: Compressing objects: 100% (442/442)   [Kremote: Compressing objects: 100% (442/442), done.[K
+Receiving objects:   0% (1/655)   Receiving objects:   1% (7/655)   Receiving objects:   2% (14/655)   Receiving objects:   3% (20/655)   Receiving objects:   4% (27/655)   Receiving objects:   5% (33/655)   Receiving objects:   6% (40/655)   Receiving objects:   7% (46/655)   Receiving objects:   8% (53/655)   Receiving objects:   9% (59/655)   Receiving objects:  10% (66/655)   Receiving objects:  11% (73/655)   Receiving objects:  12% (79/655)   Receiving objects:  13% (86/655)   Receiving objects:  14% (92/655)   Receiving objects:  15% (99/655)   Receiving objects:  16% (105/655)   Receiving objects:  17% (112/655)   Receiving objects:  18% (118/655)   Receiving objects:  19% (125/655)   Receiving objects:  20% (131/655)   Receiving objects:  21% (138/655)   Receiving objects:  22% (145/655)   Receiving objects:  23% (151/655)   Receiving objects:  24% (158/655)   Receiving objects:  25% (164/655)   Receiving objects:  26% (171/655)   Receiving objects:  27% (177/655)   Receiving objects:  28% (184/655)   Receiving objects:  29% (190/655)   Receiving objects:  30% (197/655)   Receiving objects:  31% (204/655)   Receiving objects:  32% (210/655)   Receiving objects:  33% (217/655)   Receiving objects:  34% (223/655)   Receiving objects:  35% (230/655)   Receiving objects:  36% (236/655)   Receiving objects:  37% (243/655)   Receiving objects:  38% (249/655)   Receiving objects:  39% (256/655)   Receiving objects:  40% (262/655)   Receiving objects:  41% (269/655)   Receiving objects:  42% (276/655)   Receiving objects:  43% (282/655)   Receiving objects:  44% (289/655)   Receiving objects:  45% (295/655)   Receiving objects:  46% (302/655)   Receiving objects:  47% (308/655)   Receiving objects:  48% (315/655)   Receiving objects:  49% (321/655)   Receiving objects:  50% (328/655)   Receiving objects:  51% (335/655)   Receiving objects:  52% (341/655)   Receiving objects:  53% (348/655)   Receiving objects:  54% (354/655)   Receiving objects:  55% (361/655)   Receiving objects:  56% (367/655)   Receiving objects:  57% (374/655)   Receiving objects:  58% (380/655)   Receiving objects:  59% (387/655)   Receiving objects:  60% (393/655)   Receiving objects:  61% (400/655)   Receiving objects:  62% (407/655)   Receiving objects:  63% (413/655)   Receiving objects:  64% (420/655)   Receiving objects:  65% (426/655)   Receiving objects:  66% (433/655)   Receiving objects:  67% (439/655)   Receiving objects:  68% (446/655)   Receiving objects:  69% (452/655)   Receiving objects:  70% (459/655)   Receiving objects:  71% (466/655)   Receiving objects:  72% (472/655)   Receiving objects:  73% (479/655)   Receiving objects:  74% (485/655)   remote: Total 655 (delta 260), reused 486 (delta 144)[K
+Receiving objects:  75% (492/655)   Receiving objects:  76% (498/655)   Receiving objects:  77% (505/655)   Receiving objects:  78% (511/655)   Receiving objects:  79% (518/655)   Receiving objects:  80% (524/655)   Receiving objects:  81% (531/655)   Receiving objects:  82% (538/655)   Receiving objects:  83% (544/655)   Receiving objects:  84% (551/655)   Receiving objects:  85% (557/655)   Receiving objects:  86% (564/655)   Receiving objects:  87% (570/655)   Receiving objects:  88% (577/655)   Receiving objects:  89% (583/655)   Receiving objects:  90% (590/655)   Receiving objects:  91% (597/655)   Receiving objects:  92% (603/655)   Receiving objects:  93% (610/655)   Receiving objects:  94% (616/655)   Receiving objects:  95% (623/655)   Receiving objects:  96% (629/655)   Receiving objects:  97% (636/655)   Receiving objects:  98% (642/655)   Receiving objects:  99% (649/655)   Receiving objects: 100% (655/655)   Receiving objects: 100% (655/655), 328.62 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/260)   Resolving deltas:   5% (14/260)   Resolving deltas:   7% (19/260)   Resolving deltas:   8% (22/260)   Resolving deltas:   9% (24/260)   Resolving deltas:  16% (44/260)   Resolving deltas:  19% (51/260)   Resolving deltas:  20% (54/260)   Resolving deltas:  31% (81/260)   Resolving deltas:  32% (84/260)   Resolving deltas:  36% (96/260)   Resolving deltas:  37% (98/260)   Resolving deltas:  53% (140/260)   Resolving deltas:  55% (143/260)   Resolving deltas:  58% (151/260)   Resolving deltas:  60% (158/260)   Resolving deltas:  61% (159/260)   Resolving deltas:  62% (163/260)   Resolving deltas:  63% (166/260)   Resolving deltas:  64% (167/260)   Resolving deltas:  65% (169/260)   Resolving deltas:  66% (172/260)   Resolving deltas:  67% (176/260)   Resolving deltas:  68% (177/260)   Resolving deltas:  69% (180/260)   Resolving deltas:  71% (185/260)   Resolving deltas:  73% (190/260)   Resolving deltas:  75% (195/260)   Resolving deltas:  76% (198/260)   Resolving deltas:  79% (206/260)   Resolving deltas:  80% (209/260)   Resolving deltas:  81% (212/260)   Resolving deltas:  82% (215/260)   Resolving deltas:  83% (217/260)   Resolving deltas:  84% (219/260)   Resolving deltas:  85% (222/260)   Resolving deltas:  86% (225/260)   Resolving deltas:  87% (227/260)   Resolving deltas:  89% (233/260)   Resolving deltas:  90% (236/260)   Resolving deltas:  91% (237/260)   Resolving deltas:  92% (241/260)   Resolving deltas:  93% (242/260)   Resolving deltas:  96% (251/260)   Resolving deltas:  98% (255/260)   Resolving deltas: 100% (260/260)   Resolving deltas: 100% (260/260), done.
+Checking connectivity... done.
+travis_time:end:226f73b8:start=1422887751517832636,finish=1422887752102621748,duration=584789112[0K$ cd jruby/warbler
+$ git checkout -qf aeb41deccdf83e0bd191ff89222cdde146ae6685
+travis_fold:end:git.checkout[0Ktravis_fold:start:rvm[0Ktravis_time:start:043112c0[0K$ rvm use 1.9.2 --install --binary --fuzzy
+[32mUsing /home/travis/.rvm/gems/ruby-1.9.2-p330[0m
+travis_time:end:043112c0:start=1422887752147017408,finish=1422887752572368925,duration=425351517[0Ktravis_fold:end:rvm[0K$ export BUNDLE_GEMFILE=$PWD/Gemfile
+$ ruby --version
+ruby 1.9.2p330 (2014-08-07 revision 47094) [x86_64-linux]
+$ rvm --version
+rvm 1.26.8 (latest-minor) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+$ bundle --version
+Bundler version 1.7.11
+$ gem --version
+2.4.5
+travis_fold:start:before_install.1[0Ktravis_time:start:01853f52[0K$ sudo apt-get update && sudo apt-get install git
+0% [Working]            Hit http://apt.basho.com precise InRelease
+            0% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [Waiting for heade                                                                               Ign http://security.ubuntu.com precise-security InRelease
+6% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [Waiting for heade6% [InRelease gpgv 6,591 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Get:1 http://security.ubuntu.com precise-security Release.gpg [198 B]
+93% [InRelease gpgv 6,591 B] [Connecting to us.archive.ubuntu.com (2001:67c:15693% [InRelease gpgv 6,591 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Get:2 http://security.ubuntu.com precise-security Release [53.0 kB]
+27% [InRelease gpgv 6,591 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Get:3 http://www.rabbitmq.com testing InRelease [17.9 kB]
+24% [InRelease gpgv 6,591 B] [Connecting to us.archive.ubuntu.com (2001:67c:15646% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [2 Release 28.2 k                                                                               Ign http://ppa.launchpad.net precise InRelease
+76% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [2 Release 49.6 k                                                                               Ign http://ppa.launchpad.net precise InRelease
+76% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [2 Release 49.6 k                                                                               Ign http://ppa.launchpad.net precise InRelease
+76% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [2 Release 49.6 k                                                                               Ign http://ppa.launchpad.net precise InRelease
+                                                                               Ign http://ppa.launchpad.net precise InRelease
+76% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [2 Release 49.6 k                                                                               Ign http://ppa.launchpad.net precise InRelease
+76% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [2 Release 49.6 k81% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [Waiting for head81% [2 Release gpgv 53.0 kB] [Connecting to us.archive.ubuntu.com (2001:67c:15681% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [Waiting for head                                                                               Hit http://apt.basho.com precise/main amd64 Packages
+81% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [Waiting for head                                                                               Hit http://apt.basho.com precise/main i386 Packages
+81% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [Waiting for head                                                                               Get:4 http://security.ubuntu.com precise-security/main Sources [124 kB]
+35% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [4 Sources 10.6 k97% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [Waiting for head                                                                               Ign http://apt.basho.com precise/main TranslationIndex
+                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+97% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [Waiting for head97% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::100% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:100% [4 Sources bzip2 0 B] [3 InRelease gpgv 17.9 kB] [Connecting to us.archive100% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:                                                                               Get:5 http://security.ubuntu.com precise-security/restricted Sources [3,759 B]
+99% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::100% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:                                                                               Get:6 http://security.ubuntu.com precise-security/universe Sources [33.5 kB]
+86% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::100% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:                                                                               Get:7 http://security.ubuntu.com precise-security/multiverse Sources [1,820 B]
+100% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:100% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:                                                                               Get:8 http://security.ubuntu.com precise-security/main amd64 Packages [476 kB]
+34% [4 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::50% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [8 Packages 119 k50% [5 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::51% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [8 Packages 130 k51% [6 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+51% [6 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+53% [6 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::                                                                               Ign http://downloads-distro.mongodb.org dist InRelease
+69% [6 Sources bzip2 132 kB] [Connecting to us.archive.ubuntu.com (2001:67c:15669% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [8 Packages 254 k69% [7 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::                                                                               Get:9 http://www.rabbitmq.com testing/main amd64 Packages [497 B]
+69% [7 Sources bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::92% [7 Sources bzip2 4,314 B] [Connecting to us.archive.ubuntu.com (2001:67c:15                                                                               Get:10 http://ppa.launchpad.net precise Release.gpg [316 B]
+                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+                                                                               Get:11 http://downloads-distro.mongodb.org dist Release.gpg [490 B]
+92% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [8 Packages 420 k92% [9 Packages gzip 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562::98% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [8 Packages 461 k                                                                               Get:12 http://downloads-distro.mongodb.org dist Release [2,042 B]
+98% [Connecting to us.archive.ubuntu.com (2001:67c:1562::14)] [8 Packages 461 k98% [12 Release gpgv 2,042 B] [Connecting to us.archive.ubuntu.com (2001:67c:15100% [12 Release gpgv 2,042 B] [Connecting to us.archive.ubuntu.com (2001:67c:1                                                                               Get:13 http://security.ubuntu.com precise-security/restricted amd64 Packages [8,943 B]
+100% [12 Release gpgv 2,042 B] [Connecting to us.archive.ubuntu.com (2001:67c:1                                                                               Get:14 http://security.ubuntu.com precise-security/universe amd64 Packages [106 kB]
+89% [8 Packages bzip2 0 B] [12 Release gpgv 2,042 B] [Connecting to us.archive.94% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:                                                                               Get:15 http://downloads-distro.mongodb.org dist/10gen amd64 Packages [26.3 kB]
+97% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:98% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:                                                                               Get:16 http://security.ubuntu.com precise-security/multiverse amd64 Packages [2,460 B]
+98% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562100% [15 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ub100% [15 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ub                                                                               Get:17 http://security.ubuntu.com precise-security/main i386 Packages [516 kB]
+63% [15 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ubu                                                                               Get:18 http://downloads-distro.mongodb.org dist/10gen i386 Packages [26.4 kB]
+70% [15 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ubu75% [15 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ubu                                                                               Get:19 http://ppa.launchpad.net precise Release.gpg [316 B]
+80% [15 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ubu81% [15 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ubu                                                                               Ign http://downloads-distro.mongodb.org dist/10gen TranslationIndex
+81% [15 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ubu81% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:81% [18 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ubu                                                                               Get:20 http://www.rabbitmq.com testing/main i386 Packages [497 B]
+                                                                               Ign http://www.rabbitmq.com testing/main TranslationIndex
+98% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:98% [20 Packages gzip 0 B] [8 Packages bzip2 0 B] [Connecting to us.archive.ubu100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Get:21 http://security.ubuntu.com precise-security/restricted i386 Packages [8,939 B]
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Get:22 http://security.ubuntu.com precise-security/universe i386 Packages [113 kB]
+95% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Get:23 http://security.ubuntu.com precise-security/multiverse i386 Packages [2,659 B]
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Get:24 http://security.ubuntu.com precise-security/main TranslationIndex [208 B]
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Get:25 http://security.ubuntu.com precise-security/multiverse TranslationIndex [199 B]
+                                                                               Get:26 http://security.ubuntu.com precise-security/restricted TranslationIndex [202 B]
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Get:27 http://security.ubuntu.com precise-security/universe TranslationIndex [205 B]
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Ign http://apt.basho.com precise/main Translation-en_US
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Ign http://downloads-distro.mongodb.org dist/10gen Translation-en_US
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Ign http://apt.basho.com precise/main Translation-en
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Get:28 http://security.ubuntu.com precise-security/main Translation-en [212 kB]
+88% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:                                                                               Ign http://downloads-distro.mongodb.org dist/10gen Translation-en
+90% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562:100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Hit http://security.ubuntu.com precise-security/multiverse Translation-en
+                                                                               Hit http://security.ubuntu.com precise-security/restricted Translation-en
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Hit http://ppa.launchpad.net precise Release
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Hit http://ppa.launchpad.net precise Release
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562                                                                               Hit http://ppa.launchpad.net precise Release
+100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562100% [8 Packages bzip2 0 B] [Release gpgv 12.4 kB] [Connecting to us.archive.ub                                                                               Get:29 http://security.ubuntu.com precise-security/universe Translation-en [64.9 kB]
+96% [8 Packages bzip2 0 B] [Release gpgv 12.4 kB] [Connecting to us.archive.ubu                                                                               Get:30 http://ppa.launchpad.net precise Release [12.9 kB]
+96% [8 Packages bzip2 0 B] [Release gpgv 12.4 kB] [Connecting to us.archive.ubu100% [8 Packages bzip2 0 B] [Release gpgv 12.4 kB] [Connecting to us.archive.ub100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562100% [8 Packages bzip2 0 B] [Release gpgv 12.9 kB] [Connecting to us.archive.ub100% [8 Packages bzip2 0 B] [Release gpgv 12.9 kB] [Connecting to us.archive.ub                                                                               Hit http://ppa.launchpad.net precise Release
+100% [8 Packages bzip2 0 B] [Release gpgv 12.9 kB] [Connecting to us.archive.ub100% [8 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:1562100% [8 Packages bzip2 0 B] [Release gpgv 12.9 kB] [Connecting to us.archive.ub100% [Release gpgv 12.9 kB] [Connecting to us.archive.ubuntu.com (2001:67c:1562100% [13 Packages bzip2 0 B] [Release gpgv 12.9 kB] [Connecting to us.archive.u100% [Release gpgv 12.9 kB] [Connecting to us.archive.ubuntu.com (2001:67c:1562100% [14 Packages bzip2 0 B] [Release gpgv 12.9 kB] [Connecting to us.archive.u                                                                               Get:31 http://ppa.launchpad.net precise Release [13.0 kB]
+100% [14 Packages bzip2 0 B] [Release gpgv 12.9 kB] [Connecting to us.archive.u100% [14 Packages bzip2 0 B] [Release gpgv 12.9 kB] [Connecting to us.archive.u100% [14 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156100% [14 Packages bzip2 0 B] [30 Release gpgv 12.9 kB] [Connecting to us.archiv100% [14 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156100% [14 Packages bzip2 0 B] [Release gpgv 12.4 kB] [Connecting to us.archive.u100% [14 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156100% [14 Packages bzip2 0 B] [31 Release gpgv 13.0 kB] [Connecting to us.archiv100% [31 Release gpgv 13.0 kB] [Connecting to us.archive.ubuntu.com (2001:67c:1100% [16 Packages bzip2 0 B] [31 Release gpgv 13.0 kB] [Connecting to us.archiv100% [31 Release gpgv 13.0 kB] [Connecting to us.archive.ubuntu.com (2001:67c:1100% [17 Packages bzip2 0 B] [31 Release gpgv 13.0 kB] [Connecting to us.archiv100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main i386 Packages
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main i386 Packages
+                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main i386 Packages
+                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+                                                                               Get:32 http://ppa.launchpad.net precise/main amd64 Packages [1,398 B]
+                                                                               Get:33 http://ppa.launchpad.net precise/main i386 Packages [943 B]
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Get:34 http://ppa.launchpad.net precise/main TranslationIndex [199 B]
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main i386 Packages
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Get:35 http://ppa.launchpad.net precise/main amd64 Packages [2,863 B]
+                                                                               Get:36 http://ppa.launchpad.net precise/main i386 Packages [2,863 B]
+                                                                               Get:37 http://ppa.launchpad.net precise/main TranslationIndex [199 B]
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+100% [17 Packages bzip2 0 B] [Connecting to us.archive.ubuntu.com (2001:67c:156                                                                               Ign http://us.archive.ubuntu.com precise InRelease
+100% [17 Packages bzip2 0 B] [Waiting for headers] [Connecting to apt.postgresq                                                                               Ign http://us.archive.ubuntu.com precise-updates InRelease
+                                                                               Ign http://us.archive.ubuntu.com precise-backports InRelease
+100% [17 Packages bzip2 0 B] [Waiting for headers] [Connecting to apt.postgresq100% [Waiting for headers] [Waiting for headers] [Waiting for headers] [Waiting100% [21 Packages bzip2 0 B] [Waiting for headers] [Waiting for headers] [Waiti                                                                               Ign http://www.rabbitmq.com testing/main Translation-en_US
+100% [21 Packages bzip2 0 B] [Waiting for headers] [Waiting for headers] [Waiti                                                                               Hit http://us.archive.ubuntu.com precise Release.gpg
+100% [21 Packages bzip2 0 B] [Waiting for headers] [Waiting for headers] [Waiti                                                                               Get:38 http://us.archive.ubuntu.com precise-updates Release.gpg [198 B]
+100% [21 Packages bzip2 0 B] [38 Release.gpg 198 B/198 B 100%] [Waiting for hea100% [21 Packages bzip2 0 B] [Waiting for headers] [Waiting for headers] [Waiti                                                                               Get:39 http://ppa.launchpad.net precise/main Translation-en [735 B]
+100% [21 Packages bzip2 0 B] [Waiting for headers] [39 Translation-en 735 B/735100% [21 Packages bzip2 0 B] [Waiting for headers] [Waiting for headers] [Waiti                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+100% [21 Packages bzip2 0 B] [Waiting for headers] [Waiting for headers] [Waiti                                                                               Hit http://us.archive.ubuntu.com precise-backports Release.gpg
+100% [21 Packages bzip2 0 B] [Waiting for headers] [Waiting for headers] [Waiti100% [Waiting for headers] [Waiting for headers] [Waiting for headers] [Waiting                                                                               Hit http://us.archive.ubuntu.com precise Release
+                                                                               100% [Waiting for headers] [Waiting for headers] [Waiting for headers]                                                                      Get:40 http://apt.postgresql.org precise-pgdg InRelease [33.8 kB]
+                                                                      99% [22 Packages bzip2 0 B] [Waiting for headers] [Waiting for headers] [40 InR99% [22 Packages bzip2 0 B] [Release gpgv 49.6 kB] [Waiting for headers] [Waiti                                                                               Get:41 http://us.archive.ubuntu.com precise-updates Release [194 kB]
+90% [22 Packages bzip2 0 B] [Release gpgv 49.6 kB] [41 Release 3,929 B/194 kB 2                                                                               Ign http://www.rabbitmq.com testing/main Translation-en
+91% [22 Packages bzip2 0 B] [Release gpgv 49.6 kB] [41 Release 29.6 kB/194 kB 193% [22 Packages bzip2 0 B] [Release gpgv 49.6 kB] [41 Release 48.2 kB/194 kB 2                                                                               Get:42 http://ppa.launchpad.net precise/main Translation-en [1,381 B]
+93% [22 Packages bzip2 0 B] [Release gpgv 49.6 kB] [41 Release 59.6 kB/194 kB 393% [22 Packages bzip2 0 B] [Release gpgv 49.6 kB] [41 Release 59.6 kB/194 kB 3                                                                               95% [22 Packages bzip2 0 B] [41 Release 95.3 kB/194 kB 49%]                                                           95% [22 Packages bzip2 0 B] [40 InRelease gpgv 33.8 kB] [41 Release 95.3 kB/194                                                                               95% [40 InRelease gpgv 33.8 kB] [41 Release 98.2 kB/194 kB 51%]                                                               95% [23 Packages bzip2 0 B] [40 InRelease gpgv 33.8 kB] [41 Release 98.2 kB/194                                                                               97% [40 InRelease gpgv 33.8 kB] [41 Release 137 kB/194 kB 70%]                                                              97% [28 Translation-en bzip2 0 B] [40 InRelease gpgv 33.8 kB] [41 Release 137 k                                                                               100% [28 Translation-en bzip2 0 B] [41 Release 194 kB/194 kB 100%]                                                                  100% [28 Translation-en bzip2 0 B] [Waiting for headers]                                                        100% [28 Translation-en bzip2 0 B] [41 Release gpgv 194 kB] [Waiting for header                                                                               Hit http://us.archive.ubuntu.com precise-backports Release
+100% [28 Translation-en bzip2 0 B] [41 Release gpgv 194 kB] [Waiting for header                                                                               100% [28 Translation-en bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                              Hit http://us.archive.ubuntu.com precise/main Sources
+                                                                              Hit http://us.archive.ubuntu.com precise/restricted Sources
+                                                                              Hit http://us.archive.ubuntu.com precise/universe Sources
+                                                                              100% [28 Translation-en bzip2 0 B] [Waiting for headers]                                                        Hit http://us.archive.ubuntu.com precise/multiverse Sources
+                                                        100% [28 Translation-en bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                              100% [28 Translation-en bzip2 0 B] [Release gpgv 53.1 kB] [Waiting for headers]                                                                               Hit http://us.archive.ubuntu.com precise/main amd64 Packages
+100% [28 Translation-en bzip2 0 B] [Release gpgv 53.1 kB] [Waiting for headers]                                                                               Hit http://us.archive.ubuntu.com precise/restricted amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/universe amd64 Packages
+100% [28 Translation-en bzip2 0 B] [Release gpgv 53.1 kB] [Waiting for headers]                                                                               Hit http://us.archive.ubuntu.com precise/multiverse amd64 Packages
+100% [28 Translation-en bzip2 0 B] [Release gpgv 53.1 kB] [Waiting for headers]                                                                               Hit http://us.archive.ubuntu.com precise/main i386 Packages
+100% [28 Translation-en bzip2 0 B] [Release gpgv 53.1 kB] [Waiting for headers]                                                                               Hit http://us.archive.ubuntu.com precise/restricted i386 Packages
+100% [28 Translation-en bzip2 0 B] [Release gpgv 53.1 kB] [Waiting for headers]                                                                               Get:43 http://apt.postgresql.org precise-pgdg/main amd64 Packages [51.7 kB]
+99% [28 Translation-en bzip2 0 B] [Release gpgv 53.1 kB] [Waiting for headers]                                                                                Hit http://us.archive.ubuntu.com precise/universe i386 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/multiverse i386 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/main TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise/multiverse TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise/restricted TranslationIndex
+100% [28 Translation-en bzip2 0 B] [Release gpgv 53.1 kB] [Waiting for headers]                                                                               Hit http://us.archive.ubuntu.com precise/universe TranslationIndex
+                                                                               Get:44 http://us.archive.ubuntu.com precise-updates/main Sources [484 kB]
+                                                                               100% [28 Translation-en bzip2 0 B] [44 Sources 484 kB/484 kB 100%]                                                                  Get:45 http://us.archive.ubuntu.com precise-updates/restricted Sources [7,981 B]
+                                                                  Get:46 http://us.archive.ubuntu.com precise-updates/universe Sources [112 kB]
+                                                                  96% [28 Translation-en bzip2 0 B] [46 Sources 0 B/112 kB 0%]                                                            100% [28 Translation-en bzip2 0 B] [Waiting for headers]                                                        Get:47 http://us.archive.ubuntu.com precise-updates/multiverse Sources [8,944 B]
+                                                        100% [28 Translation-en bzip2 0 B] [47 Sources 8,944 B/8,944 B 100%] [Waiting f                                                                               100% [28 Translation-en bzip2 0 B] [Waiting for headers]                                                        Get:48 http://us.archive.ubuntu.com precise-updates/main amd64 Packages [864 kB]
+                                                        77% [28 Translation-en bzip2 0 B] [48 Packages 34.9 kB/864 kB 4%] [Waiting for                                                                                Get:49 http://apt.postgresql.org precise-pgdg/main i386 Packages [51.7 kB]
+83% [28 Translation-en bzip2 0 B] [48 Packages 248 kB/864 kB 29%] [49 Packages                                                                                Ign http://apt.postgresql.org precise-pgdg/main TranslationIndex
+                                                                               93% [28 Translation-en bzip2 0 B] [48 Packages 625 kB/864 kB 72%]                                                                 95% [48 Packages 690 kB/864 kB 80%] [Waiting for headers]                                                         95% [29 Translation-en bzip2 0 B] [48 Packages 690 kB/864 kB 80%] [Waiting for                                                                                100% [29 Translation-en bzip2 0 B] [Waiting for headers]                                                        Get:50 http://us.archive.ubuntu.com precise-updates/restricted amd64 Packages [13.6 kB]
+                                                        100% [29 Translation-en bzip2 0 B] [50 Packages 13.6 kB/13.6 kB 100%] [Waiting                                                                                100% [29 Translation-en bzip2 0 B] [Waiting for headers]                                                        Get:51 http://us.archive.ubuntu.com precise-updates/universe amd64 Packages [253 kB]
+                                                        94% [29 Translation-en bzip2 0 B] [51 Packages 0 B/253 kB 0%] [Waiting for head                                                                               97% [51 Packages 131 kB/253 kB 52%] [Waiting for headers]                                                         97% [32 Packages bzip2 0 B] [51 Packages 140 kB/253 kB 55%] [Waiting for header                                                                               97% [51 Packages 140 kB/253 kB 55%] [Waiting for headers]                                                         97% [33 Packages bzip2 0 B] [51 Packages 140 kB/253 kB 55%] [Waiting for header                                                                               97% [51 Packages 140 kB/253 kB 55%] [Waiting for headers]                                                         97% [35 Packages bzip2 0 B] [51 Packages 140 kB/253 kB 55%] [Waiting for header                                                                               99% [51 Packages 197 kB/253 kB 78%] [Waiting for headers]                                                         99% [36 Packages bzip2 0 B] [51 Packages 197 kB/253 kB 78%] [Waiting for header                                                                               100% [51 Packages 253 kB/253 kB 100%] [Waiting for headers]                                                           100% [39 Translation-en bzip2 0 B] [51 Packages 253 kB/253 kB 100%] [Waiting fo                                                                               100% [39 Translation-en bzip2 0 B] [Waiting for headers]                                                        Get:52 http://us.archive.ubuntu.com precise-updates/multiverse amd64 Packages [15.3 kB]
+                                                        100% [39 Translation-en bzip2 0 B] [52 Packages 15.3 kB/15.3 kB 100%] [Waiting                                                                                100% [39 Translation-en bzip2 3,276 B] [Waiting for headers]                                                            100% [Waiting for headers]                          Get:53 http://us.archive.ubuntu.com precise-updates/main i386 Packages [897 kB]
+                          81% [53 Packages 0 B/897 kB 0%] [Waiting for headers]                                                     81% [42 Translation-en bzip2 0 B] [53 Packages 0 B/897 kB 0%] [Waiting for head                                                                               81% [53 Packages 0 B/897 kB 0%] [Waiting for headers]                                                     81% [43 Packages bzip2 0 B] [53 Packages 0 B/897 kB 0%] [Waiting for headers]                                                                             92% [53 Packages 524 kB/897 kB 58%] [Waiting for headers]                                                         92% [44 Sources bzip2 0 B] [53 Packages 524 kB/897 kB 58%] [Waiting for headers                                                                               100% [44 Sources bzip2 0 B] [Waiting for headers]                                                 Get:54 http://us.archive.ubuntu.com precise-updates/restricted i386 Packages [13.6 kB]
+                                                 100% [44 Sources bzip2 0 B] [54 Packages 0 B/13.6 kB 0%] [Waiting for headers]                                                                              100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Get:55 http://us.archive.ubuntu.com precise-updates/universe i386 Packages [260 kB]
+                                                                       95% [44 Sources bzip2 0 B] [55 Packages 7,853 B/260 kB 3%] [Waiting for headers                                                                               Get:56 http://us.archive.ubuntu.com precise-updates/multiverse i386 Packages [15.5 kB]
+                                                                               100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Get:57 http://us.archive.ubuntu.com precise-updates/main TranslationIndex [10.6 kB]
+                                                                       100% [44 Sources bzip2 0 B] [57 TranslationIndex 10.6 kB/10.6 kB 100%] [Waiting                                                                               100% [44 Sources bzip2 0 B] [Waiting for headers]                                                 Get:58 http://us.archive.ubuntu.com precise-updates/multiverse TranslationIndex [7,613 B]
+                                                 Get:59 http://us.archive.ubuntu.com precise-updates/restricted TranslationIndex [7,297 B]
+                                                 Get:60 http://us.archive.ubuntu.com precise-updates/universe TranslationIndex [8,333 B]
+                                                 Hit http://us.archive.ubuntu.com precise/main Translation-en
+                                                 Hit http://us.archive.ubuntu.com precise/multiverse Translation-en
+                                                 Hit http://us.archive.ubuntu.com precise/restricted Translation-en
+100% [44 Sources bzip2 0 B] [Waiting for headers]                                                 Hit http://us.archive.ubuntu.com precise-backports/main Sources
+                                                 100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/restricted Sources
+100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/universe Sources
+                                                                       100% [44 Sources bzip2 0 B] [Waiting for headers]                                                 Hit http://us.archive.ubuntu.com precise-backports/multiverse Sources
+                                                 Hit http://us.archive.ubuntu.com precise-backports/main amd64 Packages
+                                                 100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/restricted amd64 Packages
+100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/universe amd64 Packages
+                                                                       Hit http://us.archive.ubuntu.com precise-backports/multiverse amd64 Packages
+100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/main i386 Packages
+100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/restricted i386 Packages
+                                                                       Hit http://us.archive.ubuntu.com precise-backports/universe i386 Packages
+100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/multiverse i386 Packages
+100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/main TranslationIndex
+100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/multiverse TranslationIndex
+                                                                       Hit http://us.archive.ubuntu.com precise-backports/restricted TranslationIndex
+                                                                       Hit http://us.archive.ubuntu.com precise-backports/universe TranslationIndex
+                                                                       Hit http://us.archive.ubuntu.com precise/universe Translation-en
+                                                                       Get:61 http://us.archive.ubuntu.com precise-updates/main Translation-en [380 kB]
+                                                                       100% [44 Sources bzip2 0 B] [61 Translation-en 380 kB/380 kB 100%]                                                                  Hit http://us.archive.ubuntu.com precise-updates/multiverse Translation-en
+                                                                  Hit http://us.archive.ubuntu.com precise-updates/restricted Translation-en
+                                                                  Get:62 http://us.archive.ubuntu.com precise-updates/universe Translation-en [147 kB]
+                                                                  100% [44 Sources bzip2 0 B]                           Hit http://us.archive.ubuntu.com precise-backports/main Translation-en
+                           100% [44 Sources bzip2 0 B] [Waiting for headers] [Waiting for headers]                                                                       Hit http://us.archive.ubuntu.com precise-backports/multiverse Translation-en
+                                                                       Hit http://us.archive.ubuntu.com precise-backports/restricted Translation-en
+                                                                       Hit http://us.archive.ubuntu.com precise-backports/universe Translation-en
+                                                                       100% [44 Sources bzip2 0 B] [Waiting for headers]                                                 Ign http://apt.postgresql.org precise-pgdg/main Translation-en_US
+                                                 100% [44 Sources bzip2 0 B]                           100% [Waiting for headers]                          100% [45 Sources bzip2 0 B] [Waiting for headers]                                                 100% [Waiting for headers]                          100% [46 Sources bzip2 0 B] [Waiting for headers]                                                 Ign http://apt.postgresql.org precise-pgdg/main Translation-en
+                                                 100% [46 Sources bzip2 0 B]                           100% [Working]              100% [47 Sources bzip2 0 B]                           100% [Working]              100% [49 Packages bzip2 0 B]                            100% [Working]              100% [48 Packages bzip2 0 B]100% [48 Packages bzip2 0 B]                            100% [Working]              100% [50 Packages bzip2 0 B]                            100% [Working]              100% [51 Packages bzip2 0 B]                            100% [Working]              100% [52 Packages bzip2 0 B]                            100% [Working]              100% [53 Packages bzip2 0 B]                            100% [Working]              100% [54 Packages bzip2 0 B]                            100% [Working]              100% [55 Packages bzip2 0 B]                            100% [Working]              100% [56 Packages bzip2 0 B]                            100% [Working]              100% [61 Translation-en bzip2 0 B]                                  100% [Working]              100% [62 Translation-en bzip2 0 B]                                  100% [Working]              Fetched 5,676 kB in 3s (1,521 kB/s)
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 1%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 7%Reading package lists... 13%Reading package lists... 22%Reading package lists... 26%Reading package lists... 26%Reading package lists... 27%Reading package lists... 27%Reading package lists... 28%Reading package lists... 33%Reading package lists... 33%Reading package lists... 33%Reading package lists... 33%Reading package lists... 45%Reading package lists... 54%Reading package lists... 54%Reading package lists... 54%Reading package lists... 54%Reading package lists... 57%Reading package lists... 58%Reading package lists... 58%Reading package lists... 58%Reading package lists... 58%Reading package lists... 58%Reading package lists... 58%Reading package lists... 70%Reading package lists... 70%Reading package lists... 70%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 76%Reading package lists... 76%Reading package lists... 76%Reading package lists... 76%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 88%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 91%Reading package lists... 91%Reading package lists... 91%Reading package lists... 91%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 95%Reading package lists... 95%Reading package lists... 95%Reading package lists... 95%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libgeos-3.2.2
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  git-man
+Suggested packages:
+  git-daemon-run git-daemon-sysvinit git-doc git-el git-email git-gui gitk
+  gitweb git-arch git-bzr git-cvs git-mediawiki git-svn
+The following packages will be upgraded:
+  git git-man
+2 upgraded, 0 newly installed, 0 to remove and 157 not upgraded.
+Need to get 10.8 MB of archives.
+After this operation, 18.4 kB of additional disk space will be used.
+0% [Working]            Get:1 http://ppa.launchpad.net/git-core/v1.8/ubuntu/ precise/main git amd64 1:1.8.5.6-0ppa1~ubuntu12.04.1 [9,552 kB]
+            0% [1 git 14.2 kB/9,552 kB 0%]                              4% [1 git 383 kB/9,552 kB 4%]                             14% [1 git 1,461 kB/9,552 kB 15%]37% [1 git 3,945 kB/9,552 kB 41%]61% [1 git 6,552 kB/9,552 kB 69%]83% [1 git 8,913 kB/9,552 kB 93%]                                 89% [Working]             Get:2 http://ppa.launchpad.net/git-core/v1.8/ubuntu/ precise/main git-man all 1:1.8.5.6-0ppa1~ubuntu12.04.1 [1,232 kB]
+             89% [2 git-man 0 B/1,232 kB 0%]                               100% [Working]              Fetched 10.8 MB in 3s (3,188 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 75333 files and directories currently installed.)
+Preparing to replace git 1:1.8.5.5-0ppa2~precise1 (using .../git_1%3a1.8.5.6-0ppa1~ubuntu12.04.1_amd64.deb) ...
+Unpacking replacement git ...
+Preparing to replace git-man 1:1.8.5.5-0ppa2~precise1 (using .../git-man_1%3a1.8.5.6-0ppa1~ubuntu12.04.1_all.deb) ...
+Unpacking replacement git-man ...
+Processing triggers for man-db ...
+Setting up git-man (1:1.8.5.6-0ppa1~ubuntu12.04.1) ...
+Setting up git (1:1.8.5.6-0ppa1~ubuntu12.04.1) ...
+travis_time:end:01853f52:start=1422887757299000698,finish=1422887798739276342,duration=41440275644[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:070ac484[0K$ git fetch --unshallow
+remote: Counting objects: 4356, done.[K
+remote: Compressing objects:   0% (1/1519)   [Kremote: Compressing objects:   1% (16/1519)   [Kremote: Compressing objects:   2% (31/1519)   [Kremote: Compressing objects:   3% (46/1519)   [Kremote: Compressing objects:   4% (61/1519)   [Kremote: Compressing objects:   5% (76/1519)   [Kremote: Compressing objects:   6% (92/1519)   [Kremote: Compressing objects:   7% (107/1519)   [Kremote: Compressing objects:   8% (122/1519)   [Kremote: Compressing objects:   9% (137/1519)   [Kremote: Compressing objects:  10% (152/1519)   [Kremote: Compressing objects:  11% (168/1519)   [Kremote: Compressing objects:  12% (183/1519)   [Kremote: Compressing objects:  13% (198/1519)   [Kremote: Compressing objects:  14% (213/1519)   [Kremote: Compressing objects:  15% (228/1519)   [Kremote: Compressing objects:  16% (244/1519)   [Kremote: Compressing objects:  17% (259/1519)   [Kremote: Compressing objects:  18% (274/1519)   [Kremote: Compressing objects:  19% (289/1519)   [Kremote: Compressing objects:  20% (304/1519)   [Kremote: Compressing objects:  21% (319/1519)   [Kremote: Compressing objects:  22% (335/1519)   [Kremote: Compressing objects:  23% (350/1519)   [Kremote: Compressing objects:  24% (365/1519)   [Kremote: Compressing objects:  25% (380/1519)   [Kremote: Compressing objects:  26% (395/1519)   [Kremote: Compressing objects:  27% (411/1519)   [Kremote: Compressing objects:  28% (426/1519)   [Kremote: Compressing objects:  29% (441/1519)   [Kremote: Compressing objects:  30% (456/1519)   [Kremote: Compressing objects:  31% (471/1519)   [Kremote: Compressing objects:  32% (487/1519)   [Kremote: Compressing objects:  33% (502/1519)   [Kremote: Compressing objects:  34% (517/1519)   [Kremote: Compressing objects:  35% (532/1519)   [Kremote: Compressing objects:  36% (547/1519)   [Kremote: Compressing objects:  37% (563/1519)   [Kremote: Compressing objects:  38% (578/1519)   [Kremote: Compressing objects:  39% (593/1519)   [Kremote: Compressing objects:  40% (608/1519)   [Kremote: Compressing objects:  41% (623/1519)   [Kremote: Compressing objects:  42% (638/1519)   [Kremote: Compressing objects:  43% (654/1519)   [Kremote: Compressing objects:  44% (669/1519)   [Kremote: Compressing objects:  45% (684/1519)   [Kremote: Compressing objects:  46% (699/1519)   [Kremote: Compressing objects:  47% (714/1519)   [Kremote: Compressing objects:  48% (730/1519)   [Kremote: Compressing objects:  49% (745/1519)   [Kremote: Compressing objects:  50% (760/1519)   [Kremote: Compressing objects:  51% (775/1519)   [Kremote: Compressing objects:  52% (790/1519)   [Kremote: Compressing objects:  53% (806/1519)   [Kremote: Compressing objects:  54% (821/1519)   [Kremote: Compressing objects:  55% (836/1519)   [Kremote: Compressing objects:  56% (851/1519)   [Kremote: Compressing objects:  57% (866/1519)   [Kremote: Compressing objects:  58% (882/1519)   [Kremote: Compressing objects:  59% (897/1519)   [Kremote: Compressing objects:  60% (912/1519)   [Kremote: Compressing objects:  61% (927/1519)   [Kremote: Compressing objects:  62% (942/1519)   [Kremote: Compressing objects:  63% (957/1519)   [Kremote: Compressing objects:  64% (973/1519)   [Kremote: Compressing objects:  65% (988/1519)   [Kremote: Compressing objects:  66% (1003/1519)   [Kremote: Compressing objects:  67% (1018/1519)   [Kremote: Compressing objects:  68% (1033/1519)   [Kremote: Compressing objects:  69% (1049/1519)   [Kremote: Compressing objects:  70% (1064/1519)   [Kremote: Compressing objects:  71% (1079/1519)   [Kremote: Compressing objects:  72% (1094/1519)   [Kremote: Compressing objects:  73% (1109/1519)   [Kremote: Compressing objects:  74% (1125/1519)   [Kremote: Compressing objects:  75% (1140/1519)   [Kremote: Compressing objects:  76% (1155/1519)   [Kremote: Compressing objects:  77% (1170/1519)   [Kremote: Compressing objects:  78% (1185/1519)   [Kremote: Compressing objects:  79% (1201/1519)   [Kremote: Compressing objects:  80% (1216/1519)   [Kremote: Compressing objects:  81% (1231/1519)   [Kremote: Compressing objects:  82% (1246/1519)   [Kremote: Compressing objects:  83% (1261/1519)   [Kremote: Compressing objects:  84% (1276/1519)   [Kremote: Compressing objects:  85% (1292/1519)   [Kremote: Compressing objects:  86% (1307/1519)   [Kremote: Compressing objects:  87% (1322/1519)   [Kremote: Compressing objects:  88% (1337/1519)   [Kremote: Compressing objects:  89% (1352/1519)   [Kremote: Compressing objects:  90% (1368/1519)   [Kremote: Compressing objects:  91% (1383/1519)   [Kremote: Compressing objects:  92% (1398/1519)   [Kremote: Compressing objects:  93% (1413/1519)   [Kremote: Compressing objects:  94% (1428/1519)   [Kremote: Compressing objects:  95% (1444/1519)   [Kremote: Compressing objects:  96% (1459/1519)   [Kremote: Compressing objects:  97% (1474/1519)   [Kremote: Compressing objects:  98% (1489/1519)   [Kremote: Compressing objects:  99% (1504/1519)   [Kremote: Compressing objects: 100% (1519/1519)   [Kremote: Compressing objects: 100% (1519/1519), done.[K
+Receiving objects:   0% (1/4356)   Receiving objects:   1% (44/4356)   Receiving objects:   2% (88/4356)   Receiving objects:   3% (131/4356)   Receiving objects:   4% (175/4356)   Receiving objects:   5% (218/4356)   Receiving objects:   6% (262/4356)   Receiving objects:   7% (305/4356)   Receiving objects:   8% (349/4356)   Receiving objects:   9% (393/4356)   Receiving objects:  10% (436/4356)   Receiving objects:  11% (480/4356)   Receiving objects:  12% (523/4356)   Receiving objects:  13% (567/4356)   Receiving objects:  14% (610/4356)   Receiving objects:  15% (654/4356)   Receiving objects:  16% (697/4356)   Receiving objects:  17% (741/4356)   Receiving objects:  18% (785/4356)   Receiving objects:  19% (828/4356)   Receiving objects:  20% (872/4356)   Receiving objects:  21% (915/4356)   Receiving objects:  22% (959/4356)   Receiving objects:  23% (1002/4356)   Receiving objects:  24% (1046/4356)   Receiving objects:  25% (1089/4356)   Receiving objects:  26% (1133/4356)   Receiving objects:  27% (1177/4356)   Receiving objects:  28% (1220/4356)   Receiving objects:  29% (1264/4356)   Receiving objects:  30% (1307/4356)   Receiving objects:  31% (1351/4356)   Receiving objects:  32% (1394/4356)   Receiving objects:  33% (1438/4356)   Receiving objects:  34% (1482/4356)   Receiving objects:  35% (1525/4356)   Receiving objects:  36% (1569/4356)   Receiving objects:  37% (1612/4356)   Receiving objects:  38% (1656/4356)   Receiving objects:  39% (1699/4356)   Receiving objects:  40% (1743/4356)   Receiving objects:  41% (1786/4356)   Receiving objects:  42% (1830/4356)   Receiving objects:  43% (1874/4356)   Receiving objects:  44% (1917/4356)   Receiving objects:  45% (1961/4356)   Receiving objects:  46% (2004/4356)   Receiving objects:  47% (2048/4356)   Receiving objects:  48% (2091/4356)   Receiving objects:  49% (2135/4356)   Receiving objects:  50% (2178/4356)   Receiving objects:  51% (2222/4356)   Receiving objects:  52% (2266/4356)   Receiving objects:  53% (2309/4356)   Receiving objects:  54% (2353/4356)   Receiving objects:  55% (2396/4356)   Receiving objects:  56% (2440/4356)   Receiving objects:  57% (2483/4356)   Receiving objects:  58% (2527/4356)   Receiving objects:  59% (2571/4356)   Receiving objects:  60% (2614/4356)   Receiving objects:  61% (2658/4356)   Receiving objects:  62% (2701/4356)   Receiving objects:  63% (2745/4356)   Receiving objects:  64% (2788/4356)   Receiving objects:  65% (2832/4356)   Receiving objects:  66% (2875/4356)   Receiving objects:  67% (2919/4356)   Receiving objects:  68% (2963/4356)   Receiving objects:  69% (3006/4356)   Receiving objects:  70% (3050/4356)   Receiving objects:  71% (3093/4356)   Receiving objects:  72% (3137/4356)   Receiving objects:  73% (3180/4356)   Receiving objects:  74% (3224/4356)   Receiving objects:  75% (3267/4356)   Receiving objects:  76% (3311/4356)   Receiving objects:  77% (3355/4356)   Receiving objects:  78% (3398/4356)   Receiving objects:  79% (3442/4356)   Receiving objects:  80% (3485/4356)   Receiving objects:  81% (3529/4356)   Receiving objects:  82% (3572/4356)   Receiving objects:  83% (3616/4356)   Receiving objects:  84% (3660/4356)   Receiving objects:  85% (3703/4356)   Receiving objects:  86% (3747/4356)   Receiving objects:  87% (3790/4356)   Receiving objects:  88% (3834/4356)   Receiving objects:  89% (3877/4356)   Receiving objects:  90% (3921/4356)   Receiving objects:  91% (3964/4356)   Receiving objects:  92% (4008/4356)   Receiving objects:  93% (4052/4356)   Receiving objects:  94% (4095/4356)   Receiving objects:  95% (4139/4356)   Receiving objects:  96% (4182/4356), 18.47 MiB | 36.87 MiB/s   Receiving objects:  97% (4226/4356), 18.47 MiB | 36.87 MiB/s   Receiving objects:  98% (4269/4356), 18.47 MiB | 36.87 MiB/s   Receiving objects:  98% (4298/4356), 42.39 MiB | 42.31 MiB/s   Receiving objects:  99% (4313/4356), 42.39 MiB | 42.31 MiB/s   remote: Total 4356 (delta 2809), reused 4248 (delta 2701)[K
+Receiving objects: 100% (4356/4356), 42.39 MiB | 42.31 MiB/s   Receiving objects: 100% (4356/4356), 46.99 MiB | 42.31 MiB/s, done.
+Resolving deltas:   0% (0/2809)   Resolving deltas:   1% (29/2809)   Resolving deltas:   3% (87/2809)   Resolving deltas:   4% (116/2809)   Resolving deltas:   5% (148/2809)   Resolving deltas:   7% (197/2809)   Resolving deltas:   8% (226/2809)   Resolving deltas:   9% (261/2809)   Resolving deltas:  10% (291/2809)   Resolving deltas:  11% (335/2809)   Resolving deltas:  12% (349/2809)   Resolving deltas:  13% (376/2809)   Resolving deltas:  14% (395/2809)   Resolving deltas:  15% (426/2809)   Resolving deltas:  16% (452/2809)   Resolving deltas:  17% (492/2809)   Resolving deltas:  18% (518/2809)   Resolving deltas:  19% (535/2809)   Resolving deltas:  20% (569/2809)   Resolving deltas:  21% (593/2809)   Resolving deltas:  22% (643/2809)   Resolving deltas:  24% (685/2809)   Resolving deltas:  26% (751/2809)   Resolving deltas:  27% (775/2809)   Resolving deltas:  28% (809/2809)   Resolving deltas:  29% (837/2809)   Resolving deltas:  30% (860/2809)   Resolving deltas:  33% (929/2809)   Resolving deltas:  34% (973/2809)   Resolving deltas:  35% (992/2809)   Resolving deltas:  36% (1012/2809)   Resolving deltas:  37% (1045/2809)   Resolving deltas:  38% (1081/2809)   Resolving deltas:  39% (1100/2809)   Resolving deltas:  40% (1132/2809)   Resolving deltas:  41% (1154/2809)   Resolving deltas:  42% (1192/2809)   Resolving deltas:  43% (1208/2809)   Resolving deltas:  44% (1242/2809)   Resolving deltas:  45% (1277/2809)   Resolving deltas:  46% (1295/2809)   Resolving deltas:  47% (1330/2809)   Resolving deltas:  48% (1349/2809)   Resolving deltas:  49% (1396/2809)   Resolving deltas:  50% (1405/2809)   Resolving deltas:  51% (1444/2809)   Resolving deltas:  52% (1466/2809)   Resolving deltas:  53% (1501/2809)   Resolving deltas:  54% (1520/2809)   Resolving deltas:  55% (1545/2809)   Resolving deltas:  56% (1582/2809)   Resolving deltas:  57% (1603/2809)   Resolving deltas:  59% (1668/2809)   Resolving deltas:  60% (1686/2809)   Resolving deltas:  61% (1726/2809)   Resolving deltas:  62% (1742/2809)   Resolving deltas:  63% (1771/2809)   Resolving deltas:  64% (1798/2809)   Resolving deltas:  65% (1827/2809)   Resolving deltas:  66% (1855/2809)   Resolving deltas:  67% (1891/2809)   Resolving deltas:  68% (1927/2809)   Resolving deltas:  69% (1948/2809)   Resolving deltas:  70% (1987/2809)   Resolving deltas:  71% (2010/2809)   Resolving deltas:  73% (2074/2809)   Resolving deltas:  74% (2093/2809)   Resolving deltas:  75% (2124/2809)   Resolving deltas:  76% (2139/2809)   Resolving deltas:  77% (2166/2809)   Resolving deltas:  79% (2223/2809)   Resolving deltas:  81% (2286/2809)   Resolving deltas:  83% (2332/2809)   Resolving deltas:  84% (2370/2809)   Resolving deltas:  85% (2405/2809)   Resolving deltas:  87% (2447/2809)   Resolving deltas:  88% (2498/2809)   Resolving deltas:  89% (2528/2809)   Resolving deltas:  90% (2532/2809)   Resolving deltas:  91% (2570/2809)   Resolving deltas:  92% (2608/2809)   Resolving deltas:  94% (2641/2809)   Resolving deltas:  95% (2676/2809)   Resolving deltas:  96% (2701/2809)   Resolving deltas:  97% (2751/2809)   Resolving deltas:  98% (2756/2809)   Resolving deltas:  99% (2785/2809)   Resolving deltas: 100% (2809/2809)   Resolving deltas: 100% (2809/2809), completed with 74 local objects.
+remote: Counting objects: 4, done.[K
+remote: Compressing objects:  25% (1/4)   [Kremote: Compressing objects:  50% (2/4)   [Kremote: Compressing objects:  75% (3/4)   [Kremote: Compressing objects: 100% (4/4)   [Kremote: Compressing objects: 100% (4/4), done.[K
+remote: Total 4 (delta 0), reused 4 (delta 0)[K
+Unpacking objects:  25% (1/4)   Unpacking objects:  50% (2/4)   Unpacking objects:  75% (3/4)   Unpacking objects: 100% (4/4)   Unpacking objects: 100% (4/4), done.
+From git://github.com/jruby/warbler
+ * [new tag]         0.9.10     -> 0.9.10
+ * [new tag]         0.9.11     -> 0.9.11
+ * [new tag]         0.9.12     -> 0.9.12
+ * [new tag]         0.9.13     -> 0.9.13
+ * [new tag]         0.9.14     -> 0.9.14
+ * [new tag]         0.9.3      -> 0.9.3
+ * [new tag]         0.9.4      -> 0.9.4
+ * [new tag]         0.9.5      -> 0.9.5
+ * [new tag]         0.9.9      -> 0.9.9
+ * [new tag]         1.0        -> 1.0
+ * [new tag]         1.0.1      -> 1.0.1
+ * [new tag]         1.1.0      -> 1.1.0
+ * [new tag]         1.2.0      -> 1.2.0
+ * [new tag]         1.2.1      -> 1.2.1
+ * [new tag]         1.3.0      -> 1.3.0
+ * [new tag]         1.3.1      -> 1.3.1
+ * [new tag]         1.3.2      -> 1.3.2
+ * [new tag]         v1.3.4     -> v1.3.4
+ * [new tag]         v1.3.5     -> v1.3.5
+ * [new tag]         v1.3.6     -> v1.3.6
+ * [new tag]         v1.3.7     -> v1.3.7
+ * [new tag]         v1.3.8     -> v1.3.8
+ * [new tag]         v1.4.0     -> v1.4.0
+ * [new tag]         v1.4.0.beta1 -> v1.4.0.beta1
+ * [new tag]         v1.4.0.beta2 -> v1.4.0.beta2
+ * [new tag]         v1.4.1     -> v1.4.1
+ * [new tag]         v1.4.2     -> v1.4.2
+travis_time:end:070ac484:start=1422887798747586699,finish=1422887802834741511,duration=4087154812[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:0b05f0c4[0K$ gem install bundler --pre
+Fetching: bundler-1.8.0.pre.gemFetching: bundler-1.8.0.pre.gem (  4%)Fetching: bundler-1.8.0.pre.gem (  7%)Fetching: bundler-1.8.0.pre.gem (  8%)Fetching: bundler-1.8.0.pre.gem ( 10%)Fetching: bundler-1.8.0.pre.gem ( 11%)Fetching: bundler-1.8.0.pre.gem ( 14%)Fetching: bundler-1.8.0.pre.gem ( 15%)Fetching: bundler-1.8.0.pre.gem ( 17%)Fetching: bundler-1.8.0.pre.gem ( 18%)Fetching: bundler-1.8.0.pre.gem ( 21%)Fetching: bundler-1.8.0.pre.gem ( 22%)Fetching: bundler-1.8.0.pre.gem ( 24%)Fetching: bundler-1.8.0.pre.gem ( 25%)Fetching: bundler-1.8.0.pre.gem ( 28%)Fetching: bundler-1.8.0.pre.gem ( 29%)Fetching: bundler-1.8.0.pre.gem ( 31%)Fetching: bundler-1.8.0.pre.gem ( 32%)Fetching: bundler-1.8.0.pre.gem ( 34%)Fetching: bundler-1.8.0.pre.gem ( 36%)Fetching: bundler-1.8.0.pre.gem ( 38%)Fetching: bundler-1.8.0.pre.gem ( 39%)Fetching: bundler-1.8.0.pre.gem ( 41%)Fetching: bundler-1.8.0.pre.gem ( 43%)Fetching: bundler-1.8.0.pre.gem ( 45%)Fetching: bundler-1.8.0.pre.gem ( 46%)Fetching: bundler-1.8.0.pre.gem ( 48%)Fetching: bundler-1.8.0.pre.gem ( 50%)Fetching: bundler-1.8.0.pre.gem ( 52%)Fetching: bundler-1.8.0.pre.gem ( 53%)Fetching: bundler-1.8.0.pre.gem ( 55%)Fetching: bundler-1.8.0.pre.gem ( 57%)Fetching: bundler-1.8.0.pre.gem ( 58%)Fetching: bundler-1.8.0.pre.gem ( 60%)Fetching: bundler-1.8.0.pre.gem ( 62%)Fetching: bundler-1.8.0.pre.gem ( 64%)Fetching: bundler-1.8.0.pre.gem ( 65%)Fetching: bundler-1.8.0.pre.gem ( 67%)Fetching: bundler-1.8.0.pre.gem ( 69%)Fetching: bundler-1.8.0.pre.gem ( 71%)Fetching: bundler-1.8.0.pre.gem ( 72%)Fetching: bundler-1.8.0.pre.gem ( 74%)Fetching: bundler-1.8.0.pre.gem ( 76%)Fetching: bundler-1.8.0.pre.gem ( 78%)Fetching: bundler-1.8.0.pre.gem ( 79%)Fetching: bundler-1.8.0.pre.gem ( 81%)Fetching: bundler-1.8.0.pre.gem ( 82%)Fetching: bundler-1.8.0.pre.gem ( 85%)Fetching: bundler-1.8.0.pre.gem ( 86%)Fetching: bundler-1.8.0.pre.gem ( 88%)Fetching: bundler-1.8.0.pre.gem ( 89%)Fetching: bundler-1.8.0.pre.gem ( 92%)Fetching: bundler-1.8.0.pre.gem ( 93%)Fetching: bundler-1.8.0.pre.gem ( 95%)Fetching: bundler-1.8.0.pre.gem ( 96%)Fetching: bundler-1.8.0.pre.gem ( 99%)Fetching: bundler-1.8.0.pre.gem (100%)Fetching: bundler-1.8.0.pre.gem (100%)
+Successfully installed bundler-1.8.0.pre
+1 gem installed
+travis_time:end:0b05f0c4:start=1422887802845100625,finish=1422887806970221603,duration=4125120978[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:install.bundler[0Ktravis_time:start:028cc5ce[0K$ bundle install --jobs=3 --retry=3
+Fetching gem metadata from http://rubygems.org/.........
+Resolving dependencies...
+[32mInstalling rake 10.4.2[0m
+Using bundler 1.7.11
+[32mInstalling backports 3.6.4[0m
+[32mInstalling thread_safe 0.3.4[0m
+[32mInstalling diff-lcs 1.2.5[0m
+[32mInstalling ruby-maven-libs 3.1.1[0m
+[32mInstalling jruby-jars 1.7.19[0m
+[32mInstalling jruby-rack 1.1.18[0m
+[32mInstalling json 1.8.2[0m
+[32mInstalling rspec-core 2.99.2[0m
+[32mInstalling rspec-mocks 2.99.3[0m
+[32mInstalling rubyzip 1.1.6[0m
+[32mInstalling descendants_tracker 0.0.4[0m
+[32mInstalling rspec-expectations 2.99.2[0m
+[32mInstalling rdoc 4.2.0[0m
+Using warbler 1.4.5.dev from source at .
+[32mInstalling virtus 0.5.5[0m
+[32mInstalling ffi 1.9.6[0m
+[32mInstalling rspec 2.99.0[0m
+[32mInstalling maven-tools 0.34.5[0m
+[32mInstalling childprocess 0.5.5[0m
+[32mInstalling ruby-maven 3.1.1.0.2[0m
+[32mInstalling jbundler 0.5.5[0m
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+[32mPost-install message from rdoc:[0m
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+<= 1.8.6 : unsupported
+ = 1.8.7 : gem install rdoc-data; rdoc-data --install
+ = 1.9.1 : gem install rdoc-data; rdoc-data --install
+>= 1.9.2 : nothing to do! Yay!
+travis_time:end:028cc5ce:start=1422887806979986419,finish=1422887824800489470,duration=17820503051[0Ktravis_fold:end:install.bundler[0Ktravis_time:start:0903a588[0K$ bundle exec rake
+/home/travis/.rvm/rubies/ruby-1.9.2-p330/bin/ruby -S rspec ./spec/warbler/application_spec.rb ./spec/warbler/bundler_spec.rb ./spec/warbler/config_spec.rb ./spec/warbler/gems_spec.rb ./spec/warbler/jar_spec.rb ./spec/warbler/jbundler_spec.rb ./spec/warbler/task_spec.rb ./spec/warbler/traits_spec.rb ./spec/warbler/war_spec.rb ./spec/warbler/web_server_spec.rb --color --format documentation
+/home/travis/build/jruby/warbler/spec/warbler/web_server_spec.rb:11: warning: class variable access from toplevel
+
+Warbler::Application
+[32m  should be able to list its tasks[0m
+[32m  should display the version[0m
+[32m  should copy a fresh config file into place[0m
+[32m  should refuse to copy over an existing config file[0m
+[32m  should complain if the config directory is missing[0m
+[32m  should refuse to pluginize if the lib/tasks/warbler directory exists[0m
+[32m  should define a pluginize task for adding the tasks to a Rails application[0m
+[32m  should provide a means to load the project Rakefile[0m
+
+Warbler::Application
+[32m  should report Warbler version with --version[0m
+
+Warbler::Jar with Bundler
+  in a war project
+[32m    detects a Bundler trait[0m
+[32m    detects a Gemfile and process only its gems[0m
+[32m    copies Gemfiles into the war[0m
+[32m    allows overriding of the gem path when using Bundler[0m
+[32m    bundles only the gemspec for :git entries that are excluded[0m
+[32m    does not work with :path entries in Gemfiles[0m
+[32m    does not bundle dependencies in the test group by default[0m
+[32m    adds BUNDLE_WITHOUT to init.rb[0m
+[32m    adds BUNDLE_GEMFILE to init.rb[0m
+[32m    uses ENV['BUNDLE_GEMFILE'] if set[0m
+    with :git entries in the Gemfile
+[32m      works with :git entries in Gemfiles[0m
+[32m      can run commands in the generated warfile[0m
+  in a jar project
+[32m    works with :git entries in Gemfiles[0m
+[32m    adds BUNDLE_GEMFILE to init.rb[0m
+  when frozen
+[32m    includes the bundler gem[0m
+[32m    does not include the bundler cache directory[0m
+[32m    includes ENV['BUNDLE_FROZEN'] in init.rb[0m
+  when deployment
+[32m    includes the bundler gem[0m
+  in a rack app
+[32m    should have default load path[0m
+
+Warbler::Config
+  in an unknown application
+[32m    has suitable default values[0m
+  in a web application
+[32m    should have suitable default values[0m
+[32m    should allow configuration through an initializer block[0m
+[32m    should allow gems to be added/changed with =, +=, -=, <<[0m
+[32m    should exclude log files by default[0m
+[32m    should include log files if exclude_logs is false[0m
+[32m    should exclude Warbler itself when run as a plugin[0m
+[32m    should generate context parameters from the webxml openstruct[0m
+[32m    should determine the context listener from the webxml.booter parameter[0m
+[32m    should not include ignored webxml keys in the context params hash[0m
+[32m    should have a helpful string representation for an empty key[0m
+[32m    should HTML-escape all webxml keys and values[0m
+
+Warbler::Gems
+[32m  should accept a hash for initialization[0m
+[32m  should accept an array for initialization[0m
+[32m  should allow gems with a version[0m
+[32m  should allow gems without an explicit version[0m
+[32m  should allow to add gems[0m
+
+Warbler::Jar
+  in a jar project
+[32m    detects a Jar trait[0m
+[32m    collects java libraries[0m
+[32m    adds a JarMain class[0m
+[32m    adds an init.rb[0m
+[32m    requires 'rubygems' in init.rb[0m
+[32m    does not override ENV['GEM_HOME'] by default[0m
+[32m    overrides ENV['GEM_HOME'] when override_gem_home is set[0m
+[32m    adds a main.rb[0m
+[32m    adds script_files[0m
+[32m    accepts a custom manifest file[0m
+[32m    accepts a MANIFEST.MF file if it exists in the project root[0m
+[32m    does not add a manifest if one already exists[0m
+[32m    creates a jar[0m
+    with a .gemspec
+[32m      detects a Gemspec trait[0m
+[32m      detects gem dependencies[0m
+[32m      sets load paths in init.rb[0m
+[32m      loads the default executable in main.rb[0m
+[32m      includes compiled .rb and .class files[0m
+[32m      includes only specified dirs[0m
+[32m      excludes .rb and .class files from compile[0m
+[32m      compiles included gems when compile_gems is true[0m
+[32m      does not compile included gems by default[0m
+    with a gemspec without a default executable
+[32m      loads the first bin/executable in main.rb[0m
+[32m      loads the specified bin/executable in main.rb[0m
+    without a .gemspec
+[32m      detects a NoGemspec trait[0m
+[32m      collects gem files from configuration[0m
+[32m      collects all project files in the directory[0m
+[32m      sets load paths in init.rb[0m
+[32m      loads the first bin/executable in main.rb[0m
+[32m      loads the specified bin/executable in main.rb[0m
+[32m      loads the bin/executable from other gem in main.rb[0m
+[32m      does not set parameters in main.rb[0m
+[32m      does set parameters in main.rb[0m
+  in a war project
+[32m    detects a War trait[0m
+[32m    collects files in public[0m
+[32m    collects gem files[0m
+[32m    collects gem files with dependencies[0m
+[32m    collects gem files without dependencies[0m
+[32m    adds ENV['GEM_HOME'] to init.rb[0m
+[32m    overrides ENV['GEM_HOME'] when override_gem_home is set[0m
+[32m    does not include log files by default[0m
+[32m    creates a web.xml file[0m
+[32m    includes custom context parameters in web.xml[0m
+[32m    allows one jndi resource to be included[0m
+[32m    allows multiple jndi resources to be included[0m
+[32m    does not include any ignored context parameters[0m
+[32m    uses a config/web.xml if it exists[0m
+[32m    uses a config/web.xml.erb if it exists[0m
+[32m    collects java libraries[0m
+[32m    collects application files[0m
+[32m    accepts an autodeploy directory where the war should be created[0m
+[32m    allows the jar extension to be customized[0m
+[32m    can exclude files from the .war[0m
+[32m    can exclude public files from the .war[0m
+[32m    reads configuration from config/warble.rb[0m
+[32m    fails if a gem is requested that is not installed[0m
+[32m    allows specification of dependency by Gem::Dependency[0m
+[32m    copies loose java classes to WEB-INF/classes[0m
+[32m    does not try to autodetect frameworks when Warbler.framework_detection is false[0m
+[32m    skips directories that don't exist in config.dirs and print a warning[0m
+[32m    excludes Warbler's old tmp/war directory by default[0m
+[32m    writes gems to location specified by gem_path[0m
+[32m    allows adding additional WEB-INF files via config.webinf_files[0m
+[32m    allows expanding of additional WEB-INF files via config.webinf_files[0m
+[32m    excludes test files in gems according to config.gem_excludes[0m
+[32m    creates a META-INF/init.rb file with startup config[0m
+[32m    allows adjusting the init file location in the war[0m
+[32m    allows adding custom files' contents to init.rb[0m
+[32m    does not have escaped HTML in WARBLER_CONFIG[0m
+    with embedded jar files
+      with move_jars_to_webinf_lib set to true
+[32m        moves jar files to WEB-INF/lib[0m
+[32m        leaves jar files alone that are already in WEB-INF/lib[0m
+      with move_jars_to_webinf_lib not set
+[32m        moves jar files to WEB-INF/lib[0m
+      with move_jars_to_webinf_lib set to regexp
+[32m        moves jar files that match to WEB-INF/lib[0m
+[32m        removes default jars not matched by filter from WEB-INF/lib[0m
+    with the executable feature
+[32m      adds WarMain (and JarMain) class[0m
+    with the runnable feature
+[32m      adds WarMain (and JarMain) class[0m
+    in a Rails application
+[32m      detects a Rails trait[0m
+[32m      auto-detects a Rails application[0m
+[32m      adds the rails.rb to the script files[0m
+[32m      provides Rails gems by default, unless vendor/rails is present[0m
+[32m      automatically adds Rails.configuration.gems to the list of gems[0m
+[32m      adds RAILS_ENV to init.rb[0m
+      with asset_pipeline
+[32m        automatically adds asset pipeline manifest file to the included files[0m
+      with threadsafe! enabled in production.rb
+        it should behave like threaded environment
+[32m          sets the jruby min and max runtimes to 1[0m
+[32m          doesn't override already configured runtime numbers[0m
+      with threadsafe! enabled in environment.rb
+        it should behave like threaded environment
+[32m          sets the jruby min and max runtimes to 1[0m
+[32m          doesn't override already configured runtime numbers[0m
+      with rails version 4
+        When rails version is specified in Gemfile
+          it should behave like threaded environment
+[32m            sets the jruby min and max runtimes to 1[0m
+[32m            doesn't override already configured runtime numbers[0m
+          it should behave like asset pipeline
+[32m            automatically adds asset pipeline manifest file to the included files[0m
+        when rails version is not specified in Gemfile
+          it should behave like threaded environment
+[32m            sets the jruby min and max runtimes to 1[0m
+[32m            doesn't override already configured runtime numbers[0m
+          it should behave like asset pipeline
+[32m            automatically adds asset pipeline manifest file to the included files[0m
+    in a Merb application
+[32m      detects a Merb trait[0m
+[32m      auto-detects a Merb application[0m
+[32m      automatically adds Merb::BootLoader::Dependencies.dependencies to the list of gems[0m
+[32m      skips Merb development dependencies[0m
+[32m      warns about using Merb < 1.0[0m
+    in a Rack application
+[32m      detects a Rack trait[0m
+[32m      auto-detects a Rack application with a config.ru file[0m
+[32m      adds RACK_ENV to init.rb[0m
+
+Warbler::Jar with JBundler
+  in a war project
+[32m    detects a JBundler trait[0m
+[32m    detects a Jarfile and process only its jars[0m
+[32m    copies jars from jbundler classpath into the war[0m
+[32m    adds JBUNDLE_SKIP to init.rb[0m
+[32m    uses ENV['JBUNDLE_JARFILE'] if set[0m
+  when locked down
+[33m    does not include the jbundler gem (as it is in the development group) (PENDING: needs JRuby to work)[0m
+[33m    does not include the jbundler runtime config (PENDING: needs JRuby to work)[0m
+
+Warbler::Task
+[32m  should define a clean task for removing the war file[0m
+[32m  should define a make_gemjar task for storing gems in a jar file[0m
+[32m  should define a war task for bundling up everything[0m
+[32m  should define a jar task for creating the .war[0m
+[32m  should invoke feature tasks configured in config.features[0m
+[32m  should warn and skip unknown features configured in config.features[0m
+[32m  should define an executable task for embedding a server in the war file[0m
+[32m  should be able to define all tasks successfully[0m
+[32m  should compile any ruby files specified[0m
+[32m  should compile ruby 1.9 mode[0m
+[32m  should allow bytecode version in config[0m
+[32m  should delete .class files after finishing the jar[0m
+  where symlinks are available
+[32m    should process symlinks by storing a file in the archive that has the same contents as the source[0m
+[32m    should process directory symlinks by copying the whole subdirectory[0m
+  with a Bundler Gemfile
+[32m    includes gems from the Gemfile[0m
+
+Debug targets
+[32m  should print out lists of files[0m
+
+Warbler::Traits
+[32m  are ordered by fewer dependencies first[0m
+
+Warbler::War
+[32m  is deprecated, replace occurrences with Warbler::Jar[0m
+
+Warbler::WebServer::Artifact
+[32m  uses default (maven) local repository[0m
+[32m  detects a custom maven repository setting[0m
+/home/travis/build/jruby/warbler/spec/warbler/web_server_spec.rb:13: warning: class variable access from toplevel
+
+An error occurred in an after(:all) hook.
+  TypeError: can't convert Object into Hash
+  occurred at /home/travis/build/jruby/warbler/spec/warbler/web_server_spec.rb:13:in `update'
+
+
+Pending:
+[33m  Warbler::Jar with JBundler when locked down does not include the jbundler gem (as it is in the development group)[0m
+[36m    # needs JRuby to work[0m
+[36m    # ./spec/warbler/jbundler_spec.rb:70[0m
+[33m  Warbler::Jar with JBundler when locked down does not include the jbundler runtime config[0m
+[36m    # needs JRuby to work[0m
+[36m    # ./spec/warbler/jbundler_spec.rb:77[0m
+
+Deprecation Warnings:
+
+--------------------------------------------------------------------------------
+The semantics of `RSpec::Core::Pending#pending` are changing in
+RSpec 3.  In RSpec 2.x, it caused the example to be skipped. In
+RSpec 3, the rest of the example will still be run but is expected
+to fail, and will be marked as a failure (rather than as pending)
+if the example passes.
+
+Any passed block will no longer be executed. This feature is being
+removed since it was semantically inconsistent, and the behaviour it
+offered is being made available with the other ways of marking an
+example pending.
+
+To keep the same skip semantics, change `pending` to `skip`.
+Otherwise, if you want the new RSpec 3 behavior, you can safely
+ignore this warning and continue to upgrade to RSpec 3 without
+addressing it.
+
+Called from /home/travis/build/jruby/warbler/spec/warbler/jbundler_spec.rb:71:in `block (3 levels) in <top (required)>'.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+The semantics of `RSpec::Core::Pending#pending` are changing in
+RSpec 3.  In RSpec 2.x, it caused the example to be skipped. In
+RSpec 3, the rest of the example will still be run but is expected
+to fail, and will be marked as a failure (rather than as pending)
+if the example passes.
+
+Any passed block will no longer be executed. This feature is being
+removed since it was semantically inconsistent, and the behaviour it
+offered is being made available with the other ways of marking an
+example pending.
+
+To keep the same skip semantics, change `pending` to `skip`.
+Otherwise, if you want the new RSpec 3 behavior, you can safely
+ignore this warning and continue to upgrade to RSpec 3 without
+addressing it.
+
+Called from /home/travis/build/jruby/warbler/spec/warbler/jbundler_spec.rb:78:in `block (3 levels) in <top (required)>'.
+
+--------------------------------------------------------------------------------
+
+
+If you need more of the backtrace for any of these deprecations to
+identify where to make the necessary changes, you can configure
+`config.raise_errors_for_deprecations!`, and it will turn the
+deprecation warnings into errors, giving you the full backtrace.
+
+2 deprecation warnings total
+
+Finished in 2 minutes 26.5 seconds
+[33m173 examples, 0 failures, 2 pending[0m
+travis_time:end:0903a588:start=1422887824809615518,finish=1422887975263278948,duration=150453663430[0K
+[32;1mThe command "bundle exec rake" exited with 0.[0m
+
+Done. Your build exited with 0.
