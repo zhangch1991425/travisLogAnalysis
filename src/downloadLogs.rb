@@ -52,8 +52,11 @@ def getRepositoryLog(repo,last_build_number)
 end
 
 def eachRepository
+  getRepositoryLog("junit-team/junit5",4000)
+=begin
   CSV.foreach(@input_CSV,headers:true) do |row|
       getRepositoryLog("#{row[0]}/#{row[1]}",row[2].to_i) if row[2].to_i != 0
   end
+=end
 end
 eachRepository
