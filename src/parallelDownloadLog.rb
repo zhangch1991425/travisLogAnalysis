@@ -1,20 +1,20 @@
 require 'fileutils'
 require 'travis'
-
+require 'csv'
 
 def getRepositoryLog(repo)
   parent_dir=File.join('..','build_logs',repo.gsub(/\//,'@'))
   #return if File.exist?(@parent_dir)
   FileUtils.mkdir_p(parent_dir) unless File.exist?(parent_dir)
   begin
-    repository=Travis::Repository.find(repo) 
+    repository=Travis::Repository.find(repo)
   rescue
-     sleep 5
-     retry
+    sleep 5
+    retry
   end
 
   lastBuildNumber=repository.last_build.number
-  for i in 4899..lastBuildNumber.to_i
+  for i in 1..lastBuildNumber.to_i
     build=repository.build(i)
     build.jobs.each do |job|
       name=File.join(parent_dir, "#{job.number.gsub(/\./,'@')}.log")
@@ -37,12 +37,12 @@ def getRepositoryLog(repo)
 
 end
 
-def eachRepository
-=begin
-  CSV.foreach(@input_CSV,headers:true) do |row|
-    getRepositoryLog("#{row[0]}/#{row[1]}") if row[2].to_i != 0
+def eachRepository(input_CSV)
+  CSV.foreach(input_CSV,headers:true) do |row|
+    if row[2].to_i > 1500
+      getRepositoryLog("#{row[0]}/#{row[1]}")
+    end
+
   end
-=end
-	getRepositoryLog("junit-team/junit5")
 end
-eachRepository
+eachRepository 'repositoryUseTravis.csv'
